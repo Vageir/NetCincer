@@ -9,7 +9,14 @@ namespace NetCincer
 {
     class FireBaseService
     {
-        private FirestoreDb Root = FirestoreDb.Create("netcincer-2777a");
+        private FirestoreDb Root;
+        public FireBaseService()
+        {
+            string path = AppDomain.CurrentDomain.BaseDirectory + @"netcincer.json";
+            Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
+            Root = FirestoreDb.Create("netcincer-2777a");
+        }
+        
         public async Task<Restaurant> GetRestaurant(String RestaurantID)
         {
             DocumentSnapshot documentRestaurantSnapshot = await Root.Collection("restaurants").Document(RestaurantID).GetSnapshotAsync();

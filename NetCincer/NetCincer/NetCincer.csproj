@@ -7,6 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="netcincer.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="netcincer.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Google.Cloud.Firestore" Version="2.3.0" />
   </ItemGroup>
 

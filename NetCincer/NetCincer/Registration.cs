@@ -1,35 +1,73 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace NetCincer
 {
     public partial class Registration : Form
     {
-        private Login storedParent;
+        FireBaseService db = new FireBaseService();
         public Registration()
         {
-            
             InitializeComponent();
         }
 
-        ~Registration()
+        async private void cRegistrationButton_Click(object sender, EventArgs e)
         {
-            var formToShow = Application.OpenForms.Cast<Form>().FirstOrDefault(c => c is Login);
-            if (formToShow != null)
+
+            if (checkFields())
             {
-                formToShow.Show();
+                Customer newCustomer = await db.GetCustomer(cUsername.Text);
+                if (newCustomer == null)
+                {
+                    newCustomer = new Customer();
+                    newCustomer.CustomerID = cUsername.Text;
+                    newCustomer.Name = cName.Text;
+                    newCustomer.Password = cPassword.Text;
+                    newCustomer.PhoneNumber = cNumber.Text;
+
+                    Location newLocation = new Location();
+                    newLocation.City = cCity.Text;
+                    newLocation.Street = cStreet.Text;
+                    newLocation.HouseNumber = Convert.ToInt32(cHouseNumber.Text);
+
+                    newCustomer.Address = newLocation;
+
+                    await db.AddCustomer(newCustomer);
+                    MessageBox.Show("Sikeres regisztráció!", "Infó");
+                    this.Close();
+                } else
+                {
+                    MessageBox.Show("A felhasználónév foglalt!", "Infó");
+                }
+                
+                
+
+                
+            } else
+            {
+                MessageBox.Show("Kérem tölsön ki minden mezőt!", "Infó");
             }
         }
 
-        private void setParent(ref Login _parent)
+        private bool checkFields()
         {
-            storedParent = _parent;
+            if (
+                cUsername.Text == "" ||
+                cName.Text == "" ||
+                cPassword.Text == "" ||
+                cNumber.Text == "" ||
+                cCity.Text == "" ||
+                cStreet.Text == "" ||
+                cHouseNumber.Text == "")
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

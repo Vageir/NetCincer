@@ -10,7 +10,7 @@ namespace NetCincer
 {
     public partial class Login : Form
     {
-        
+        FireBaseService loginer = new FireBaseService();
         public Login()
         {
             InitializeComponent();
@@ -29,10 +29,27 @@ namespace NetCincer
             regWindow.Show();
         }
 
-        private void lLoginButton_Click(object sender, EventArgs e)
+        async private void lLoginButton_Click(object sender, EventArgs e)
         {
+            Customer passChecker = new Customer();
+            if (lUsernameTextBox.Text != "" && lPasswordTextBox.Text != "")
+            {
+                passChecker = await loginer.GetCustomer(lUsernameTextBox.Text);
+                if (passChecker != null && passChecker.Password == lPasswordTextBox.Text)
+                {
+                    MessageBox.Show("Sikeres bejelentkezés!", "Infó");
+                    // TODO: Átvitel fő felületre
+                }
+                else
+                {
+                    MessageBox.Show("Hibás felhasználónév vagy jelszó!", "Infó");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Kérem minden mezőt töltsön ki.", "Infó");
+            }
             
-
         }
     }
 }

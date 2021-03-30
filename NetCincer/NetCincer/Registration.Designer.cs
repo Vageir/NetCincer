@@ -176,6 +176,7 @@ namespace NetCincer
             this.cRegistrationButton.TabIndex = 10;
             this.cRegistrationButton.Text = "Regisztráció";
             this.cRegistrationButton.UseVisualStyleBackColor = true;
+            this.cRegistrationButton.Click += new System.EventHandler(this.cRegistrationButton_Click);
             // 
             // cUsername
             // 
@@ -232,7 +233,6 @@ namespace NetCincer
             this.cHouseNumber.Name = "cHouseNumber";
             this.cHouseNumber.Size = new System.Drawing.Size(301, 23);
             this.cHouseNumber.TabIndex = 17;
-
             // 
             // rUsername
             // 
@@ -352,7 +352,6 @@ namespace NetCincer
             this.label17.Size = new System.Drawing.Size(35, 15);
             this.label17.TabIndex = 31;
             this.label17.Text = "Város";
-
             // 
             // rCity
             // 
@@ -361,7 +360,6 @@ namespace NetCincer
             this.rCity.Name = "rCity";
             this.rCity.Size = new System.Drawing.Size(301, 23);
             this.rCity.TabIndex = 32;
-
             // 
             // label18
             // 
@@ -406,6 +404,7 @@ namespace NetCincer
             this.button2.TabIndex = 37;
             this.button2.Text = "Regisztráció";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label20
             // 
@@ -531,7 +530,6 @@ namespace NetCincer
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Registration";
             this.Text = "Regisztráció";
-
             this.ResumeLayout(false);
             this.PerformLayout();
 
