@@ -53,21 +53,18 @@ namespace NetCincer
             // 
             // fAddButton
             // 
-            this.fAddButton.Location = new System.Drawing.Point(1012, 474);
-            this.fAddButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.fAddButton.Location = new System.Drawing.Point(1156, 632);
             this.fAddButton.Name = "fAddButton";
-            this.fAddButton.Size = new System.Drawing.Size(82, 22);
+            this.fAddButton.Size = new System.Drawing.Size(94, 29);
             this.fAddButton.TabIndex = 0;
             this.fAddButton.Text = "Hozzáad";
             this.fAddButton.UseVisualStyleBackColor = true;
-            this.fAddButton.Click += new System.EventHandler(this.fAddButton_Click);
             // 
             // fCancelButton
             // 
-            this.fCancelButton.Location = new System.Drawing.Point(924, 474);
-            this.fCancelButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.fCancelButton.Location = new System.Drawing.Point(1056, 632);
             this.fCancelButton.Name = "fCancelButton";
-            this.fCancelButton.Size = new System.Drawing.Size(82, 22);
+            this.fCancelButton.Size = new System.Drawing.Size(94, 29);
             this.fCancelButton.TabIndex = 1;
             this.fCancelButton.Text = "Mégse";
             this.fCancelButton.UseVisualStyleBackColor = true;
@@ -75,167 +72,158 @@ namespace NetCincer
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 10);
+            this.label1.Location = new System.Drawing.Point(13, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 15);
+            this.label1.Size = new System.Drawing.Size(72, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Étel neve:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 36);
+            this.label2.Location = new System.Drawing.Point(13, 48);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 15);
+            this.label2.Size = new System.Drawing.Size(119, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "Étel ára (Ft-ban):";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(11, 61);
+            this.label3.Location = new System.Drawing.Point(13, 81);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 15);
+            this.label3.Size = new System.Drawing.Size(104, 20);
             this.label3.TabIndex = 4;
             this.label3.Text = "Kép feltöltése:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(11, 86);
+            this.label4.Location = new System.Drawing.Point(13, 114);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 15);
+            this.label4.Size = new System.Drawing.Size(83, 20);
             this.label4.TabIndex = 5;
             this.label4.Text = "Allergének:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(11, 111);
+            this.label5.Location = new System.Drawing.Point(13, 148);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(140, 15);
+            this.label5.Size = new System.Drawing.Size(177, 20);
             this.label5.TabIndex = 6;
             this.label5.Text = "Leírás (max 300 karakter):";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(11, 375);
+            this.label6.Location = new System.Drawing.Point(13, 500);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(83, 15);
+            this.label6.Size = new System.Drawing.Size(106, 20);
             this.label6.TabIndex = 7;
             this.label6.Text = "Időszakos étel:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(191, 375);
+            this.label7.Location = new System.Drawing.Point(218, 500);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(45, 15);
+            this.label7.Size = new System.Drawing.Size(56, 20);
             this.label7.TabIndex = 8;
             this.label7.Text = "Mettől:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(486, 375);
+            this.label8.Location = new System.Drawing.Point(555, 500);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(51, 15);
+            this.label8.Size = new System.Drawing.Size(64, 20);
             this.label8.TabIndex = 9;
             this.label8.Text = "Meddig:";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(11, 400);
+            this.label9.Location = new System.Drawing.Point(13, 534);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(60, 15);
+            this.label9.Size = new System.Drawing.Size(77, 20);
             this.label9.TabIndex = 10;
             this.label9.Text = "Kategória:";
             // 
             // fNameTextBox
             // 
-            this.fNameTextBox.Location = new System.Drawing.Point(80, 10);
-            this.fNameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.fNameTextBox.Location = new System.Drawing.Point(92, 13);
             this.fNameTextBox.Name = "fNameTextBox";
-            this.fNameTextBox.Size = new System.Drawing.Size(1014, 23);
+            this.fNameTextBox.Size = new System.Drawing.Size(1158, 27);
             this.fNameTextBox.TabIndex = 11;
             // 
             // fPriceTextBox
             // 
-            this.fPriceTextBox.Location = new System.Drawing.Point(121, 36);
-            this.fPriceTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.fPriceTextBox.Location = new System.Drawing.Point(138, 48);
             this.fPriceTextBox.Name = "fPriceTextBox";
-            this.fPriceTextBox.Size = new System.Drawing.Size(974, 23);
+            this.fPriceTextBox.Size = new System.Drawing.Size(1112, 27);
             this.fPriceTextBox.TabIndex = 12;
             // 
             // fPictureUpload
             // 
-            this.fPictureUpload.Location = new System.Drawing.Point(123, 61);
-            this.fPictureUpload.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.fPictureUpload.Location = new System.Drawing.Point(141, 81);
             this.fPictureUpload.Name = "fPictureUpload";
-            this.fPictureUpload.Size = new System.Drawing.Size(116, 22);
+            this.fPictureUpload.Size = new System.Drawing.Size(133, 29);
             this.fPictureUpload.TabIndex = 13;
             this.fPictureUpload.Text = "Fájl feltöltése";
             this.fPictureUpload.UseVisualStyleBackColor = true;
             // 
             // fAllergensTextBox
             // 
-            this.fAllergensTextBox.Location = new System.Drawing.Point(90, 86);
-            this.fAllergensTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.fAllergensTextBox.Location = new System.Drawing.Point(103, 114);
             this.fAllergensTextBox.Name = "fAllergensTextBox";
-            this.fAllergensTextBox.Size = new System.Drawing.Size(1004, 23);
+            this.fAllergensTextBox.Size = new System.Drawing.Size(1147, 27);
             this.fAllergensTextBox.TabIndex = 14;
             // 
             // fDescriptionRichTextBox
             // 
-            this.fDescriptionRichTextBox.Location = new System.Drawing.Point(11, 129);
-            this.fDescriptionRichTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.fDescriptionRichTextBox.Location = new System.Drawing.Point(13, 172);
             this.fDescriptionRichTextBox.Name = "fDescriptionRichTextBox";
-            this.fDescriptionRichTextBox.Size = new System.Drawing.Size(1083, 236);
+            this.fDescriptionRichTextBox.Size = new System.Drawing.Size(1237, 314);
             this.fDescriptionRichTextBox.TabIndex = 15;
             this.fDescriptionRichTextBox.Text = "";
             // 
             // fAvaibilityCheckBox
             // 
             this.fAvaibilityCheckBox.AutoSize = true;
-            this.fAvaibilityCheckBox.Location = new System.Drawing.Point(139, 377);
-            this.fAvaibilityCheckBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.fAvaibilityCheckBox.Location = new System.Drawing.Point(159, 503);
             this.fAvaibilityCheckBox.Name = "fAvaibilityCheckBox";
-            this.fAvaibilityCheckBox.Size = new System.Drawing.Size(15, 14);
+            this.fAvaibilityCheckBox.Size = new System.Drawing.Size(18, 17);
             this.fAvaibilityCheckBox.TabIndex = 16;
             this.fAvaibilityCheckBox.UseVisualStyleBackColor = true;
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(245, 374);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateTimePicker1.Location = new System.Drawing.Point(280, 498);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(219, 23);
+            this.dateTimePicker1.Size = new System.Drawing.Size(250, 27);
             this.dateTimePicker1.TabIndex = 17;
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(559, 374);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateTimePicker2.Location = new System.Drawing.Point(639, 498);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(219, 23);
+            this.dateTimePicker2.Size = new System.Drawing.Size(250, 27);
             this.dateTimePicker2.TabIndex = 18;
             // 
             // fCategoryComboBox
             // 
             this.fCategoryComboBox.FormattingEnabled = true;
-            this.fCategoryComboBox.Location = new System.Drawing.Point(98, 400);
-            this.fCategoryComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.fCategoryComboBox.Location = new System.Drawing.Point(112, 534);
             this.fCategoryComboBox.Name = "fCategoryComboBox";
-            this.fCategoryComboBox.Size = new System.Drawing.Size(366, 23);
+            this.fCategoryComboBox.Size = new System.Drawing.Size(418, 28);
             this.fCategoryComboBox.TabIndex = 19;
             // 
             // AddFood
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1104, 505);
+            this.ClientSize = new System.Drawing.Size(1262, 673);
             this.Controls.Add(this.fCategoryComboBox);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.dateTimePicker1);
@@ -256,7 +244,6 @@ namespace NetCincer
             this.Controls.Add(this.label1);
             this.Controls.Add(this.fCancelButton);
             this.Controls.Add(this.fAddButton);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AddFood";
             this.Text = "Étel hozzáadása";
             this.ResumeLayout(false);
