@@ -1,7 +1,7 @@
 ﻿using Google.Cloud.Firestore;
 using System;
 
-namespace FireBase
+namespace NetCincer
 {
     [FirestoreData]
     public class Food

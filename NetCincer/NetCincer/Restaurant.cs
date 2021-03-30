@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace FireBase
+namespace NetCincer
 {
     [FirestoreData]
     public class Restaurant

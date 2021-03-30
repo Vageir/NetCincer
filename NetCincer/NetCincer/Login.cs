@@ -10,6 +10,7 @@ namespace NetCincer
 {
     public partial class Login : Form
     {
+        
         public Login()
         {
             InitializeComponent();
@@ -26,7 +27,12 @@ namespace NetCincer
         {
             Registration regWindow = new Registration();
             regWindow.Show();
-            this.Hide();
+        }
+
+        private void lLoginButton_Click(object sender, EventArgs e)
+        {
+            
+
         }
     }
 }

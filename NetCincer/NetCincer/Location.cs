@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace FireBase
+namespace NetCincer
 {
     [FirestoreData]
     public class Location

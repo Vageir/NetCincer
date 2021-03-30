@@ -92,6 +92,7 @@ namespace NetCincer
             this.lLoginButton.TabIndex = 5;
             this.lLoginButton.Text = "Bejelentkezés";
             this.lLoginButton.UseVisualStyleBackColor = true;
+            this.lLoginButton.Click += new System.EventHandler(this.lLoginButton_Click);
             // 
             // lGuestButton
             // 
