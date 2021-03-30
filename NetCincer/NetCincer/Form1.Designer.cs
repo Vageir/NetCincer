@@ -35,83 +35,78 @@ namespace NetCincer
             this.ordersButton = new System.Windows.Forms.Button();
             this.profileButton = new System.Windows.Forms.Button();
             this.cartButton = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // searchTextbox
             // 
-            this.searchTextbox.Location = new System.Drawing.Point(5, 10);
+            this.searchTextbox.Location = new System.Drawing.Point(4, 8);
+            this.searchTextbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.searchTextbox.Name = "searchTextbox";
-            this.searchTextbox.Size = new System.Drawing.Size(472, 27);
+            this.searchTextbox.Size = new System.Drawing.Size(414, 23);
             this.searchTextbox.TabIndex = 0;
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(503, 7);
+            this.searchButton.Location = new System.Drawing.Point(440, 5);
+            this.searchButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(94, 29);
+            this.searchButton.Size = new System.Drawing.Size(82, 22);
             this.searchButton.TabIndex = 1;
             this.searchButton.Text = "Keresés";
             this.searchButton.UseVisualStyleBackColor = true;
             // 
             // filterButton
             // 
-            this.filterButton.Location = new System.Drawing.Point(622, 6);
+            this.filterButton.Location = new System.Drawing.Point(544, 4);
+            this.filterButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.filterButton.Name = "filterButton";
-            this.filterButton.Size = new System.Drawing.Size(94, 29);
+            this.filterButton.Size = new System.Drawing.Size(82, 22);
             this.filterButton.TabIndex = 2;
             this.filterButton.Text = "Szűrés";
             this.filterButton.UseVisualStyleBackColor = true;
             // 
             // ordersButton
             // 
-            this.ordersButton.Location = new System.Drawing.Point(745, 7);
+            this.ordersButton.Location = new System.Drawing.Point(652, 5);
+            this.ordersButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ordersButton.Name = "ordersButton";
-            this.ordersButton.Size = new System.Drawing.Size(94, 29);
+            this.ordersButton.Size = new System.Drawing.Size(82, 22);
             this.ordersButton.TabIndex = 3;
             this.ordersButton.Text = "Rendelések";
             this.ordersButton.UseVisualStyleBackColor = true;
-            this.ordersButton.Click += new System.EventHandler(this.button3_Click);
             // 
             // profileButton
             // 
-            this.profileButton.Location = new System.Drawing.Point(1156, 7);
+            this.profileButton.Location = new System.Drawing.Point(1012, 5);
+            this.profileButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.profileButton.Name = "profileButton";
-            this.profileButton.Size = new System.Drawing.Size(94, 29);
+            this.profileButton.Size = new System.Drawing.Size(82, 22);
             this.profileButton.TabIndex = 4;
             this.profileButton.Text = "Profilom";
             this.profileButton.UseVisualStyleBackColor = true;
             // 
             // cartButton
             // 
-            this.cartButton.Location = new System.Drawing.Point(1056, 7);
+            this.cartButton.Location = new System.Drawing.Point(924, 5);
+            this.cartButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cartButton.Name = "cartButton";
-            this.cartButton.Size = new System.Drawing.Size(94, 29);
+            this.cartButton.Size = new System.Drawing.Size(82, 22);
             this.cartButton.TabIndex = 5;
             this.cartButton.Text = "Kosár";
             this.cartButton.UseVisualStyleBackColor = true;
             // 
-            // listView1
-            // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(5, 44);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1245, 617);
-            this.listView1.TabIndex = 6;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1262, 673);
-            this.Controls.Add(this.listView1);
+            this.ClientSize = new System.Drawing.Size(1104, 505);
             this.Controls.Add(this.cartButton);
             this.Controls.Add(this.profileButton);
             this.Controls.Add(this.ordersButton);
             this.Controls.Add(this.filterButton);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.searchTextbox);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "NetCincér";
             this.ResumeLayout(false);
@@ -127,7 +122,6 @@ namespace NetCincer
         private System.Windows.Forms.Button ordersButton;
         private System.Windows.Forms.Button profileButton;
         private System.Windows.Forms.Button cartButton;
-        private System.Windows.Forms.ListView listView1;
     }
 }
 

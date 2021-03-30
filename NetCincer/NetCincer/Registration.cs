@@ -14,7 +14,7 @@ namespace NetCincer
         async private void cRegistrationButton_Click(object sender, EventArgs e)
         {
 
-            if (checkFields())
+            if (checkCustomerFields())
             {
                 Customer newCustomer = await db.GetCustomer(cUsername.Text);
                 if (newCustomer == null)
@@ -49,7 +49,7 @@ namespace NetCincer
             }
         }
 
-        private bool checkFields()
+        private bool checkCustomerFields()
         {
             if (
                 cUsername.Text == "" ||
@@ -65,9 +65,59 @@ namespace NetCincer
             return true;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private bool checkRestaurantFields()
         {
+            if (
+                rUsername.Text == "" ||
+                rName.Text == "" ||
+                rPassword.Text == "" ||
+                rOpening.Text == "" || // Formatum ellenorzes kell!
+                rClosing.Text == "" || // Formatum ellenorzes kell!
+                rDeliveryTime.Text == "" ||
+                rCity.Text == "" ||
+                rStreet.Text == "" ||
+                rHouseNumber.Text == "")
+            {
+                return false;
+            }
+            return true;
+        }
 
+        async private void button2_Click(object sender, EventArgs e)
+        {
+            if (checkRestaurantFields())
+            {
+                Restaurant newRestaurant = await db.GetRestaurant(rUsername.Text);
+                if (newRestaurant == null)
+                {
+                    newRestaurant = new Restaurant();
+                    newRestaurant.RestaurantID = rUsername.Text;
+                    newRestaurant.RestaurantName = rName.Text;
+                    newRestaurant.Password = rPassword.Text;
+                    newRestaurant.OpenTime = rOpening.Text;
+                    newRestaurant.CloseTime = rClosing.Text;
+                    newRestaurant.DeliveryTime = Convert.ToInt32(rDeliveryTime.Text);
+
+                    Location newLocation = new Location();
+                    newLocation.City = rCity.Text;
+                    newLocation.Street = rStreet.Text;
+                    newLocation.HouseNumber = Convert.ToInt32(rHouseNumber.Text);
+
+                    newRestaurant.Address = newLocation;
+
+                    await db.AddRestaurant(newRestaurant);
+                    MessageBox.Show("Sikeres regisztráció!", "Infó");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("A felhasználónév foglalt!", "Infó");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Kérem tölsön ki minden mezőt!", "Infó");
+            }
         }
     }
 }

@@ -18,7 +18,7 @@ namespace NetCincer
 
         private void lGuestButton_Click(object sender, EventArgs e) // Belepes nelkul tovabb visszuk a felhasznalot a fo oldalra
         {
-            Form1 mainWindow = new Form1();
+            Form1 mainWindow = new Form1(new Customer());
             mainWindow.Show(); // Megnyitjuk a main formot
             this.Hide(); // Azert Hide-ot hasznalunk, mert ez a form kezeli a mukodeset a programnak
         }
@@ -29,27 +29,52 @@ namespace NetCincer
             regWindow.Show();
         }
 
-        async private void lLoginButton_Click(object sender, EventArgs e)
+        private void lLoginButton_Click(object sender, EventArgs e)
         {
-            Customer passChecker = new Customer();
+            
             if (lUsernameTextBox.Text != "" && lPasswordTextBox.Text != "")
             {
-                passChecker = await loginer.GetCustomer(lUsernameTextBox.Text);
-                if (passChecker != null && passChecker.Password == lPasswordTextBox.Text)
-                {
-                    MessageBox.Show("Sikeres bejelentkezés!", "Infó");
-                    // TODO: Átvitel fő felületre
-                }
-                else
-                {
-                    MessageBox.Show("Hibás felhasználónév vagy jelszó!", "Infó");
-                }
+                customerLogin();
             }
             else
             {
                 MessageBox.Show("Kérem minden mezőt töltsön ki.", "Infó");
             }
             
+        }
+
+        async private void customerLogin()
+        {
+            Customer passChecker = new Customer();
+            passChecker = await loginer.GetCustomer(lUsernameTextBox.Text);
+            if (passChecker != null && passChecker.Password == lPasswordTextBox.Text)
+            {
+                MessageBox.Show("Sikeres bejelentkezés!", "Infó");
+                this.Hide();
+                Form1 main = new Form1(passChecker);
+                main.Show();
+                // TODO: Átvitel fő felületre
+            }
+            else
+            {
+                restaurantLogin();
+            }
+        }
+
+        async private void restaurantLogin()
+        {
+            Restaurant passChecker = new Restaurant();
+            passChecker = await loginer.GetRestaurant(lUsernameTextBox.Text);
+            if (passChecker != null && passChecker.Password == lPasswordTextBox.Text)
+            {
+                MessageBox.Show("Sikeres bejelentkezés!", "Infó");
+                // TODO: Átvitel fő felületre
+            }
+            else
+            {
+                MessageBox.Show("Hibás felhasználónév vagy jelszó!", "Infó");
+                // Message helyett majd a futár ellenörzés kell
+            }
         }
     }
 }
