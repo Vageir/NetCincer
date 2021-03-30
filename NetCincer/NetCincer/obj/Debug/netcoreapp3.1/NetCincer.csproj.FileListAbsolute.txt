@@ -1,0 +1,40 @@
+C:\Users\Bittmann Rebeka\source\repos\NetCincer\NetCincer\bin\Debug\netcoreapp3.1\NetCincer.exe
+C:\Users\Bittmann Rebeka\source\repos\NetCincer\NetCincer\bin\Debug\netcoreapp3.1\NetCincer.deps.json
+C:\Users\Bittmann Rebeka\source\repos\NetCincer\NetCincer\bin\Debug\netcoreapp3.1\NetCincer.runtimeconfig.json
+C:\Users\Bittmann Rebeka\source\repos\NetCincer\NetCincer\bin\Debug\netcoreapp3.1\NetCincer.runtimeconfig.dev.json
+C:\Users\Bittmann Rebeka\source\repos\NetCincer\NetCincer\bin\Debug\netcoreapp3.1\NetCincer.dll
+C:\Users\Bittmann Rebeka\source\repos\NetCincer\NetCincer\bin\Debug\netcoreapp3.1\NetCincer.pdb
+C:\Users\Bittmann Rebeka\source\repos\NetCincer\NetCincer\obj\Debug\netcoreapp3.1\NetCincer.csprojAssemblyReference.cache
+C:\Users\Bittmann Rebeka\source\repos\NetCincer\NetCincer\obj\Debug\netcoreapp3.1\NetCincer.AddCategory.resources
+C:\Users\Bittmann Rebeka\source\repos\NetCincer\NetCincer\obj\Debug\netcoreapp3.1\NetCincer.AddFood.resources
+C:\Users\Bittmann Rebeka\source\repos\NetCincer\NetCincer\obj\Debug\netcoreapp3.1\NetCincer.CustomerFilter.resources
+C:\Users\Bittmann Rebeka\source\repos\NetCincer\NetCincer\obj\Debug\netcoreapp3.1\NetCincer.Form1.resources
+C:\Users\Bittmann Rebeka\source\repos\NetCincer\NetCincer\obj\Debug\netcoreapp3.1\NetCincer.RestaurantFoodListing.resources
+C:\Users\Bittmann Rebeka\source\repos\NetCincer\NetCincer\obj\Debug\netcoreapp3.1\NetCincer.csproj.GenerateResource.cache
+C:\Users\Bittmann Rebeka\source\repos\NetCincer\NetCincer\obj\Debug\netcoreapp3.1\NetCincer.AssemblyInfoInputs.cache
+C:\Users\Bittmann Rebeka\source\repos\NetCincer\NetCincer\obj\Debug\netcoreapp3.1\NetCincer.AssemblyInfo.cs
+C:\Users\Bittmann Rebeka\source\repos\NetCincer\NetCincer\obj\Debug\netcoreapp3.1\NetCincer.csproj.CoreCompileInputs.cache
+C:\Users\Bittmann Rebeka\source\repos\NetCincer\NetCincer\obj\Debug\netcoreapp3.1\NetCincer.dll
+C:\Users\Bittmann Rebeka\source\repos\NetCincer\NetCincer\obj\Debug\netcoreapp3.1\NetCincer.pdb
+C:\Users\Bittmann Rebeka\source\repos\NetCincer\NetCincer\obj\Debug\netcoreapp3.1\NetCincer.genruntimeconfig.cache
+C:\Users\PammerJoe\source\repos\NetCincer\NetCincer\bin\Debug\netcoreapp3.1\NetCincer.exe
+C:\Users\PammerJoe\source\repos\NetCincer\NetCincer\bin\Debug\netcoreapp3.1\NetCincer.deps.json
+C:\Users\PammerJoe\source\repos\NetCincer\NetCincer\bin\Debug\netcoreapp3.1\NetCincer.runtimeconfig.json
+C:\Users\PammerJoe\source\repos\NetCincer\NetCincer\bin\Debug\netcoreapp3.1\NetCincer.runtimeconfig.dev.json
+C:\Users\PammerJoe\source\repos\NetCincer\NetCincer\bin\Debug\netcoreapp3.1\NetCincer.dll
+C:\Users\PammerJoe\source\repos\NetCincer\NetCincer\bin\Debug\netcoreapp3.1\NetCincer.pdb
+C:\Users\PammerJoe\source\repos\NetCincer\NetCincer\obj\Debug\netcoreapp3.1\NetCincer.csprojAssemblyReference.cache
+C:\Users\PammerJoe\source\repos\NetCincer\NetCincer\obj\Debug\netcoreapp3.1\NetCincer.AddCategory.resources
+C:\Users\PammerJoe\source\repos\NetCincer\NetCincer\obj\Debug\netcoreapp3.1\NetCincer.AddFood.resources
+C:\Users\PammerJoe\source\repos\NetCincer\NetCincer\obj\Debug\netcoreapp3.1\NetCincer.CustomerFilter.resources
+C:\Users\PammerJoe\source\repos\NetCincer\NetCincer\obj\Debug\netcoreapp3.1\NetCincer.Form1.resources
+C:\Users\PammerJoe\source\repos\NetCincer\NetCincer\obj\Debug\netcoreapp3.1\NetCincer.Login.resources
+C:\Users\PammerJoe\source\repos\NetCincer\NetCincer\obj\Debug\netcoreapp3.1\NetCincer.Registration.resources
+C:\Users\PammerJoe\source\repos\NetCincer\NetCincer\obj\Debug\netcoreapp3.1\NetCincer.RestaurantFoodListing.resources
+C:\Users\PammerJoe\source\repos\NetCincer\NetCincer\obj\Debug\netcoreapp3.1\NetCincer.csproj.GenerateResource.cache
+C:\Users\PammerJoe\source\repos\NetCincer\NetCincer\obj\Debug\netcoreapp3.1\NetCincer.AssemblyInfoInputs.cache
+C:\Users\PammerJoe\source\repos\NetCincer\NetCincer\obj\Debug\netcoreapp3.1\NetCincer.AssemblyInfo.cs
+C:\Users\PammerJoe\source\repos\NetCincer\NetCincer\obj\Debug\netcoreapp3.1\NetCincer.csproj.CoreCompileInputs.cache
+C:\Users\PammerJoe\source\repos\NetCincer\NetCincer\obj\Debug\netcoreapp3.1\NetCincer.dll
+C:\Users\PammerJoe\source\repos\NetCincer\NetCincer\obj\Debug\netcoreapp3.1\NetCincer.pdb
+C:\Users\PammerJoe\source\repos\NetCincer\NetCincer\obj\Debug\netcoreapp3.1\NetCincer.genruntimeconfig.cache
