@@ -12,10 +12,13 @@ namespace NetCincer
     {
 
         FireBaseService db = new FireBaseService();
+        List<String> categories;
 
         public AddFood()
         {
             InitializeComponent();
+            // TODO: use id of logged in restaurant
+            InitCategories("SADWQE");
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -23,7 +26,7 @@ namespace NetCincer
 
         }
 
-        private void fAddButton_Click(object sender, EventArgs e)
+        async private void fAddButton_Click(object sender, EventArgs e)
         {
             Food newFood = new Food();
             newFood.Name = fNameTextBox.Text;
@@ -31,10 +34,33 @@ namespace NetCincer
             newFood.Allergens = fAllergensTextBox.Text;
             string fDescription = fDescriptionRichTextBox.Text;
             newFood.Description = fDescription;
-            //newFood.Category = fCategoryComboBox.SelectedItem.ToString();
-
-            db.AddFoods("SADWQE", newFood);
+            // TODO: generate random foodID
+            newFood.FoodID = GenerateFoodID();
+            if (fCategoryComboBox.SelectedItem != null)
+            {
+                newFood.Category = fCategoryComboBox.SelectedItem.ToString();
+            }
+            // TODO: use id of logged in restaurant
+            await db.AddFoods("SADWQE", newFood);
             MessageBox.Show("Új kaja hozzáadva");
+        }
+
+        async private void InitCategories(String RestaurantID)
+        {
+            // TODO: use id of logged in restaurant
+            categories = await db.ListMenuCategories("SADWQE");
+            for (int i = 0; i < categories.Count; i++)
+            {
+                fCategoryComboBox.Items.Add(categories[i]);
+            }
+        }
+
+        /*async*/
+        private String GenerateFoodID()
+        {
+            String id = "kaga";
+            //List<Food> ids = await db.ListFoods("SADWQE");
+            return id;
         }
     }
 }
