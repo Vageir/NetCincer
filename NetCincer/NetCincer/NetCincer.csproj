@@ -18,7 +18,6 @@
 
   <ItemGroup>
     <PackageReference Include="Google.Cloud.Firestore" Version="2.3.0" />
-    <PackageReference Include="ObjectListView.Official" Version="2.9.1" />
   </ItemGroup>
 
 </Project>

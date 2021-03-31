@@ -232,15 +232,6 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
-      "ObjectListView.Official/2.9.1": {
-        "type": "package",
-        "compile": {
-          "lib/net20/ObjectListView.dll": {}
-        },
-        "runtime": {
-          "lib/net20/ObjectListView.dll": {}
-        }
-      },
       "System.Collections.Immutable/1.4.0": {
         "type": "package",
         "compile": {
@@ -632,19 +623,6 @@
         "packageIcon.png"
       ]
     },
-    "ObjectListView.Official/2.9.1": {
-      "sha512": "IDUTb8DfL7DlFHWoS6B7N3D8rkajdsgQIhwvWp8I6NX5wZH7euu9U+cVoYsT6KJbA9Mmo7dxjbgHnB7nETE5XQ==",
-      "type": "package",
-      "path": "objectlistview.official/2.9.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net20/ObjectListView.XML",
-        "lib/net20/ObjectListView.dll",
-        "objectlistview.official.2.9.1.nupkg.sha512",
-        "objectlistview.official.nuspec"
-      ]
-    },
     "System.Collections.Immutable/1.4.0": {
       "sha512": "71hw5RUJRu5+q/geUY69gpXD8Upd12cH+F3MwpXV2zle7Bqqkrmc1JblOTuvUcgmdnUtQvBlV5e1d6RH+H2lvA==",
       "type": "package",
@@ -744,8 +722,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "Google.Cloud.Firestore >= 2.3.0",
-      "ObjectListView.Official >= 2.9.1"
+      "Google.Cloud.Firestore >= 2.3.0"
     ]
   },
   "packageFolders": {
@@ -790,10 +767,6 @@
           "Google.Cloud.Firestore": {
             "target": "Package",
             "version": "[2.3.0, )"
-          },
-          "ObjectListView.Official": {
-            "target": "Package",
-            "version": "[2.9.1, )"
           }
         },
         "imports": [
@@ -817,17 +790,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'ObjectListView.Official 2.9.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
-      "libraryId": "ObjectListView.Official",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    }
-  ]
+  }
 }

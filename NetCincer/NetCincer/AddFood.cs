@@ -16,6 +16,7 @@ namespace NetCincer
         public AddFood()
         {
             InitializeComponent();
+            // TODO: db.ListMenuCategories into fCategoryComboBox
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -31,7 +32,12 @@ namespace NetCincer
             newFood.Allergens = fAllergensTextBox.Text;
             string fDescription = fDescriptionRichTextBox.Text;
             newFood.Description = fDescription;
-            //newFood.Category = fCategoryComboBox.SelectedItem.ToString();
+            // TODO: generate random foodID
+            //newFood.FoodID = 
+            if (fCategoryComboBox.SelectedItem != null)
+            {
+                newFood.Category = fCategoryComboBox.SelectedItem.ToString();
+            }
 
             db.AddFoods("SADWQE", newFood);
             MessageBox.Show("Új kaja hozzáadva");
