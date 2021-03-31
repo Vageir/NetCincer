@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PammerJoe\\source\\repos\\NetCincer\\NetCincer\\NetCincer.csproj": {}
+    "C:\\Users\\PammerJoe\\Documents\\GitHub\\NetCincer\\NetCincer\\NetCincer\\NetCincer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PammerJoe\\source\\repos\\NetCincer\\NetCincer\\NetCincer.csproj": {
+    "C:\\Users\\PammerJoe\\Documents\\GitHub\\NetCincer\\NetCincer\\NetCincer\\NetCincer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PammerJoe\\source\\repos\\NetCincer\\NetCincer\\NetCincer.csproj",
+        "projectUniqueName": "C:\\Users\\PammerJoe\\Documents\\GitHub\\NetCincer\\NetCincer\\NetCincer\\NetCincer.csproj",
         "projectName": "NetCincer",
-        "projectPath": "C:\\Users\\PammerJoe\\source\\repos\\NetCincer\\NetCincer\\NetCincer.csproj",
+        "projectPath": "C:\\Users\\PammerJoe\\Documents\\GitHub\\NetCincer\\NetCincer\\NetCincer\\NetCincer.csproj",
         "packagesPath": "C:\\Users\\PammerJoe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PammerJoe\\source\\repos\\NetCincer\\NetCincer\\obj\\",
+        "outputPath": "C:\\Users\\PammerJoe\\Documents\\GitHub\\NetCincer\\NetCincer\\NetCincer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\PammerJoe\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -43,6 +43,10 @@
             "Google.Cloud.Firestore": {
               "target": "Package",
               "version": "[2.3.0, )"
+            },
+            "ObjectListView.Official": {
+              "target": "Package",
+              "version": "[2.9.1, )"
             }
           },
           "imports": [
