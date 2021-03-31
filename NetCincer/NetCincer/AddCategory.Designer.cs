@@ -37,47 +37,53 @@ namespace NetCincer
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(172, 179);
+            this.textBox1.Location = new System.Drawing.Point(150, 134);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(433, 27);
+            this.textBox1.Size = new System.Drawing.Size(379, 23);
             this.textBox1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(327, 141);
+            this.label1.Location = new System.Drawing.Point(286, 106);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 20);
+            this.label1.Size = new System.Drawing.Size(101, 15);
             this.label1.TabIndex = 1;
             this.label1.Text = "Új kategória neve:";
             // 
             // cCancelButton
             // 
-            this.cCancelButton.Location = new System.Drawing.Point(266, 222);
+            this.cCancelButton.Location = new System.Drawing.Point(233, 166);
+            this.cCancelButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cCancelButton.Name = "cCancelButton";
-            this.cCancelButton.Size = new System.Drawing.Size(94, 29);
+            this.cCancelButton.Size = new System.Drawing.Size(82, 22);
             this.cCancelButton.TabIndex = 2;
             this.cCancelButton.Text = "Mégse";
             this.cCancelButton.UseVisualStyleBackColor = true;
+            this.cCancelButton.Click += new System.EventHandler(this.cCancelButton_Click);
             // 
             // cAddButton
             // 
-            this.cAddButton.Location = new System.Drawing.Point(403, 222);
+            this.cAddButton.Location = new System.Drawing.Point(353, 166);
+            this.cAddButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cAddButton.Name = "cAddButton";
-            this.cAddButton.Size = new System.Drawing.Size(94, 29);
+            this.cAddButton.Size = new System.Drawing.Size(82, 22);
             this.cAddButton.TabIndex = 3;
             this.cAddButton.Text = "Hozzáad";
             this.cAddButton.UseVisualStyleBackColor = true;
+            this.cAddButton.Click += new System.EventHandler(this.cAddButton_Click);
             // 
             // AddCategory
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(700, 338);
             this.Controls.Add(this.cAddButton);
             this.Controls.Add(this.cCancelButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AddCategory";
             this.Text = "Kategória hozzáadása";
             this.ResumeLayout(false);

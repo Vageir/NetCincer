@@ -10,9 +10,30 @@ namespace NetCincer
 {
     public partial class AddCategory : Form
     {
-        public AddCategory()
+        private Restaurant linRestaurant;
+        public AddCategory(ref Restaurant res)
         {
+            linRestaurant = res;
             InitializeComponent();
+        }
+
+        private void cCancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        async private void cAddButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FireBaseService db = new FireBaseService();
+                await db.AddMenuCategory(linRestaurant.RestaurantID, textBox1.Text);
+                MessageBox.Show("Kategória hozzáadva!","Infó");
+                this.Close();
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message,"Hiba a hozzáadásban");
+            }
         }
     }
 }

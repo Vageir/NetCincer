@@ -18,7 +18,8 @@ namespace NetCincer
 
         private void lGuestButton_Click(object sender, EventArgs e) // Belepes nelkul tovabb visszuk a felhasznalot a fo oldalra
         {
-            Form1 mainWindow = new Form1(new Customer());
+            Customer cust = new Customer();
+            Form1 mainWindow = new Form1(ref cust);
             mainWindow.Show(); // Megnyitjuk a main formot
             this.Hide(); // Azert Hide-ot hasznalunk, mert ez a form kezeli a mukodeset a programnak
         }
@@ -67,7 +68,7 @@ namespace NetCincer
             passChecker = await loginer.GetRestaurant(lUsernameTextBox.Text);
             if (passChecker != null && passChecker.Password == lPasswordTextBox.Text)
             {
-                MessageBox.Show("Sikeres bejelentkezés!", "Infó");
+                MessageBox.Show("Sikeres bejelentkezés!\nID: " + passChecker.RestaurantID, "Infó");
                 this.Hide();
                 RestaurantFoodListing main = new RestaurantFoodListing(ref passChecker);
                 main.Show();

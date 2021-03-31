@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 
 namespace NetCincer
@@ -20,12 +21,41 @@ namespace NetCincer
         public async Task<Restaurant> GetRestaurant(String RestaurantID)
         {
             DocumentSnapshot documentRestaurantSnapshot = await Root.Collection("restaurants").Document(RestaurantID).GetSnapshotAsync();
-            return documentRestaurantSnapshot.ConvertTo<Restaurant>();
+            Restaurant restaurant = documentRestaurantSnapshot.ConvertTo<Restaurant>();
+            if (restaurant != null)
+            {
+                restaurant.RestaurantID = documentRestaurantSnapshot.Id;
+                return restaurant;
+            }
+            else
+            {
+                return null;
+            }
         }
         public async Task<Customer> GetCustomer(String CustomerID)
         {
-            DocumentSnapshot documentRestaurantSnapshot = await Root.Collection("customers").Document(CustomerID).GetSnapshotAsync();
-            return documentRestaurantSnapshot.ConvertTo<Customer>();
+            Customer customerx = new Customer();
+            try
+            {
+                DocumentSnapshot documentCustomerSnapshot = await Root.Collection("customers").Document(CustomerID).GetSnapshotAsync();
+                if (documentCustomerSnapshot != null)
+                {
+                    customerx = documentCustomerSnapshot.ConvertTo<Customer>();
+                    if (customerx != null)
+                    {
+                        customerx.CustomerID = documentCustomerSnapshot.Id;
+                        return customerx;
+                    } else
+                    {
+                        return null;
+                    }
+                    
+                }
+            } catch(Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            return null;
         }
         public async Task<WriteResult> AddCustomer(Customer customer)
         {
@@ -88,7 +118,7 @@ namespace NetCincer
             WriteResult writeResult = await Root.Collection("restaurants").Document(RestaurantID).UpdateAsync("MenuCategories", FieldValue.ArrayRemove(MenuCategory));
             return writeResult;
         }
-        private async Task<WriteResult> AddMenuCategory(String RestaurantID, String MenuCategory)
+        public async Task<WriteResult> AddMenuCategory(String RestaurantID, String MenuCategory)
         {
 
             WriteResult writeResult = await Root.Collection("restaurants").Document(RestaurantID).UpdateAsync("MenuCategories", FieldValue.ArrayUnion(MenuCategory));

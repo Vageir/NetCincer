@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BrightIdeasSoftware;
+using System.Diagnostics;
 
 namespace NetCincer
 {
@@ -17,7 +18,7 @@ namespace NetCincer
         private List<Restaurant> restaurants;
         private ListView listView1 = new ListView();
         //private ObjectListView listView2 = new ObjectListView();
-        FireBaseService db = new FireBaseService();
+        private FireBaseService db = new FireBaseService();
         public Form1(ref Customer linC)
         {
             linCustomer = linC;
@@ -47,6 +48,7 @@ namespace NetCincer
 
             listView1.Font = new Font("Consolas", 20f);
             ListViewItem etterem;
+            try { 
             restaurants = await db.ListRestaurants();
             for(int i = 0; i < restaurants.Count; ++i)
             {
@@ -62,23 +64,31 @@ namespace NetCincer
             // Add the ListView to the control collection.
             this.Controls.Add(listView1);
             refreshList();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
         }
 
         async void refreshList()
         {
-            listView1.Items.Clear();
-            restaurants = await db.ListRestaurants();
-            ListViewItem etterem;
-            for (int i = 0; i < restaurants.Count; ++i)
+            try
             {
-                etterem = new ListViewItem(restaurants[i].RestaurantName, i);
-                
-                //etterem.Checked = false;
-                //etterem.SubItems.Add(restaurants[i].RestaurantName);
-                etterem.SubItems.Add(restaurants[i].DeliveryTime.ToString());
-                listView1.Items.Add(etterem);
+                listView1.Items.Clear();
+                restaurants = await db.ListRestaurants();
+                ListViewItem etterem;
+                for (int i = 0; i < restaurants.Count; ++i)
+                {
+                    etterem = new ListViewItem(restaurants[i].RestaurantName, i);
+                    etterem.SubItems.Add(restaurants[i].DeliveryTime.ToString());
+                    listView1.Items.Add(etterem);
+                }
             }
-            
+            catch( Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
         }
 
         private void searchButton_Click(object sender, EventArgs e)

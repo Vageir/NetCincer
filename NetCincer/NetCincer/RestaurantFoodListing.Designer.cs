@@ -33,7 +33,6 @@ namespace NetCincer
             this.rAddCategory = new System.Windows.Forms.Button();
             this.rNewFoodButton = new System.Windows.Forms.Button();
             this.rProfileButton = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // rlistingButton
@@ -45,6 +44,7 @@ namespace NetCincer
             this.rlistingButton.TabIndex = 0;
             this.rlistingButton.Text = "Listázás";
             this.rlistingButton.UseVisualStyleBackColor = true;
+            this.rlistingButton.Click += new System.EventHandler(this.rlistingButton_Click);
             // 
             // rAddCategory
             // 
@@ -55,6 +55,7 @@ namespace NetCincer
             this.rAddCategory.TabIndex = 1;
             this.rAddCategory.Text = "Új kategória";
             this.rAddCategory.UseVisualStyleBackColor = true;
+            this.rAddCategory.Click += new System.EventHandler(this.rAddCategory_Click);
             // 
             // rNewFoodButton
             // 
@@ -77,22 +78,11 @@ namespace NetCincer
             this.rProfileButton.Text = "Profilunk";
             this.rProfileButton.UseVisualStyleBackColor = true;
             // 
-            // listView1
-            // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(11, 37);
-            this.listView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1083, 460);
-            this.listView1.TabIndex = 4;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
             // RestaurantFoodListing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1104, 505);
-            this.Controls.Add(this.listView1);
             this.Controls.Add(this.rProfileButton);
             this.Controls.Add(this.rNewFoodButton);
             this.Controls.Add(this.rAddCategory);
@@ -110,6 +100,5 @@ namespace NetCincer
         private System.Windows.Forms.Button rAddCategory;
         private System.Windows.Forms.Button rNewFoodButton;
         private System.Windows.Forms.Button rProfileButton;
-        private System.Windows.Forms.ListView listView1;
     }
 }
