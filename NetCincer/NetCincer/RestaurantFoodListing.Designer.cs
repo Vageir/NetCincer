@@ -38,36 +38,41 @@ namespace NetCincer
             // 
             // rlistingButton
             // 
-            this.rlistingButton.Location = new System.Drawing.Point(13, 13);
+            this.rlistingButton.Location = new System.Drawing.Point(11, 10);
+            this.rlistingButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rlistingButton.Name = "rlistingButton";
-            this.rlistingButton.Size = new System.Drawing.Size(94, 29);
+            this.rlistingButton.Size = new System.Drawing.Size(82, 22);
             this.rlistingButton.TabIndex = 0;
             this.rlistingButton.Text = "Listázás";
             this.rlistingButton.UseVisualStyleBackColor = true;
             // 
             // rAddCategory
             // 
-            this.rAddCategory.Location = new System.Drawing.Point(135, 13);
+            this.rAddCategory.Location = new System.Drawing.Point(118, 10);
+            this.rAddCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rAddCategory.Name = "rAddCategory";
-            this.rAddCategory.Size = new System.Drawing.Size(111, 29);
+            this.rAddCategory.Size = new System.Drawing.Size(97, 22);
             this.rAddCategory.TabIndex = 1;
             this.rAddCategory.Text = "Új kategória";
             this.rAddCategory.UseVisualStyleBackColor = true;
             // 
             // rNewFoodButton
             // 
-            this.rNewFoodButton.Location = new System.Drawing.Point(275, 13);
+            this.rNewFoodButton.Location = new System.Drawing.Point(241, 10);
+            this.rNewFoodButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rNewFoodButton.Name = "rNewFoodButton";
-            this.rNewFoodButton.Size = new System.Drawing.Size(94, 29);
+            this.rNewFoodButton.Size = new System.Drawing.Size(82, 22);
             this.rNewFoodButton.TabIndex = 2;
             this.rNewFoodButton.Text = "Új étel";
             this.rNewFoodButton.UseVisualStyleBackColor = true;
+            this.rNewFoodButton.Click += new System.EventHandler(this.rNewFoodButton_Click);
             // 
             // rProfileButton
             // 
-            this.rProfileButton.Location = new System.Drawing.Point(1156, 13);
+            this.rProfileButton.Location = new System.Drawing.Point(1012, 10);
+            this.rProfileButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rProfileButton.Name = "rProfileButton";
-            this.rProfileButton.Size = new System.Drawing.Size(94, 29);
+            this.rProfileButton.Size = new System.Drawing.Size(82, 22);
             this.rProfileButton.TabIndex = 3;
             this.rProfileButton.Text = "Profilunk";
             this.rProfileButton.UseVisualStyleBackColor = true;
@@ -75,22 +80,24 @@ namespace NetCincer
             // listView1
             // 
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(13, 49);
+            this.listView1.Location = new System.Drawing.Point(11, 37);
+            this.listView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1237, 612);
+            this.listView1.Size = new System.Drawing.Size(1083, 460);
             this.listView1.TabIndex = 4;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // RestaurantFoodListing
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1262, 673);
+            this.ClientSize = new System.Drawing.Size(1104, 505);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.rProfileButton);
             this.Controls.Add(this.rNewFoodButton);
             this.Controls.Add(this.rAddCategory);
             this.Controls.Add(this.rlistingButton);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "RestaurantFoodListing";
             this.Text = "NetCincér (Étterem)";
             this.ResumeLayout(false);

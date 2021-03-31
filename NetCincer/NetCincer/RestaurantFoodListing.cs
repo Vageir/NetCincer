@@ -10,9 +10,17 @@ namespace NetCincer
 {
     public partial class RestaurantFoodListing : Form
     {
-        public RestaurantFoodListing()
+        private Restaurant linRestaurant;
+        public RestaurantFoodListing(ref Restaurant rest)
         {
+            linRestaurant = rest;
             InitializeComponent();
+        }
+
+        private void rNewFoodButton_Click(object sender, EventArgs e)
+        {
+            AddFood addFood = new AddFood(ref linRestaurant);
+            addFood.Show();
         }
     }
 }

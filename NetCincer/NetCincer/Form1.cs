@@ -18,7 +18,7 @@ namespace NetCincer
         private ListView listView1 = new ListView();
         //private ObjectListView listView2 = new ObjectListView();
         FireBaseService db = new FireBaseService();
-        public Form1(Customer linC)
+        public Form1(ref Customer linC)
         {
             linCustomer = linC;
             InitializeComponent();

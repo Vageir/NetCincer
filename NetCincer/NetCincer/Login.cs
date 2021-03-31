@@ -51,7 +51,7 @@ namespace NetCincer
             {
                 MessageBox.Show("Sikeres bejelentkezés!", "Infó");
                 this.Hide();
-                Form1 main = new Form1(passChecker);
+                Form1 main = new Form1(ref passChecker);
                 main.Show();
                 // TODO: Átvitel fő felületre
             }
@@ -68,6 +68,9 @@ namespace NetCincer
             if (passChecker != null && passChecker.Password == lPasswordTextBox.Text)
             {
                 MessageBox.Show("Sikeres bejelentkezés!", "Infó");
+                this.Hide();
+                RestaurantFoodListing main = new RestaurantFoodListing(ref passChecker);
+                main.Show();
                 // TODO: Átvitel fő felületre
             }
             else

@@ -13,9 +13,11 @@ namespace NetCincer
 
         FireBaseService db = new FireBaseService();
         List<String> categories;
+        private Restaurant linRestaurant;
 
-        public AddFood()
+        public AddFood(ref Restaurant rest)
         {
+            linRestaurant = rest;
             InitializeComponent();
             // TODO: use id of logged in restaurant
             InitCategories("SADWQE");
