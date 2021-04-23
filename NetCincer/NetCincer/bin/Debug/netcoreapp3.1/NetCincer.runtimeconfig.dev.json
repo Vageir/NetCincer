@@ -1,9 +1,0 @@
-{
-  "runtimeOptions": {
-    "additionalProbingPaths": [
-      "C:\\Users\\kanto\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\kanto\\.nuget\\packages",
-      "D:\\Program Files\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-    ]
-  }
-}
