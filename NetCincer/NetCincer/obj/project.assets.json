@@ -749,23 +749,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Milan\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\kanto\\.nuget\\packages\\": {},
+    "D:\\Program Files\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Milan\\source\\repos\\NetCincer\\NetCincer\\NetCincer\\NetCincer.csproj",
+      "projectUniqueName": "D:\\Program Files\\Projects\\NetCincer\\NetCincer\\NetCincer\\NetCincer.csproj",
       "projectName": "NetCincer",
-      "projectPath": "C:\\Users\\Milan\\source\\repos\\NetCincer\\NetCincer\\NetCincer\\NetCincer.csproj",
-      "packagesPath": "C:\\Users\\Milan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Milan\\source\\repos\\NetCincer\\NetCincer\\NetCincer\\obj\\",
+      "projectPath": "D:\\Program Files\\Projects\\NetCincer\\NetCincer\\NetCincer\\NetCincer.csproj",
+      "packagesPath": "C:\\Users\\kanto\\.nuget\\packages\\",
+      "outputPath": "D:\\Program Files\\Projects\\NetCincer\\NetCincer\\NetCincer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "D:\\Program Files\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Milan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\kanto\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

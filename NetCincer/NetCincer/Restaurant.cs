@@ -8,6 +8,7 @@ namespace NetCincer
     public class Restaurant
     {
         public String RestaurantID { get; set; }
+        public List<Order> Orders { get; set; }
         [FirestoreProperty]
         public String RestaurantName { get; set; }
         [FirestoreProperty]
@@ -28,6 +29,7 @@ namespace NetCincer
         {
             Foods = new List<Food>();
             MenuCategories = new List<String>();
+            Orders = new List<Order>();
         }
     }
 }

@@ -124,5 +124,32 @@ namespace NetCincer
             WriteResult writeResult = await Root.Collection("restaurants").Document(RestaurantID).UpdateAsync("MenuCategories", FieldValue.ArrayUnion(MenuCategory));
             return writeResult;
         }
+        public async Task<WriteResult> AddCourier(Courier courier)
+        {
+            WriteResult writeResult = await Root.Collection("couriers").Document(courier.CourierID).SetAsync(courier);
+            return writeResult;
+        }
+        public async Task<Courier> GetCourier(String CourierID)
+        {
+            DocumentSnapshot documentRestaurantSnapshot = await Root.Collection("couriers").Document(CourierID).GetSnapshotAsync();
+            return documentRestaurantSnapshot.ConvertTo<Courier>();
+        }
+        public async Task<List<Courier>> ListCouriers()
+        {
+            QuerySnapshot querySnapshot = await Root.Collection("couriers").GetSnapshotAsync();
+            List<Courier> couriers = new List<Courier>();
+            foreach (DocumentSnapshot documentSnapshot in querySnapshot.Documents)
+            {
+                Courier courier = documentSnapshot.ConvertTo<Courier>();
+                courier.CourierID = documentSnapshot.Id;
+                couriers.Add(courier);
+            }
+            return couriers;
+        }
+        public async Task<WriteResult> AddOrder(Order order)
+        {
+            WriteResult writeResult = await Root.Collection("pendingOrders").Document(order.OrderID).SetAsync(order);
+            return writeResult;
+        }
     }
 }
