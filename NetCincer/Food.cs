@@ -28,5 +28,7 @@ namespace NetCincer
         public String StartPeriod { get; set; }
         [FirestoreProperty]
         public String EndPeriod { get; set; }
+        [FirestoreProperty]
+        public int Quantity { get; set; }
     }
 }

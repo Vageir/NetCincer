@@ -71,6 +71,7 @@ namespace NetCincer
             this.fCancelButton.TabIndex = 1;
             this.fCancelButton.Text = "Mégse";
             this.fCancelButton.UseVisualStyleBackColor = true;
+            this.fCancelButton.Click += new System.EventHandler(this.fCancelButton_Click);
             // 
             // label1
             // 

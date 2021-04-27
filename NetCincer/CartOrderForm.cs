@@ -37,9 +37,9 @@ namespace NetCincer
             int index = 0;
             foreach (var item in customer.Cart.GetFoods())
             {
-                ListViewItem item1 = new ListViewItem(item.Key.Name, index);
-                item1.SubItems.Add(item.Value.ToString());
-                int price = item.Value * item.Key.Price;
+                ListViewItem item1 = new ListViewItem(item.Name, index);
+                item1.SubItems.Add(item.Quantity.ToString());
+                int price = item.Quantity * item.Price;
                 item1.SubItems.Add(price.ToString());
                 cartListView.Items.Add(item1);
                 index++;

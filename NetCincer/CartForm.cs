@@ -45,14 +45,20 @@ namespace NetCincer
 
         private void orderButton_Click(object sender, EventArgs e)
         {
-            CartOrderForm cartOrderForm = new CartOrderForm(Customer, RestaurantID);
-            cartOrderForm.Show();
+            if (Customer.Cart.GetFoods().Count != 0)
+            {
+                CartOrderForm cartOrderForm = new CartOrderForm(Customer, RestaurantID);
+                cartOrderForm.Show();
+            }
         }
 
         private void deleteCartLine_Click(object sender, EventArgs e)
         {
-            Customer.Cart.RemoveFood(CartListView.SelectedItems[0].Tag.ToString());
-            CartListView.Items.Remove(CartListView.SelectedItems[0]);
+            if (CartListView.SelectedItems.Count != 0)
+            {
+                Customer.Cart.RemoveFood(CartListView.SelectedItems[0].Tag.ToString());
+                CartListView.Items.Remove(CartListView.SelectedItems[0]);
+            }
         }
 
         private void CartListView_SelectedIndexChanged(object sender, EventArgs e)
@@ -87,10 +93,10 @@ namespace NetCincer
             CartListView.Items.Clear();
             foreach (var item in Customer.Cart.GetFoods())
             {
-                ListViewItem item1 = new ListViewItem(item.Key.Name);
-                item1.Tag = item.Key.FoodID;
-                item1.SubItems.Add(item.Value.ToString());
-                int price = item.Value * item.Key.Price;
+                ListViewItem item1 = new ListViewItem(item.Name);
+                item1.Tag = item.FoodID;
+                item1.SubItems.Add(item.Quantity.ToString());
+                int price = item.Quantity * item.Price;
                 item1.SubItems.Add(price.ToString());
                 CartListView.Items.Add(item1);
             }

@@ -116,7 +116,7 @@ namespace NetCincer
                 string names = "";
                 foreach (var food in orders[i].Foods)
                 {
-                    names += food.Name + ",";
+                    names +=  $"{food.Name}({food.Quantity}),";
                 }
                 //Debug.WriteLine(names.Length);
                 names = names.Remove(names.Length - 1); // Leveszi az utolso vesszot
@@ -127,7 +127,7 @@ namespace NetCincer
                 order.SubItems.Add(orders[i].CourierID is null?"Nincs":db.GetCourierName(orders[i].CourierID).ToString());
                 listView1.Items.Add(order);
             }
-            listView1.Columns.Add("Ételek", 40, HorizontalAlignment.Center);
+            listView1.Columns.Add("Ételek(db)", 40, HorizontalAlignment.Center);
             listView1.Columns.Add("Elvitel", 40, HorizontalAlignment.Center);
             listView1.Columns.Add("Állapot", 40, HorizontalAlignment.Center);
             listView1.Columns.Add("Futár", 40, HorizontalAlignment.Center);

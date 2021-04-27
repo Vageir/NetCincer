@@ -7,23 +7,37 @@ namespace NetCincer
     public class Cart
     {
         public bool TakeAway { get; set; }
-        private Dictionary<Food, int> Foods;
+        private List<Food> Foods;
 
         public void AddFood(Food food, int quantity)
         {
-            Foods.Add(food, quantity);
+            food.Quantity = quantity;
+            Foods.Add(food);
         }
         public void RemoveFood(Food food)
         {
             Foods.Remove(food);
         }
-        public void IncreaseQuantity(Food food, int quantity)
+        public void IncreaseQuantity(Food food)
         {
-            Foods[food] += quantity;
+            foreach(var item in Foods)
+            {
+                if(item.Name == food.Name)
+                {
+                    item.Quantity++;
+                }
+            }
+            
         }
         public void SetQuantity(Food food, int quantity)
         {
-            Foods[food] = quantity;
+            foreach (var item in Foods)
+            {
+                if (item.Name == food.Name)
+                {
+                    item.Quantity = quantity;
+                }
+            }
         }
         public int TotalPrice()
         {
@@ -39,11 +53,11 @@ namespace NetCincer
             Dictionary<String, int> subTotals = new Dictionary<String, int>();
             foreach (var item in Foods)
             {
-                subTotals.Add(item.Key.FoodID, item.Key.Price* item.Value);
+                subTotals.Add(item.FoodID, item.Price*item.Quantity);
             }
             return subTotals;
         }
-        public Dictionary<Food, int> GetFoods()
+        public List<Food> GetFoods()
         {
             return Foods;
         }
@@ -52,7 +66,7 @@ namespace NetCincer
             List<Food> foods = new List<Food>();
             foreach (var item in Foods)
             {
-                foods.Add(item.Key);
+                foods.Add(item);
             }
             return foods;
         }
@@ -67,11 +81,11 @@ namespace NetCincer
         }
         public void EmptyCart()
         {
-            Foods = null;
+            Foods = new List<Food>();
         }
         public Cart()
         {
-            Foods = new Dictionary<Food, int>();
+            Foods = new List<Food>();
         }
 
         public void RemoveFood(String foodID)

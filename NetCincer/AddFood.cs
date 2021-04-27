@@ -118,5 +118,9 @@ namespace NetCincer
             foods = await db.ListFoods(linRestaurant.RestaurantID);
         }
 
+        private void fCancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -174,12 +174,24 @@ namespace NetCincer
 
         private void cartButton_Click(object sender, EventArgs e)
         {
-            CartForm cartForm = new CartForm(linCustomer,selectedRestaurant.RestaurantID);
-            cartForm.Show();
+            try { 
+
+                if(selectedRestaurant == null || linCustomer.Cart.GetFoods().Count == 0)
+                {
+                    MessageBox.Show("A kosár jelenleg üres", "Infó");
+                    return;
+                }
+                CartForm cartForm = new CartForm(linCustomer, selectedRestaurant.RestaurantID);
+                cartForm.Show();
+            } catch(Exception ex)
+            {
+                Debug.WriteLine("Nincs restaurante");
+            }
         }
 
         private void goBackButton_Click(object sender, EventArgs e)
         {
+            linCustomer.Cart.EmptyCart();
             addToCartButton.Enabled = false;
             goBackButton.Enabled = false;
             listView1.Columns.Clear();
