@@ -121,5 +121,12 @@ namespace NetCincer
             AddCategory newCat = new AddCategory(ref linRestaurant);
             newCat.Show();
         }
+
+        private void rLogoutButton_Click(object sender, EventArgs e)
+        {
+            Login loginWindow = new Login();
+            loginWindow.Show();
+            this.Close();
+        }
     }
 }

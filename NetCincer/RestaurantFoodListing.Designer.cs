@@ -33,6 +33,7 @@ namespace NetCincer
             this.rAddCategory = new System.Windows.Forms.Button();
             this.rNewFoodButton = new System.Windows.Forms.Button();
             this.rProfileButton = new System.Windows.Forms.Button();
+            this.rLogoutButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // rlistingButton
@@ -70,7 +71,7 @@ namespace NetCincer
             // 
             // rProfileButton
             // 
-            this.rProfileButton.Location = new System.Drawing.Point(1012, 10);
+            this.rProfileButton.Location = new System.Drawing.Point(908, 10);
             this.rProfileButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rProfileButton.Name = "rProfileButton";
             this.rProfileButton.Size = new System.Drawing.Size(82, 22);
@@ -78,11 +79,22 @@ namespace NetCincer
             this.rProfileButton.Text = "Profilunk";
             this.rProfileButton.UseVisualStyleBackColor = true;
             // 
+            // rLogoutButton
+            // 
+            this.rLogoutButton.Location = new System.Drawing.Point(996, 9);
+            this.rLogoutButton.Name = "rLogoutButton";
+            this.rLogoutButton.Size = new System.Drawing.Size(96, 23);
+            this.rLogoutButton.TabIndex = 4;
+            this.rLogoutButton.Text = "Kijelentkezés";
+            this.rLogoutButton.UseVisualStyleBackColor = true;
+            this.rLogoutButton.Click += new System.EventHandler(this.rLogoutButton_Click);
+            // 
             // RestaurantFoodListing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1104, 505);
+            this.Controls.Add(this.rLogoutButton);
             this.Controls.Add(this.rProfileButton);
             this.Controls.Add(this.rNewFoodButton);
             this.Controls.Add(this.rAddCategory);
@@ -100,5 +112,6 @@ namespace NetCincer
         private System.Windows.Forms.Button rAddCategory;
         private System.Windows.Forms.Button rNewFoodButton;
         private System.Windows.Forms.Button rProfileButton;
+        private System.Windows.Forms.Button rLogoutButton;
     }
 }
