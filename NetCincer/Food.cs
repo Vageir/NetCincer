@@ -24,5 +24,9 @@ namespace NetCincer
         public String Allergens { get; set; }
         [FirestoreProperty]
         public String Description { get; set; }
+        [FirestoreProperty]
+        public String StartPeriod { get; set; }
+        [FirestoreProperty]
+        public String EndPeriod { get; set; }
     }
 }

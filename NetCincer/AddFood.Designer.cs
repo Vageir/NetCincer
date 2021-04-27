@@ -46,8 +46,8 @@ namespace NetCincer
             this.fAllergensTextBox = new System.Windows.Forms.TextBox();
             this.fDescriptionRichTextBox = new System.Windows.Forms.RichTextBox();
             this.fAvaibilityCheckBox = new System.Windows.Forms.CheckBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.mettolDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.meddigDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.fCategoryComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
@@ -206,21 +206,21 @@ namespace NetCincer
             this.fAvaibilityCheckBox.TabIndex = 16;
             this.fAvaibilityCheckBox.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker1
+            // mettolDateTimePicker
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(245, 374);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(219, 23);
-            this.dateTimePicker1.TabIndex = 17;
+            this.mettolDateTimePicker.Location = new System.Drawing.Point(245, 374);
+            this.mettolDateTimePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.mettolDateTimePicker.Name = "mettolDateTimePicker";
+            this.mettolDateTimePicker.Size = new System.Drawing.Size(219, 23);
+            this.mettolDateTimePicker.TabIndex = 17;
             // 
-            // dateTimePicker2
+            // meddigDateTimePicker
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(559, 374);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(219, 23);
-            this.dateTimePicker2.TabIndex = 18;
+            this.meddigDateTimePicker.Location = new System.Drawing.Point(559, 374);
+            this.meddigDateTimePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.meddigDateTimePicker.Name = "meddigDateTimePicker";
+            this.meddigDateTimePicker.Size = new System.Drawing.Size(219, 23);
+            this.meddigDateTimePicker.TabIndex = 18;
             // 
             // fCategoryComboBox
             // 
@@ -237,8 +237,8 @@ namespace NetCincer
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1104, 505);
             this.Controls.Add(this.fCategoryComboBox);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.meddigDateTimePicker);
+            this.Controls.Add(this.mettolDateTimePicker);
             this.Controls.Add(this.fAvaibilityCheckBox);
             this.Controls.Add(this.fDescriptionRichTextBox);
             this.Controls.Add(this.fAllergensTextBox);
@@ -283,8 +283,8 @@ namespace NetCincer
         private System.Windows.Forms.TextBox fAllergensTextBox;
         private System.Windows.Forms.RichTextBox fDescriptionRichTextBox;
         private System.Windows.Forms.CheckBox fAvaibilityCheckBox;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker mettolDateTimePicker;
+        private System.Windows.Forms.DateTimePicker meddigDateTimePicker;
         private System.Windows.Forms.ComboBox fCategoryComboBox;
     }
 }
