@@ -77,6 +77,7 @@ namespace NetCincer
         {
             try
             {
+                addToCartButton.Enabled = false;
                 foodsButton.Enabled = true;
                 listView1.Items.Clear();
                 restaurants = await db.ListRestaurants();
@@ -137,8 +138,16 @@ namespace NetCincer
                 {
                     foodsButton.Enabled = false;
                     goBackButton.Enabled = true;
-                    int selectedRestaurant = listView1.SelectedIndices[0];
-                    listFoods(restaurants[selectedRestaurant]);
+                    addToCartButton.Enabled = true;
+                    String restaurantName = listView1.SelectedItems[0].SubItems[0].Text;
+                    for (int i = 0; i < restaurants.Count; ++i)
+                    {
+                        if (restaurants[i].RestaurantName.Equals(restaurantName))
+                        {
+                            listFoods(restaurants[i]);
+                            return;
+                        }
+                    }
                 }
                 else
                 {
@@ -161,10 +170,44 @@ namespace NetCincer
 
         private void goBackButton_Click(object sender, EventArgs e)
         {
+            addToCartButton.Enabled = false;
             goBackButton.Enabled = false;
             listView1.Columns.Clear();
             listView1.Items.Clear();
             CreateMyListView();
+        }
+
+        private void addToCartButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (listView1.SelectedItems[0] != null)
+                {
+                    int db = 1;     // todo: ezt majd meg kell kérdezni a customert mennyi legyen
+                    string foodName = listView1.SelectedItems[0].SubItems[0].Text;
+                    for (int i = 0; i < foods.Count; ++i)
+                    {
+                        if (foods[i].Name.Equals(foodName))
+                        {
+                            linCustomer.Cart.AddFood(foods[i], db);
+                            MessageBox.Show(foods[i].Name + "(" + db + ") kosárba rakva!", "Info");
+                            return;
+                        }
+                    }
+                    
+                    
+                }
+                else
+                {
+                    // ide valamiért be se lép, a listView1.SelectedItems[0] sosem lesz null
+                    MessageBox.Show("Kérem válasszon ki egy éttermet!", "Hiba");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
         }
     }
 }

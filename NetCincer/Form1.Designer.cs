@@ -33,7 +33,7 @@ namespace NetCincer
             this.searchButton = new System.Windows.Forms.Button();
             this.filterButton = new System.Windows.Forms.Button();
             this.ordersButton = new System.Windows.Forms.Button();
-            this.profileButton = new System.Windows.Forms.Button();
+            this.addToCartButton = new System.Windows.Forms.Button();
             this.cartButton = new System.Windows.Forms.Button();
             this.foodsButton = new System.Windows.Forms.Button();
             this.goBackButton = new System.Windows.Forms.Button();
@@ -78,19 +78,20 @@ namespace NetCincer
             this.ordersButton.Text = "Rendelések";
             this.ordersButton.UseVisualStyleBackColor = true;
             // 
-            // profileButton
+            // addToCartButton
             // 
-            this.profileButton.Location = new System.Drawing.Point(1012, 5);
-            this.profileButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.profileButton.Name = "profileButton";
-            this.profileButton.Size = new System.Drawing.Size(82, 22);
-            this.profileButton.TabIndex = 4;
-            this.profileButton.Text = "Profilom";
-            this.profileButton.UseVisualStyleBackColor = true;
+            this.addToCartButton.Location = new System.Drawing.Point(874, 7);
+            this.addToCartButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.addToCartButton.Name = "addToCartButton";
+            this.addToCartButton.Size = new System.Drawing.Size(82, 22);
+            this.addToCartButton.TabIndex = 4;
+            this.addToCartButton.Text = "Kosárba";
+            this.addToCartButton.UseVisualStyleBackColor = true;
+            this.addToCartButton.Click += new System.EventHandler(this.addToCartButton_Click);
             // 
             // cartButton
             // 
-            this.cartButton.Location = new System.Drawing.Point(924, 5);
+            this.cartButton.Location = new System.Drawing.Point(1010, 7);
             this.cartButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cartButton.Name = "cartButton";
             this.cartButton.Size = new System.Drawing.Size(82, 22);
@@ -130,7 +131,7 @@ namespace NetCincer
             this.Controls.Add(this.goBackButton);
             this.Controls.Add(this.foodsButton);
             this.Controls.Add(this.cartButton);
-            this.Controls.Add(this.profileButton);
+            this.Controls.Add(this.addToCartButton);
             this.Controls.Add(this.ordersButton);
             this.Controls.Add(this.filterButton);
             this.Controls.Add(this.searchButton);
@@ -149,7 +150,7 @@ namespace NetCincer
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Button filterButton;
         private System.Windows.Forms.Button ordersButton;
-        private System.Windows.Forms.Button profileButton;
+        private System.Windows.Forms.Button addToCartButton;
         private System.Windows.Forms.Button cartButton;
         private System.Windows.Forms.Button foodsButton;
         private System.Windows.Forms.Button goBackButton;
