@@ -8,7 +8,7 @@ namespace NetCincer
     [FirestoreData]
     public class Courier
     {
-        [FirestoreProperty]
+        
         public String CourierID { get; set; }
         public List<Order> Orders { get; set; }
         [FirestoreProperty]
