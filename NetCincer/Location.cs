@@ -14,5 +14,10 @@ namespace NetCincer
         public String Street { get; set; }
         [FirestoreProperty]
         public int HouseNumber { get; set; }
+
+        public override string ToString()
+        {
+            return City+" "+ Street + " "+HouseNumber;
+        }
     }
 }

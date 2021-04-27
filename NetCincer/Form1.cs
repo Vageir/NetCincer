@@ -149,5 +149,11 @@ namespace NetCincer
                 Debug.WriteLine(ex.Message);
             }
         }
+
+        private void cartButton_Click(object sender, EventArgs e)
+        {
+            CartOrderForm cartOrderForm = new CartOrderForm(linCustomer,"yeet");
+            cartOrderForm.Show();
+        }
     }
 }

@@ -96,6 +96,7 @@ namespace NetCincer
             this.cartButton.TabIndex = 5;
             this.cartButton.Text = "Kosár";
             this.cartButton.UseVisualStyleBackColor = true;
+            this.cartButton.Click += new System.EventHandler(this.cartButton_Click);
             // 
             // foodsButton
             // 
