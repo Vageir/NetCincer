@@ -69,6 +69,7 @@ namespace NetCincer
             this.lPasswordTextBox.Location = new System.Drawing.Point(337, 188);
             this.lPasswordTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lPasswordTextBox.Name = "lPasswordTextBox";
+            this.lPasswordTextBox.PasswordChar = '*';
             this.lPasswordTextBox.Size = new System.Drawing.Size(413, 23);
             this.lPasswordTextBox.TabIndex = 3;
             // 
