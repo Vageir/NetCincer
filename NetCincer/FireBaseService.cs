@@ -132,7 +132,12 @@ namespace NetCincer
         public async Task<Courier> GetCourier(String CourierID)
         {
             DocumentSnapshot documentRestaurantSnapshot = await Root.Collection("couriers").Document(CourierID).GetSnapshotAsync();
-            return documentRestaurantSnapshot.ConvertTo<Courier>();
+            Courier courier = documentRestaurantSnapshot.ConvertTo<Courier>();
+            if (courier != null)
+            {
+                courier.CourierID = CourierID;
+            }
+            return courier;
         }
         public async Task<String> GetCourierName(String CourierID)
         {

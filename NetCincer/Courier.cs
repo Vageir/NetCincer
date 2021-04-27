@@ -18,6 +18,7 @@ namespace NetCincer
         public Courier()
         {
             Cities = new List<String>();
+            available = false;
         }
         [FirestoreProperty]
         public String Password { get; set; }

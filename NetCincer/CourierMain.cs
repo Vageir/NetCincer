@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
@@ -16,7 +17,7 @@ namespace NetCincer
         {
             linCourier = cour;
             InitializeComponent();
-            db.changeAvailabity(linCourier.CourierID, false);
+            //db.changeAvailabity(linCourier.CourierID, false);
         }
 
         async private void workButton_Click(object sender, EventArgs e)
@@ -26,6 +27,10 @@ namespace NetCincer
                 workButton.Text = "Végeztem";
                 try
                 {
+                    if(linCourier.CourierID == null)
+                    {
+                        Debug.WriteLine("CourierID is null");
+                    }
                     await db.changeAvailabity(linCourier.CourierID, true);
                 }
                 catch (Exception ex)
