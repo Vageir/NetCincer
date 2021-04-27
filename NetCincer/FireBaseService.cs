@@ -151,6 +151,19 @@ namespace NetCincer
             WriteResult writeResult = await Root.Collection("pendingOrders").Document(order.OrderID).SetAsync(order);
             return writeResult;
         }
+        public async Task<List<Order>> ListIncomingOrders(String restaurantID)
+        {
+            QuerySnapshot querySnapshot = await Root.Collection("pendingOrders").GetSnapshotAsync();
+            List<Order> orders = new List<Order>();
+            foreach (DocumentSnapshot documentSnapshot in querySnapshot.Documents)
+            {
+                Order order = documentSnapshot.ConvertTo<Order>();
+                if (order.RestaurantID.Equals(restaurantID))
+                    orders.Add(order);
+                
+            }
+            return orders;
+        }
         public async Task<WriteResult> changeAvailabity(string courID, bool av) {
             Dictionary<string, object> updates= new Dictionary<string, object> {
                 {"available", av}
