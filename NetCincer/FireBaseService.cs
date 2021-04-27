@@ -151,5 +151,12 @@ namespace NetCincer
             WriteResult writeResult = await Root.Collection("pendingOrders").Document(order.OrderID).SetAsync(order);
             return writeResult;
         }
+        public async Task<WriteResult> changeAvailabity(string courID, bool av) {
+            Dictionary<string, object> updates= new Dictionary<string, object> {
+                {"available", av}
+            };
+            WriteResult writeResult = await Root.Collection("couriers").Document(courID).UpdateAsync(updates);
+            return writeResult;
+        }
     }
 }

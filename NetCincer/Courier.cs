@@ -15,7 +15,7 @@ namespace NetCincer
         [FirestoreProperty]
         public List<String> Cities { get; set; }
         [FirestoreProperty]
-        public String Name { get; set; }   
+        public String Name { get; set; }
         public Courier()
         {
             Cities = new List<String>();
@@ -24,5 +24,7 @@ namespace NetCincer
         public String Password { get; set; }
         [FirestoreProperty]
         public String PhoneNumber { get; set; }
+        [FirestoreProperty]
+        public bool available { get; set;}
     }
 }
