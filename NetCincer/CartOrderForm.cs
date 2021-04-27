@@ -12,18 +12,20 @@ namespace NetCincer
     {
         private Customer Customer;
         private String RestaurantID;
+        private bool guest;
         public CartOrderForm(Customer customer, String restaurantID)
         {
             this.RestaurantID = restaurantID;
             InitializeComponent();
             this.Customer = customer;
-            if (customer.Name != null)
+            if (customer.CustomerID != null)
             {
                 cityTextBox.Text = customer.Address.City;
                 streetextBox.Text = customer.Address.Street;
                 houseNumberNumericUpDown.Value = customer.Address.HouseNumber;
                 usernameTextBox.Text = customer.Name;
             }
+            else guest = true;
             cartListView.View = View.Details;
             cartListView.LabelEdit = false;
             cartListView.AllowColumnReorder = true;
@@ -55,13 +57,13 @@ namespace NetCincer
 
         private void usernameTextBox_TextChanged(object sender, EventArgs e)
         {
-            if(Customer.CustomerID == null)
+            if(guest)
             {
-                Customer.Name = usernameTextBox.Text.ToString();
+                Customer.CustomerID = usernameTextBox.Text.ToString();
             }
             else
             {
-                Customer.CustomerID = usernameTextBox.Text.ToString();
+                Customer.Name = usernameTextBox.Text.ToString();
             }
         }
 
