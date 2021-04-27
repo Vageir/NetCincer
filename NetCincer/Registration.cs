@@ -119,5 +119,45 @@ namespace NetCincer
                 MessageBox.Show("Kérem tölsön ki minden mezőt!", "Infó");
             }
         }
+
+        private bool checkCourierFields() {
+            if (
+                cuUsername.Text == "" ||
+                cuName.Text == "" ||
+                cuPassword.Text == "" ||
+                cuNumber.Text == "" 
+                ) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+
+        async private void button3_Click(object sender, EventArgs e)
+        {
+            if (checkCourierFields())
+            {
+                Courier newCourier = await db.GetCourier(cuName.Text);
+                if (newCourier == null)
+                {
+                    newCourier = new Courier();
+                    newCourier.CourierID = cuUsername.Text;
+                    newCourier.Name = cuName.Text;
+                    newCourier.Password = cuPassword.Text;
+                    newCourier.PhoneNumber = cuNumber.Text;
+
+                    await db.AddCourier(newCourier);
+                    MessageBox.Show("Sikeres regisztráció!", "Infó");
+                    this.Close();
+                }
+                else {
+                    MessageBox.Show("A felhasználónév foglalt!", "Infó");
+                }
+            }
+            else {
+                MessageBox.Show("Kérem tölsön ki minden mezőt!", "Infó");
+            }
+        }
     }
 }

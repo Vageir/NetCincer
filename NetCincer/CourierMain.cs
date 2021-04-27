@@ -10,8 +10,10 @@ namespace NetCincer
 {
     public partial class CourierMain : Form
     {
-        public CourierMain()
+        private Courier linCourier;
+        public CourierMain(ref Courier cour)
         {
+            linCourier = cour;
             InitializeComponent();
         }
 

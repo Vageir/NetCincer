@@ -76,8 +76,25 @@ namespace NetCincer
             }
             else
             {
+                courierLogin();
+            }
+        }
+
+        async private void courierLogin()
+        {
+            Courier passChecker = new Courier();
+            passChecker = await loginer.GetCourier(lUsernameTextBox.Text);
+            if (passChecker != null && passChecker.Password == lPasswordTextBox.Text)
+            {
+                MessageBox.Show("Sikeres bejelentkezés!", "Infó");
+                this.Hide();
+                CourierMain main = new CourierMain(ref passChecker);
+                main.Show();
+                // TODO: Átvitel fő felületre
+            }
+            else
+            {
                 MessageBox.Show("Hibás felhasználónév vagy jelszó!", "Infó");
-                // Message helyett majd a futár ellenörzés kell
             }
         }
     }

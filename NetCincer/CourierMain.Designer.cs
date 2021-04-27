@@ -32,6 +32,7 @@ namespace NetCincer
             this.cuLogoutButton = new System.Windows.Forms.Button();
             this.cuProfileButton = new System.Windows.Forms.Button();
             this.workButton = new System.Windows.Forms.Button();
+            this.addCityButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cuLogoutButton
@@ -63,11 +64,21 @@ namespace NetCincer
             this.workButton.UseVisualStyleBackColor = true;
             this.workButton.Click += new System.EventHandler(this.workButton_Click);
             // 
+            // addCityButton
+            // 
+            this.addCityButton.Location = new System.Drawing.Point(761, 12);
+            this.addCityButton.Name = "addCityButton";
+            this.addCityButton.Size = new System.Drawing.Size(149, 23);
+            this.addCityButton.TabIndex = 3;
+            this.addCityButton.Text = "Város hozzáadása";
+            this.addCityButton.UseVisualStyleBackColor = true;
+            // 
             // CourierMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1104, 505);
+            this.Controls.Add(this.addCityButton);
             this.Controls.Add(this.workButton);
             this.Controls.Add(this.cuProfileButton);
             this.Controls.Add(this.cuLogoutButton);
@@ -82,5 +93,6 @@ namespace NetCincer
         private System.Windows.Forms.Button cuLogoutButton;
         private System.Windows.Forms.Button cuProfileButton;
         private System.Windows.Forms.Button workButton;
+        private System.Windows.Forms.Button addCityButton;
     }
 }

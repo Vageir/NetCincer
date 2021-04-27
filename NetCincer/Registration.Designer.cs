@@ -72,9 +72,9 @@ namespace NetCincer
             this.cuPassword = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.cuNumber = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.cuAddress = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.label24 = new System.Windows.Forms.Label();
+            this.cuUsername = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -244,7 +244,7 @@ namespace NetCincer
             // 
             // cuName
             // 
-            this.cuName.Location = new System.Drawing.Point(766, 90);
+            this.cuName.Location = new System.Drawing.Point(765, 133);
             this.cuName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cuName.Name = "cuName";
             this.cuName.Size = new System.Drawing.Size(301, 23);
@@ -409,7 +409,7 @@ namespace NetCincer
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(766, 72);
+            this.label20.Location = new System.Drawing.Point(765, 115);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(28, 15);
             this.label20.TabIndex = 38;
@@ -418,7 +418,7 @@ namespace NetCincer
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(766, 112);
+            this.label21.Location = new System.Drawing.Point(765, 155);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(37, 15);
             this.label21.TabIndex = 39;
@@ -426,7 +426,7 @@ namespace NetCincer
             // 
             // cuPassword
             // 
-            this.cuPassword.Location = new System.Drawing.Point(766, 130);
+            this.cuPassword.Location = new System.Drawing.Point(765, 173);
             this.cuPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cuPassword.Name = "cuPassword";
             this.cuPassword.Size = new System.Drawing.Size(301, 23);
@@ -435,7 +435,7 @@ namespace NetCincer
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(766, 152);
+            this.label22.Location = new System.Drawing.Point(765, 195);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(72, 15);
             this.label22.TabIndex = 41;
@@ -443,28 +443,11 @@ namespace NetCincer
             // 
             // cuNumber
             // 
-            this.cuNumber.Location = new System.Drawing.Point(766, 170);
+            this.cuNumber.Location = new System.Drawing.Point(765, 213);
             this.cuNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cuNumber.Name = "cuNumber";
             this.cuNumber.Size = new System.Drawing.Size(301, 23);
             this.cuNumber.TabIndex = 42;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(766, 192);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(45, 15);
-            this.label23.TabIndex = 43;
-            this.label23.Text = "Lakcím";
-            // 
-            // cuAddress
-            // 
-            this.cuAddress.Location = new System.Drawing.Point(766, 209);
-            this.cuAddress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cuAddress.Name = "cuAddress";
-            this.cuAddress.Size = new System.Drawing.Size(301, 23);
-            this.cuAddress.TabIndex = 44;
             // 
             // button3
             // 
@@ -475,15 +458,33 @@ namespace NetCincer
             this.button3.TabIndex = 45;
             this.button3.Text = "Regisztráció";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(764, 73);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(87, 15);
+            this.label24.TabIndex = 47;
+            this.label24.Text = "Felhasználónév";
+            // 
+            // cuUsername
+            // 
+            this.cuUsername.Location = new System.Drawing.Point(764, 90);
+            this.cuUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cuUsername.Name = "cuUsername";
+            this.cuUsername.Size = new System.Drawing.Size(301, 23);
+            this.cuUsername.TabIndex = 46;
             // 
             // Registration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1104, 505);
+            this.Controls.Add(this.label24);
+            this.Controls.Add(this.cuUsername);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.cuAddress);
-            this.Controls.Add(this.label23);
             this.Controls.Add(this.cuNumber);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.cuPassword);
@@ -580,8 +581,8 @@ namespace NetCincer
         private System.Windows.Forms.TextBox cuPassword;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox cuNumber;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TextBox cuAddress;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox cuUsername;
     }
 }
