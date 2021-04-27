@@ -39,6 +39,18 @@ namespace NetCincer
             string fDescription = fDescriptionRichTextBox.Text;
             newFood.Description = fDescription;
             newFood.FoodID = Guid.NewGuid().ToString();
+            if (fAvaibilityCheckBox.Checked)
+            {
+                newFood.StartPeriod = mettolDateTimePicker.Value.Date.ToString();
+                newFood.EndPeriod = meddigDateTimePicker.Value.Date.ToString();
+            }
+            else
+            {
+                newFood.StartPeriod = null;
+                newFood.EndPeriod = null;
+            }
+            DateTime.Parse(newFood.StartPeriod);
+            DateTime.Parse(newFood.EndPeriod);
             try
             {
                 if (fCategoryComboBox.SelectedItem != null)
