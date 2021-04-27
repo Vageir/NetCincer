@@ -110,7 +110,7 @@ namespace NetCincer
             listView1.Columns.Clear();
             listView1.Items.Clear();
             ListViewItem order;
-            orders = await db.ListCourierOrders(linRestaurant.RestaurantID);
+            orders = await db.ListRestaurantOrders(linRestaurant.RestaurantID);
             for (int i = 0; i < orders.Count; ++i)
             {
                 string names = "";
@@ -118,7 +118,8 @@ namespace NetCincer
                 {
                     names += food.Name + ",";
                 }
-                names = names.Remove(Name.Length - 1); // Leveszi az utolso vesszot
+                //Debug.WriteLine(names.Length);
+                names = names.Remove(names.Length - 1); // Leveszi az utolso vesszot
 
                 order = new ListViewItem(names, i);
                 order.SubItems.Add(orders[i].TakeAway?"Igen":"Nem");
