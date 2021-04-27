@@ -20,6 +20,8 @@ namespace NetCincer
         private ListView listView1 = new ListView();
         //private ObjectListView listView2 = new ObjectListView();
         private FireBaseService db = new FireBaseService();
+        private Restaurant selectedRestaurant;
+
         public Form1(ref Customer linC)
         {
             linCustomer = linC;
@@ -102,6 +104,7 @@ namespace NetCincer
 
         async void listFoods(Restaurant clickedRestaurant)
         {
+            this.selectedRestaurant = clickedRestaurant;
             try
             {
                 listView1.Items.Clear();
@@ -164,8 +167,8 @@ namespace NetCincer
 
         private void cartButton_Click(object sender, EventArgs e)
         {
-            CartOrderForm cartOrderForm = new CartOrderForm(linCustomer,"yeet");
-            cartOrderForm.Show();
+            CartForm cartForm = new CartForm(linCustomer,selectedRestaurant.RestaurantID);
+            cartForm.Show();
         }
 
         private void goBackButton_Click(object sender, EventArgs e)

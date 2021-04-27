@@ -38,7 +38,7 @@ namespace NetCincer
             newFood.Allergens = fAllergensTextBox.Text;
             string fDescription = fDescriptionRichTextBox.Text;
             newFood.Description = fDescription;
-            newFood.FoodID = GenerateFoodID();
+            newFood.FoodID = Guid.NewGuid().ToString();
             try
             {
                 if (fCategoryComboBox.SelectedItem != null)
@@ -68,6 +68,7 @@ namespace NetCincer
             }
         }
 
+        /*
         private String GenerateFoodID()
         {
             if (foods != null)
@@ -79,19 +80,26 @@ namespace NetCincer
                     while (!found)
                     {
                         i++;
-                        if (Convert.ToInt32(foods[i].FoodID) != i)
+                        found = true;
+                        for (int j = 0; j < foods.Count; j++)
                         {
-                            found = true;
+                            MessageBox.Show("food id: " + foods[j].FoodID + "; i: " + i, "id");
+                            if (Convert.ToInt32(foods[j].FoodID) == i)
+                            {
+                                found = false;
+                            }
                         }
                     }
                     return Convert.ToString(i);
                 }
+                MessageBox.Show("elso nulla", "hiba");
                 return "0";
             } else
             {
+                MessageBox.Show("masodik nulla", "hiba");
                 return "0";
             }
-        }
+        }*/
 
         async private void GetFoods()
         {

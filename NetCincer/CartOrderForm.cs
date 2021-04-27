@@ -12,18 +12,20 @@ namespace NetCincer
     {
         private Customer Customer;
         private String RestaurantID;
+        private bool guest;
         public CartOrderForm(Customer customer, String restaurantID)
         {
             this.RestaurantID = restaurantID;
             InitializeComponent();
             this.Customer = customer;
-            if (customer.Name != null)
+            if (customer.CustomerID != null)
             {
                 cityTextBox.Text = customer.Address.City;
                 streetextBox.Text = customer.Address.Street;
                 houseNumberNumericUpDown.Value = customer.Address.HouseNumber;
                 usernameTextBox.Text = customer.Name;
             }
+            else guest = true;
             cartListView.View = View.Details;
             cartListView.LabelEdit = false;
             cartListView.AllowColumnReorder = true;
@@ -34,8 +36,7 @@ namespace NetCincer
             int index = 0;
             foreach (var item in customer.Cart.GetFoods())
             {
-                ListViewItem item1 = new ListViewItem("item1", index);
-                item1.SubItems.Add(item.Key.Name);
+                ListViewItem item1 = new ListViewItem(item.Key.Name, index);
                 item1.SubItems.Add(item.Value.ToString());
                 int price = item.Value * item.Key.Price;
                 item1.SubItems.Add(price.ToString());
@@ -50,14 +51,20 @@ namespace NetCincer
             Customer.Cart.TakeAway = takeAwayYesRadioButton.Checked;
             Customer.MakeOrder(RestaurantID);
             await new FireBaseService().AddOrder(Customer.CurrentOrder);
-            System.Windows.Forms.MessageBox.Show("Rendelés leadva");
+            MessageBox.Show(this, "Rendelés leadva", "Rendelés", MessageBoxButtons.OK);
             this.Close();
-
         }
 
         private void usernameTextBox_TextChanged(object sender, EventArgs e)
         {
-            Customer.Name = usernameTextBox.Text.ToString();
+            if(guest)
+            {
+                Customer.CustomerID = usernameTextBox.Text.ToString();
+            }
+            else
+            {
+                Customer.Name = usernameTextBox.Text.ToString();
+            }
         }
 
         private void cityTextBox_TextChanged(object sender, EventArgs e)
