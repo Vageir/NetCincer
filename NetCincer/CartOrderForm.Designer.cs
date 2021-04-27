@@ -130,7 +130,7 @@ namespace NetCincer
             this.cartListView.HideSelection = false;
             this.cartListView.Location = new System.Drawing.Point(290, 156);
             this.cartListView.Name = "cartListView";
-            this.cartListView.Size = new System.Drawing.Size(273, 109);
+            this.cartListView.Size = new System.Drawing.Size(323, 120);
             this.cartListView.TabIndex = 10;
             this.cartListView.UseCompatibleStateImageBehavior = false;
             // 

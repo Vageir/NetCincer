@@ -39,6 +39,10 @@ namespace NetCincer
             }
             return subTotals;
         }
+        public Dictionary<Food, int> GetFoods()
+        {
+            return Foods;
+        }
         public List<Food> ListAllFoods()
         {
             List<Food> foods = new List<Food>();
