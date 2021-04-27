@@ -21,7 +21,8 @@ namespace NetCincer
         public Location Address { get; set; }
         public Customer()
         {
-            Cart = new Cart();
+            this.Cart = new Cart();
+            this.Address = new Location();
         }
         public void MakeOrder(String resturantID)
         {

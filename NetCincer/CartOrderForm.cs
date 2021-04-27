@@ -19,8 +19,10 @@ namespace NetCincer
             this.Customer = customer;
             if (customer.Name != null)
             {
-                addressTextBox.Text = customer.Address.ToString();
-                usernameTextBox.Text = customer.CustomerID;
+                cityTextBox.Text = customer.Address.City;
+                streetextBox.Text = customer.Address.Street;
+                houseNumberNumericUpDown.Value = customer.Address.HouseNumber;
+                usernameTextBox.Text = customer.Name;
             }
             cartListView.View = View.Details;
             cartListView.LabelEdit = false;
@@ -29,33 +31,48 @@ namespace NetCincer
             cartListView.Columns.Add("Étel",100, HorizontalAlignment.Left);
             cartListView.Columns.Add("Mennyiség", 100, HorizontalAlignment.Right);
             cartListView.Columns.Add("Ár", 100, HorizontalAlignment.Right);
+            int index = 0;
             foreach (var item in customer.Cart.GetFoods())
             {
-                ListViewItem item1 = new ListViewItem("item1", 0);
+                ListViewItem item1 = new ListViewItem("item1", index);
                 item1.SubItems.Add(item.Key.Name);
                 item1.SubItems.Add(item.Value.ToString());
                 int price = item.Value * item.Key.Price;
                 item1.SubItems.Add(price.ToString());
                 cartListView.Items.Add(item1);
+                index++;
             }
-           
-           
-
+            totalPriceLabel.Text = customer.Cart.TotalPrice().ToString()+ "Ft";
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private async void orderButton_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
+            Customer.Cart.TakeAway = takeAwayYesRadioButton.Checked;
+            Customer.MakeOrder(RestaurantID);
+            await new FireBaseService().AddOrder(Customer.CurrentOrder);
+            System.Windows.Forms.MessageBox.Show("Rendelés leadva");
+            this.Close();
 
         }
 
         private void usernameTextBox_TextChanged(object sender, EventArgs e)
         {
+            Customer.Name = usernameTextBox.Text.ToString();
+        }
 
+        private void cityTextBox_TextChanged(object sender, EventArgs e)
+        {
+            Customer.Address.City = cityTextBox.Text.ToString();
+        }
+
+        private void streetextBox_TextChanged(object sender, EventArgs e)
+        {
+            Customer.Address.Street = streetextBox.Text.ToString();
+        }
+
+        private void houseNumberNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            Customer.Address.HouseNumber = Convert.ToInt32(Math.Round(houseNumberNumericUpDown.Value, 0));
         }
     }
 }
