@@ -31,7 +31,9 @@ namespace NetCincer
         {
             this.orderButton = new System.Windows.Forms.Button();
             this.deleteCartLine = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.emptyCartButton = new System.Windows.Forms.Button();
+            this.CartListView = new System.Windows.Forms.ListView();
+            this.changeQuantity = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // orderButton
@@ -42,6 +44,7 @@ namespace NetCincer
             this.orderButton.TabIndex = 1;
             this.orderButton.Text = "Rendelés";
             this.orderButton.UseVisualStyleBackColor = true;
+            this.orderButton.Click += new System.EventHandler(this.orderButton_Click);
             // 
             // deleteCartLine
             // 
@@ -51,22 +54,46 @@ namespace NetCincer
             this.deleteCartLine.TabIndex = 2;
             this.deleteCartLine.Text = "Törlés";
             this.deleteCartLine.UseVisualStyleBackColor = true;
+            this.deleteCartLine.Click += new System.EventHandler(this.deleteCartLine_Click);
             // 
-            // button2
+            // emptyCartButton
             // 
-            this.button2.Location = new System.Drawing.Point(200, 11);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.emptyCartButton.Location = new System.Drawing.Point(267, 10);
+            this.emptyCartButton.Name = "emptyCartButton";
+            this.emptyCartButton.Size = new System.Drawing.Size(96, 23);
+            this.emptyCartButton.TabIndex = 3;
+            this.emptyCartButton.Text = "Kosár kiürítése";
+            this.emptyCartButton.UseVisualStyleBackColor = true;
+            this.emptyCartButton.Click += new System.EventHandler(this.emptyCartButton_Click);
+            // 
+            // CartListView
+            // 
+            this.CartListView.HideSelection = false;
+            this.CartListView.Location = new System.Drawing.Point(12, 42);
+            this.CartListView.Name = "CartListView";
+            this.CartListView.Size = new System.Drawing.Size(776, 396);
+            this.CartListView.TabIndex = 4;
+            this.CartListView.UseCompatibleStateImageBehavior = false;
+            this.CartListView.SelectedIndexChanged += new System.EventHandler(this.CartListView_SelectedIndexChanged);
+            // 
+            // changeQuantity
+            // 
+            this.changeQuantity.Location = new System.Drawing.Point(186, 10);
+            this.changeQuantity.Name = "changeQuantity";
+            this.changeQuantity.Size = new System.Drawing.Size(75, 23);
+            this.changeQuantity.TabIndex = 5;
+            this.changeQuantity.Text = "Mennyiség";
+            this.changeQuantity.UseVisualStyleBackColor = true;
+            this.changeQuantity.Click += new System.EventHandler(this.changeQuantity_Click);
             // 
             // CartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.changeQuantity);
+            this.Controls.Add(this.CartListView);
+            this.Controls.Add(this.emptyCartButton);
             this.Controls.Add(this.deleteCartLine);
             this.Controls.Add(this.orderButton);
             this.Name = "CartForm";
@@ -78,6 +105,8 @@ namespace NetCincer
         #endregion
         private System.Windows.Forms.Button orderButton;
         private System.Windows.Forms.Button deleteCartLine;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button emptyCartButton;
+        private System.Windows.Forms.ListView CartListView;
+        private System.Windows.Forms.Button changeQuantity;
     }
 }

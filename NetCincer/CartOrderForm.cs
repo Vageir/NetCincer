@@ -30,6 +30,7 @@ namespace NetCincer
             cartListView.LabelEdit = false;
             cartListView.AllowColumnReorder = true;
             cartListView.CheckBoxes = false;
+            cartListView.GridLines = true;
             cartListView.Columns.Add("Étel",100, HorizontalAlignment.Left);
             cartListView.Columns.Add("Mennyiség", 100, HorizontalAlignment.Right);
             cartListView.Columns.Add("Ár", 100, HorizontalAlignment.Right);

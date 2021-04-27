@@ -21,6 +21,10 @@ namespace NetCincer
         {
             Foods[food] += quantity;
         }
+        public void SetQuantity(Food food, int quantity)
+        {
+            Foods[food] = quantity;
+        }
         public int TotalPrice()
         {
             int total = 0;
@@ -52,6 +56,15 @@ namespace NetCincer
             }
             return foods;
         }
+        public Food GetFood(String foodID)
+        {
+            foreach(var item in ListAllFoods())
+            {
+                if (item.FoodID.Equals(foodID))
+                    return item;
+            }
+            return null;
+        }
         public void EmptyCart()
         {
             Foods = null;
@@ -59,6 +72,18 @@ namespace NetCincer
         public Cart()
         {
             Foods = new Dictionary<Food, int>();
+        }
+
+        public void RemoveFood(String foodID)
+        {
+            foreach(var item in ListAllFoods()) {
+                if (item.FoodID.Equals(foodID))
+                {
+                    Foods.Remove(item);
+                    return;
+                }
+            }
+            
         }
     }
 }

@@ -6,6 +6,12 @@ namespace NetCincer
     [FirestoreData]
     public class Food
     {
+        public Food() { }
+        public Food(string foodID)
+        {
+            FoodID = foodID;
+        }
+
         [FirestoreProperty]
         public String FoodID { get; set; }
         [FirestoreProperty]
