@@ -12,7 +12,7 @@ using System.Diagnostics;
 
 namespace NetCincer
 {
-    public partial class Form1 : Form
+    public partial class CustomerMain : Form
     {
         private Customer linCustomer;
         private List<Restaurant> restaurants;
@@ -22,7 +22,7 @@ namespace NetCincer
         private FireBaseService db = new FireBaseService();
         private Restaurant selectedRestaurant;
 
-        public Form1(ref Customer linC)
+        public CustomerMain(ref Customer linC)
         {
             linCustomer = linC;
             InitializeComponent();
@@ -113,12 +113,17 @@ namespace NetCincer
                 ListViewItem etel;
                 for (int i = 0; i < foods.Count; ++i)
                 {
-                    etel = new ListViewItem(foods[i].Name, i);
-                    etel.SubItems.Add(foods[i].Category);
-                    etel.SubItems.Add(foods[i].Allergens);
-                    etel.SubItems.Add(foods[i].Price.ToString());
-                    etel.SubItems.Add(foods[i].Description);
-                    listView1.Items.Add(etel);
+                    if ((foods[i].StartPeriod == null && foods[i].EndPeriod == null)
+                        || ((0 >= DateTime.Compare(DateTime.Parse(foods[i].StartPeriod), DateTime.Now)) && (0 < DateTime.Compare(DateTime.Parse(foods[i].EndPeriod), DateTime.Now))))
+                    {
+                        etel = new ListViewItem(foods[i].Name, i);
+                        etel.SubItems.Add(foods[i].Category);
+                        etel.SubItems.Add(foods[i].Allergens);
+                        etel.SubItems.Add(foods[i].Price.ToString());
+                        etel.SubItems.Add(foods[i].Description);
+                        listView1.Items.Add(etel);
+                    }
+                    
                 }
                 // todo: itt az oszlopok mérete nem stimmel, a név túl széles
                 listView1.Columns.Add("Név", -2, HorizontalAlignment.Center);

@@ -19,7 +19,7 @@ namespace NetCincer
         private void lGuestButton_Click(object sender, EventArgs e) // Belepes nelkul tovabb visszuk a felhasznalot a fo oldalra
         {
             Customer cust = new Customer();
-            Form1 mainWindow = new Form1(ref cust);
+            CustomerMain mainWindow = new CustomerMain(ref cust);
             mainWindow.Show(); // Megnyitjuk a main formot
             this.Hide(); // Azert Hide-ot hasznalunk, mert ez a form kezeli a mukodeset a programnak
         }
@@ -52,7 +52,7 @@ namespace NetCincer
             {
                 MessageBox.Show("Sikeres bejelentkezés!", "Infó");
                 this.Hide();
-                Form1 main = new Form1(ref passChecker);
+                CustomerMain main = new CustomerMain(ref passChecker);
                 main.Show();
                 // TODO: Átvitel fő felületre
             }

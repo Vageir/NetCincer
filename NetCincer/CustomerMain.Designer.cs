@@ -1,7 +1,7 @@
 ﻿
 namespace NetCincer
 {
-    partial class Form1
+    partial class CustomerMain
     {
         /// <summary>
         ///  Required designer variable.
