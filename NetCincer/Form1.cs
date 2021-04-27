@@ -212,5 +212,12 @@ namespace NetCincer
                 Debug.WriteLine(ex.Message);
             }
         }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            Login loginWindow = new Login();
+            loginWindow.Show();
+            this.Hide();
+        }
     }
 }
