@@ -98,7 +98,14 @@ namespace NetCincer
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            refreshList();
+            /*
+            addToCartButton.Enabled = false;
+            goBackButton.Enabled = false;
+            foodsButton.Enabled = true;
+            listView1.Columns.Clear();
+            listView1.Items.Clear();
+            CreateMyListView();
+            */
         }
 
         async void listFoods(Restaurant clickedRestaurant)
@@ -139,7 +146,7 @@ namespace NetCincer
         {
             try
             {
-                if (listView1.SelectedItems[0] != null)
+                if (listView1.SelectedItems.Count != 0)
                 {
                     foodsButton.Enabled = false;
                     goBackButton.Enabled = true;
@@ -156,7 +163,6 @@ namespace NetCincer
                 }
                 else
                 {
-                    // ide valamiért be se lép, a listView1.SelectedItems[0] sosem lesz null
                     MessageBox.Show("Kérem válasszon ki egy éttermet!", "Hiba");
                 }
             }
@@ -185,24 +191,27 @@ namespace NetCincer
         {
             try
             {
-                if (listView1.SelectedItems[0] != null)
+                if (listView1.SelectedItems.Count != 0)
                 {
-                    int db = 1;     // todo: ezt majd meg kell kérdezni a customert mennyi legyen
-                    string foodName = listView1.SelectedItems[0].SubItems[0].Text;
-                    for (int i = 0; i < foods.Count; ++i)
+                    int db = 1;
+                    ShowInputDialog(ref db);
+                    if (db > 0)
                     {
-                        if (foods[i].Name.Equals(foodName))
+                        string foodName = listView1.SelectedItems[0].SubItems[0].Text;
+                        for (int i = 0; i < foods.Count; ++i)
                         {
-                            linCustomer.Cart.AddFood(foods[i], db);
-                            MessageBox.Show(foods[i].Name + "(" + db + ") kosárba rakva!", "Info");
-                            return;
+                            if (foods[i].Name.Equals(foodName))
+                            {
+                                linCustomer.Cart.AddFood(foods[i], db);
+                                MessageBox.Show(foods[i].Name + "(" + db + ") kosárba rakva!", "Info");
+                                return;
+                            }
                         }
                     }
                 }
                 else
                 {
-                    // ide valamiért be se lép, a listView1.SelectedItems[0] sosem lesz null
-                    MessageBox.Show("Kérem válasszon ki egy éttermet!", "Hiba");
+                    MessageBox.Show("Kérem válasszon ki egy ételt!", "Hiba");
                 }
 
             }
@@ -217,6 +226,45 @@ namespace NetCincer
             Login loginWindow = new Login();
             loginWindow.Show();
             this.Hide();
+        }
+        private static DialogResult ShowInputDialog(ref int input)
+        {
+            System.Drawing.Size size = new System.Drawing.Size(200, 70);
+            Form inputBox = new Form();
+
+            inputBox.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            inputBox.ClientSize = size;
+            inputBox.Text = "Mennyiség";
+
+            System.Windows.Forms.NumericUpDown numeric = new NumericUpDown();
+            numeric.Size = new System.Drawing.Size(size.Width - 10, 23);
+            numeric.Location = new System.Drawing.Point(5, 5);
+            numeric.Value = input;
+            numeric.Minimum = 1;
+            inputBox.Controls.Add(numeric);
+
+            Button okButton = new Button();
+            okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            okButton.Name = "okButton";
+            okButton.Size = new System.Drawing.Size(75, 23);
+            okButton.Text = "&OK";
+            okButton.Location = new System.Drawing.Point(size.Width - 80 - 80, 39);
+            inputBox.Controls.Add(okButton);
+
+            Button cancelButton = new Button();
+            cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            cancelButton.Name = "cancelButton";
+            cancelButton.Size = new System.Drawing.Size(75, 23);
+            cancelButton.Text = "&Cancel";
+            cancelButton.Location = new System.Drawing.Point(size.Width - 80, 39);
+            inputBox.Controls.Add(cancelButton);
+
+            inputBox.AcceptButton = okButton;
+            inputBox.CancelButton = cancelButton;
+
+            DialogResult result = inputBox.ShowDialog();
+            input = Convert.ToInt32(numeric.Text);
+            return result;
         }
     }
 }
