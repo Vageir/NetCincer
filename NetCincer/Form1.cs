@@ -16,6 +16,7 @@ namespace NetCincer
     {
         private Customer linCustomer;
         private List<Restaurant> restaurants;
+        private List<Food> foods;
         private ListView listView1 = new ListView();
         //private ObjectListView listView2 = new ObjectListView();
         private FireBaseService db = new FireBaseService();
@@ -96,5 +97,57 @@ namespace NetCincer
             refreshList();
         }
 
+        async void listFoods(Restaurant clickedRestaurant)
+        {
+            try
+            {
+                listView1.Items.Clear();
+                listView1.Columns.Clear();
+                foods = await db.ListFoods(clickedRestaurant.RestaurantID);
+                ListViewItem etel;
+                for (int i = 0; i < foods.Count; ++i)
+                {
+                    etel = new ListViewItem(foods[i].Name, i);
+                    etel.SubItems.Add(foods[i].Category);
+                    etel.SubItems.Add(foods[i].Allergens);
+                    etel.SubItems.Add(foods[i].Price.ToString());
+                    etel.SubItems.Add(foods[i].Description);
+                    listView1.Items.Add(etel);
+                }
+                // todo: itt az oszlopok mérete nem stimmel, a név túl széles
+                listView1.Columns.Add("Név", -2, HorizontalAlignment.Center);
+                listView1.Columns.Add("Kategória", -2, HorizontalAlignment.Center);
+                listView1.Columns.Add("Allergének", -2, HorizontalAlignment.Center);
+                listView1.Columns.Add("Ár", -2, HorizontalAlignment.Center);
+                listView1.Columns.Add("Leírás", -2, HorizontalAlignment.Center);
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+        }
+
+        private void foodsButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (listView1.SelectedItems[0] != null)
+                {
+                    int selectedRestaurant = listView1.SelectedIndices[0];
+                    MessageBox.Show("Index: " + selectedRestaurant, "ok");
+                    listFoods(restaurants[selectedRestaurant]);
+                }
+                else
+                {
+                    // ide valamiért be se lép
+                    MessageBox.Show("Kérem válasszon ki egy éttermet!", "Hiba");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+        }
     }
 }

@@ -35,6 +35,7 @@ namespace NetCincer
             this.ordersButton = new System.Windows.Forms.Button();
             this.profileButton = new System.Windows.Forms.Button();
             this.cartButton = new System.Windows.Forms.Button();
+            this.foodsButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // searchTextbox
@@ -47,7 +48,7 @@ namespace NetCincer
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(440, 5);
+            this.searchButton.Location = new System.Drawing.Point(434, 7);
             this.searchButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(82, 22);
@@ -58,7 +59,7 @@ namespace NetCincer
             // 
             // filterButton
             // 
-            this.filterButton.Location = new System.Drawing.Point(544, 4);
+            this.filterButton.Location = new System.Drawing.Point(522, 7);
             this.filterButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.filterButton.Name = "filterButton";
             this.filterButton.Size = new System.Drawing.Size(82, 22);
@@ -68,7 +69,7 @@ namespace NetCincer
             // 
             // ordersButton
             // 
-            this.ordersButton.Location = new System.Drawing.Point(652, 5);
+            this.ordersButton.Location = new System.Drawing.Point(610, 7);
             this.ordersButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ordersButton.Name = "ordersButton";
             this.ordersButton.Size = new System.Drawing.Size(82, 22);
@@ -96,11 +97,23 @@ namespace NetCincer
             this.cartButton.Text = "Kosár";
             this.cartButton.UseVisualStyleBackColor = true;
             // 
+            // foodsButton
+            // 
+            this.foodsButton.Location = new System.Drawing.Point(698, 7);
+            this.foodsButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.foodsButton.Name = "foodsButton";
+            this.foodsButton.Size = new System.Drawing.Size(82, 22);
+            this.foodsButton.TabIndex = 6;
+            this.foodsButton.Text = "Kínálat";
+            this.foodsButton.UseVisualStyleBackColor = true;
+            this.foodsButton.Click += new System.EventHandler(this.foodsButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1104, 505);
+            this.Controls.Add(this.foodsButton);
             this.Controls.Add(this.cartButton);
             this.Controls.Add(this.profileButton);
             this.Controls.Add(this.ordersButton);
@@ -123,6 +136,7 @@ namespace NetCincer
         private System.Windows.Forms.Button ordersButton;
         private System.Windows.Forms.Button profileButton;
         private System.Windows.Forms.Button cartButton;
+        private System.Windows.Forms.Button foodsButton;
     }
 }
 
