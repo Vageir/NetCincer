@@ -36,6 +36,7 @@ namespace NetCincer
             this.profileButton = new System.Windows.Forms.Button();
             this.cartButton = new System.Windows.Forms.Button();
             this.foodsButton = new System.Windows.Forms.Button();
+            this.goBackButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // searchTextbox
@@ -109,11 +110,24 @@ namespace NetCincer
             this.foodsButton.UseVisualStyleBackColor = true;
             this.foodsButton.Click += new System.EventHandler(this.foodsButton_Click);
             // 
+            // goBackButton
+            // 
+            this.goBackButton.Enabled = false;
+            this.goBackButton.Location = new System.Drawing.Point(786, 7);
+            this.goBackButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.goBackButton.Name = "goBackButton";
+            this.goBackButton.Size = new System.Drawing.Size(82, 22);
+            this.goBackButton.TabIndex = 7;
+            this.goBackButton.Text = "Vissza";
+            this.goBackButton.UseVisualStyleBackColor = true;
+            this.goBackButton.Click += new System.EventHandler(this.goBackButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1104, 505);
+            this.Controls.Add(this.goBackButton);
             this.Controls.Add(this.foodsButton);
             this.Controls.Add(this.cartButton);
             this.Controls.Add(this.profileButton);
@@ -138,6 +152,7 @@ namespace NetCincer
         private System.Windows.Forms.Button profileButton;
         private System.Windows.Forms.Button cartButton;
         private System.Windows.Forms.Button foodsButton;
+        private System.Windows.Forms.Button goBackButton;
     }
 }
 

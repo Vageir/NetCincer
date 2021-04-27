@@ -49,22 +49,23 @@ namespace NetCincer
 
             listView1.Font = new Font("Consolas", 20f);
             ListViewItem etterem;
-            try { 
-            restaurants = await db.ListRestaurants();
-            for(int i = 0; i < restaurants.Count; ++i)
+            try
             {
-                etterem = new ListViewItem(restaurants[i].RestaurantName, i);
+                restaurants = await db.ListRestaurants();
+                for (int i = 0; i < restaurants.Count; ++i)
+                {
+                    etterem = new ListViewItem(restaurants[i].RestaurantName, i);
 
-                etterem.SubItems.Add(restaurants[i].DeliveryTime.ToString());
-                listView1.Items.Add(etterem);
-            }
-            //listView1.Columns.Add("UP", -2, HorizontalAlignment.Left);
-            listView1.Columns.Add("Név", -2, HorizontalAlignment.Center);
-            listView1.Columns.Add("Kiszállítási idő", -2, HorizontalAlignment.Center);
-            
-            // Add the ListView to the control collection.
-            this.Controls.Add(listView1);
-            refreshList();
+                    etterem.SubItems.Add(restaurants[i].DeliveryTime.ToString());
+                    listView1.Items.Add(etterem);
+                }
+                //listView1.Columns.Add("UP", -2, HorizontalAlignment.Left);
+                listView1.Columns.Add("Név", -2, HorizontalAlignment.Center);
+                listView1.Columns.Add("Kiszállítási idő", -2, HorizontalAlignment.Center);
+
+                // Add the ListView to the control collection.
+                this.Controls.Add(listView1);
+                refreshList();
             }
             catch (Exception ex)
             {
@@ -76,6 +77,7 @@ namespace NetCincer
         {
             try
             {
+                foodsButton.Enabled = true;
                 listView1.Items.Clear();
                 restaurants = await db.ListRestaurants();
                 ListViewItem etterem;
@@ -133,13 +135,14 @@ namespace NetCincer
             {
                 if (listView1.SelectedItems[0] != null)
                 {
+                    foodsButton.Enabled = false;
+                    goBackButton.Enabled = true;
                     int selectedRestaurant = listView1.SelectedIndices[0];
-                    MessageBox.Show("Index: " + selectedRestaurant, "ok");
                     listFoods(restaurants[selectedRestaurant]);
                 }
                 else
                 {
-                    // ide valamiért be se lép
+                    // ide valamiért be se lép, a listView1.SelectedItems[0] sosem lesz null
                     MessageBox.Show("Kérem válasszon ki egy éttermet!", "Hiba");
                 }
 
@@ -154,6 +157,14 @@ namespace NetCincer
         {
             CartOrderForm cartOrderForm = new CartOrderForm(linCustomer,"yeet");
             cartOrderForm.Show();
+        }
+
+        private void goBackButton_Click(object sender, EventArgs e)
+        {
+            goBackButton.Enabled = false;
+            listView1.Columns.Clear();
+            listView1.Items.Clear();
+            CreateMyListView();
         }
     }
 }
