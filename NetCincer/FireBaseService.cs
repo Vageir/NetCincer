@@ -134,6 +134,12 @@ namespace NetCincer
             DocumentSnapshot documentRestaurantSnapshot = await Root.Collection("couriers").Document(CourierID).GetSnapshotAsync();
             return documentRestaurantSnapshot.ConvertTo<Courier>();
         }
+        public async Task<String> GetCourierName(String CourierID)
+        {
+            DocumentSnapshot nameDoc = await Root.Collection("couriers").Document(CourierID).GetSnapshotAsync();
+            string name = nameDoc.ConvertTo<Courier>().Name;
+            return name;
+        }
         public async Task<List<Courier>> ListCouriers()
         {
             QuerySnapshot querySnapshot = await Root.Collection("couriers").GetSnapshotAsync();
@@ -148,8 +154,42 @@ namespace NetCincer
         }
         public async Task<WriteResult> AddOrder(Order order)
         {
-            WriteResult writeResult = await Root.Collection("pendingOrders").Document(order.OrderID).SetAsync(order);
+            WriteResult writeResult = await Root.Collection("orders").Document(order.OrderID).SetAsync(order);
             return writeResult;
+        }
+        public async Task<List<Order>> ListRestaurantOrders(string _restaurantId)
+        {
+            QuerySnapshot querySnapshot = await Root.Collection("orders").WhereEqualTo("RestaurantID",_restaurantId).GetSnapshotAsync();
+            List<Order> orders = new List<Order>();
+            
+            foreach (DocumentSnapshot doc in querySnapshot.Documents)
+            {
+                orders.Add(doc.ConvertTo<Order>());
+            }
+            return orders;
+        }
+
+        public async Task<List<Order>> ListCustomerOrders(string _customerId)
+        {
+            QuerySnapshot querySnapshot = await Root.Collection("orders").WhereEqualTo("CustomerID", _customerId).GetSnapshotAsync();
+            List<Order> orders = new List<Order>();
+
+            foreach (DocumentSnapshot doc in querySnapshot.Documents)
+            {
+                orders.Add(doc.ConvertTo<Order>());
+            }
+            return orders;
+        }
+        public async Task<List<Order>> ListCourierOrders(string _courierId)
+        {
+            QuerySnapshot querySnapshot = await Root.Collection("orders").WhereEqualTo("CourierID", _courierId).GetSnapshotAsync();
+            List<Order> orders = new List<Order>();
+
+            foreach (DocumentSnapshot doc in querySnapshot.Documents)
+            {
+                orders.Add(doc.ConvertTo<Order>());
+            }
+            return orders;
         }
         public async Task<WriteResult> changeAvailabity(string courID, bool av) {
             Dictionary<string, object> updates= new Dictionary<string, object> {

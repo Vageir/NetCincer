@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 using System.Diagnostics;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace NetCincer
 {
@@ -13,6 +10,7 @@ namespace NetCincer
     {
         private Restaurant linRestaurant;
         private List<Food> foods;
+        private List<Order> orders;
         private ListView listView1 = new ListView();
         private FireBaseService db = new FireBaseService();
         public RestaurantFoodListing(ref Restaurant rest)
@@ -75,41 +73,67 @@ namespace NetCincer
                     this.Controls.Add(listView1);
                     refreshList();
                 }
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
             }
-            
+
         }
+
 
         async void refreshList()
         {
             /*try
             {*/
-                listView1.Items.Clear();
-                ListViewItem food;
-                foods = await db.ListFoods(linRestaurant.RestaurantID);
-                for (int i = 0; i < foods.Count; ++i)
-                {
-                    food = new ListViewItem(foods[i].Name, i);
-                    food.SubItems.Add(foods[i].Price.ToString() + " Ft");
-                    food.SubItems.Add(foods[i].Description);
-                    food.SubItems.Add(foods[i].Allergens);
-                    listView1.Items.Add(food);
-                }
-            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-            //listView1.Columns.Clear();
-            /*listView1.Columns.Clear();
-            listView1.Columns.Add("Név", -1, HorizontalAlignment.Center);
-            listView1.Columns.Add("Ár", -1, HorizontalAlignment.Center);
-            listView1.Columns.Add("Leírás", -1, HorizontalAlignment.Center);
-            listView1.Columns.Add("Ellergének", -1, HorizontalAlignment.Center);*/
-            /*}
-            catch (Exception ex)
+            listView1.Columns.Clear();
+            listView1.Items.Clear();
+            ListViewItem food;
+            foods = await db.ListFoods(linRestaurant.RestaurantID);
+            for (int i = 0; i < foods.Count; ++i)
             {
-                Debug.WriteLine(ex.Message);
-            }*/
+                food = new ListViewItem(foods[i].Name, i);
+                food.SubItems.Add(foods[i].Price.ToString() + " Ft");
+                food.SubItems.Add(foods[i].Description);
+                food.SubItems.Add(foods[i].Allergens);
+                listView1.Items.Add(food);
+            }
+            listView1.Columns.Add("Név", 40, HorizontalAlignment.Center);
+            listView1.Columns.Add("Ár", 40, HorizontalAlignment.Center);
+            listView1.Columns.Add("Leírás", 40, HorizontalAlignment.Center);
+            listView1.Columns.Add("Allergének", 40, HorizontalAlignment.Center);
+            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
+
+        async void refreshOrdersList()
+        {
+            listView1.Columns.Clear();
+            listView1.Items.Clear();
+            ListViewItem order;
+            orders = await db.ListCourierOrders(linRestaurant.RestaurantID);
+            for (int i = 0; i < orders.Count; ++i)
+            {
+                string names = "";
+                foreach (var food in orders[i].Foods)
+                {
+                    names += food.Name + ",";
+                }
+                names = names.Remove(Name.Length - 1); // Leveszi az utolso vesszot
+
+                order = new ListViewItem(names, i);
+                order.SubItems.Add(orders[i].TakeAway?"Igen":"Nem");
+                order.SubItems.Add(orders[i].Status.ToString());
+                order.SubItems.Add(orders[i].CourierID is null?"Nincs":db.GetCourierName(orders[i].CourierID).ToString());
+                listView1.Items.Add(order);
+            }
+            listView1.Columns.Add("Ételek", 40, HorizontalAlignment.Center);
+            listView1.Columns.Add("Elvitel", 40, HorizontalAlignment.Center);
+            listView1.Columns.Add("Állapot", 40, HorizontalAlignment.Center);
+            listView1.Columns.Add("Futár", 40, HorizontalAlignment.Center);
+            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+        }
+
+        
 
         private void rlistingButton_Click(object sender, EventArgs e)
         {
@@ -127,6 +151,11 @@ namespace NetCincer
             Login loginWindow = new Login();
             loginWindow.Show();
             this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            refreshOrdersList();
         }
     }
 }
