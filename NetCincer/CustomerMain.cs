@@ -31,7 +31,6 @@ namespace NetCincer
         async private void CreateMyListView()
         {
             // Create a new ListView control.
-            
             listView1.Bounds = new Rectangle(new Point(10, 40), new Size(1085, 445));
 
             // Set the view to show details.
@@ -49,7 +48,7 @@ namespace NetCincer
             // Sort the items in the list in ascending order.
             listView1.Sorting = SortOrder.Ascending;
 
-            listView1.Font = new Font("Consolas", 20f);
+            listView1.Font = new Font("Consolas", 12f);
             ListViewItem etterem;
             try
             {
@@ -62,8 +61,8 @@ namespace NetCincer
                     listView1.Items.Add(etterem);
                 }
                 //listView1.Columns.Add("UP", -2, HorizontalAlignment.Left);
-                listView1.Columns.Add("Név", -2, HorizontalAlignment.Center);
-                listView1.Columns.Add("Kiszállítási idő", -2, HorizontalAlignment.Center);
+                listView1.Columns.Add("Név", -1, HorizontalAlignment.Center);
+                listView1.Columns.Add("Kiszállítási idő", -2, HorizontalAlignment.Center); listView1.Columns[1].Width = listView1.Columns[1].Text.Length * 12;
 
                 // Add the ListView to the control collection.
                 this.Controls.Add(listView1);
@@ -123,14 +122,12 @@ namespace NetCincer
                         etel.SubItems.Add(foods[i].Description);
                         listView1.Items.Add(etel);
                     }
-                    
                 }
-                // todo: itt az oszlopok mérete nem stimmel, a név túl széles
-                listView1.Columns.Add("Név", -2, HorizontalAlignment.Center);
-                listView1.Columns.Add("Kategória", -2, HorizontalAlignment.Center);
-                listView1.Columns.Add("Allergének", -2, HorizontalAlignment.Center);
-                listView1.Columns.Add("Ár", -2, HorizontalAlignment.Center);
-                listView1.Columns.Add("Leírás", -2, HorizontalAlignment.Center);
+                listView1.Columns.Add("Név", -1, HorizontalAlignment.Center);
+                listView1.Columns.Add("Kategória", -1, HorizontalAlignment.Center);     listView1.Columns[1].Width = listView1.Columns[1].Text.Length * 15;
+                listView1.Columns.Add("Allergének", -1, HorizontalAlignment.Center);    listView1.Columns[2].Width = -1;
+                listView1.Columns.Add("Ár(Ft)", -1, HorizontalAlignment.Center);        listView1.Columns[3].Width = 100;
+                listView1.Columns.Add("Leírás", -1, HorizontalAlignment.Center);        listView1.Columns[4].Width = -1;
             }
             catch(Exception ex)
             {
@@ -162,7 +159,6 @@ namespace NetCincer
                     // ide valamiért be se lép, a listView1.SelectedItems[0] sosem lesz null
                     MessageBox.Show("Kérem válasszon ki egy éttermet!", "Hiba");
                 }
-
             }
             catch (Exception ex)
             {
@@ -202,8 +198,6 @@ namespace NetCincer
                             return;
                         }
                     }
-                    
-                    
                 }
                 else
                 {
