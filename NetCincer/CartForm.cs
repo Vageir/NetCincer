@@ -62,19 +62,23 @@ namespace NetCincer
 
         private void changeQuantity_Click(object sender, EventArgs e)
         {
-            int input = Convert.ToInt32(CartListView.SelectedItems[0].SubItems[1].Text.ToString());
-            ShowInputDialog(ref input);
-            if(input == 0)
+            if (CartListView.SelectedItems.Count != 0)
             {
-                Customer.Cart.RemoveFood(CartListView.SelectedItems[0].Tag.ToString());
-                CartListView.Items.Remove(CartListView.SelectedItems[0]);
-            }
-            else
-            {
-                Food food = Customer.Cart.GetFood(CartListView.SelectedItems[0].Tag.ToString());
-                if (food != null) { 
-                    Customer.Cart.SetQuantity(food, input);
-                    refreshList();
+                int input = Convert.ToInt32(CartListView.SelectedItems[0].SubItems[1].Text.ToString());
+                ShowInputDialog(ref input);
+                if (input == 0)
+                {
+                    Customer.Cart.RemoveFood(CartListView.SelectedItems[0].Tag.ToString());
+                    CartListView.Items.Remove(CartListView.SelectedItems[0]);
+                }
+                else
+                {
+                    Food food = Customer.Cart.GetFood(CartListView.SelectedItems[0].Tag.ToString());
+                    if (food != null)
+                    {
+                        Customer.Cart.SetQuantity(food, input);
+                        refreshList();
+                    }
                 }
             }
         }
@@ -100,11 +104,12 @@ namespace NetCincer
             inputBox.ClientSize = size;
             inputBox.Text = "Mennyiség";
 
-            System.Windows.Forms.NumericUpDown textBox = new NumericUpDown();
-            textBox.Size = new System.Drawing.Size(size.Width - 10, 23);
-            textBox.Location = new System.Drawing.Point(5, 5);
-            textBox.Value = input;
-            inputBox.Controls.Add(textBox);
+            System.Windows.Forms.NumericUpDown numeric = new NumericUpDown();
+            numeric.Size = new System.Drawing.Size(size.Width - 10, 23);
+            numeric.Location = new System.Drawing.Point(5, 5);
+            numeric.Value = input;
+            numeric.Minimum = 1;
+            inputBox.Controls.Add(numeric);
 
             Button okButton = new Button();
             okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
@@ -126,7 +131,7 @@ namespace NetCincer
             inputBox.CancelButton = cancelButton;
 
             DialogResult result = inputBox.ShowDialog();
-            input = Convert.ToInt32( textBox.Text);
+            input = Convert.ToInt32( numeric.Text);
             return result;
         }
     }

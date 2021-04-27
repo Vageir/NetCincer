@@ -97,7 +97,7 @@ namespace NetCincer
             this.Controls.Add(this.deleteCartLine);
             this.Controls.Add(this.orderButton);
             this.Name = "CartForm";
-            this.Text = "CartForm";
+            this.Text = "Kosár";
             this.ResumeLayout(false);
 
         }

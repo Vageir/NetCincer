@@ -53,6 +53,7 @@ namespace NetCincer
             Customer.MakeOrder(RestaurantID);
             await new FireBaseService().AddOrder(Customer.CurrentOrder);
             MessageBox.Show(this, "Rendelés leadva", "Rendelés", MessageBoxButtons.OK);
+            Customer.Cart.EmptyCart();
             this.Close();
         }
 
