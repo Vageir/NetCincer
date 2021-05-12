@@ -24,19 +24,19 @@ namespace NetCincer
             CreateMyListView();
             listener = db.createQueryForListener(linRestaurant.RestaurantID).Listen(
                  snapshot => {
-                    orders = new List<Order>();
-                    foreach (DocumentSnapshot documentSnapshot in snapshot.Documents)
-                    {
-                        Order o = documentSnapshot.ConvertTo<Order>();
-                        o.OrderID = documentSnapshot.Id;
-                        orders.Add(o);
-                    }
+                     orders = new List<Order>();
+                     foreach (DocumentSnapshot documentSnapshot in snapshot.Documents)
+                     {
+                         Order o = documentSnapshot.ConvertTo<Order>();
+                         o.OrderID = documentSnapshot.Id;
+                         orders.Add(o);
+                     }
 
                      //orders.Sort((x, y) => x.Status.CompareTo(y.Status));
                      orders = orders.OrderBy(order => order.Status).ToList();
-                     Debug.WriteLine(orders[0].Status + ";"+orders[1].Status);
-                     if (orderShow)  listView1.Invoke(new Action(() => { refreshOrdersList(); }));
-                });
+                     Debug.WriteLine(orders[0].Status + ";" + orders[1].Status);
+                     if (orderShow) listView1.Invoke(new Action(() => { refreshOrdersList(); }));
+                 });
         }
 
         private void rNewFoodButton_Click(object sender, EventArgs e)
@@ -65,9 +65,11 @@ namespace NetCincer
             listView1.GridLines = true;
             // Sort the items in the list in ascending order.
             listView1.Sorting = SortOrder.Ascending;
+            listView1.MultiSelect = false;
 
             listView1.Font = new Font("Consolas", 12f);
             ListViewItem food;
+            
             try
             {
                 foods = await db.ListFoods(linRestaurant.RestaurantID);
@@ -100,7 +102,7 @@ namespace NetCincer
 
         }
 
-
+        
         async void refreshList()
         {
             /*try
@@ -123,6 +125,7 @@ namespace NetCincer
             listView1.Columns.Add("Allergének", 40, HorizontalAlignment.Center);
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             orderShow = false;
+            statusButton.Enabled = false;
         }
 
         private void refreshOrdersList()
@@ -143,6 +146,7 @@ namespace NetCincer
                 names = names.Remove(names.Length - 1); // Leveszi az utolso vesszot
 
                 order = new ListViewItem(names, i);
+                order.Tag = orders[i].OrderID;
                 order.SubItems.Add(orders[i].TakeAway?"Igen":"Nem");
                 order.SubItems.Add(orders[i].Status.ToString());
                 order.SubItems.Add(orders[i].CourierID is null?"Nincs":db.GetCourierName(orders[i].CourierID).ToString());
@@ -153,10 +157,10 @@ namespace NetCincer
             listView1.Columns.Add("Állapot", 40, HorizontalAlignment.Center);
             listView1.Columns.Add("Futár", 40, HorizontalAlignment.Center);
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            statusButton.Enabled = true;
             orderShow = true;
         }
 
-        
 
         private void rlistingButton_Click(object sender, EventArgs e)
         {
@@ -174,11 +178,39 @@ namespace NetCincer
             Login loginWindow = new Login();
             loginWindow.Show();
             this.Close();
+            detachListener();
+        }
+        private async void detachListener()
+        {
+            await listener.StopAsync(); 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             refreshOrdersList();
         }
+
+        private void statusButton_Click(object sender, EventArgs e)
+        {
+            if(listView1.SelectedItems[0].Tag != null)
+            {
+                Order selectedOrder = orders.Find(o => o.OrderID.Equals(listView1.SelectedItems[0].Tag));
+                switch (selectedOrder.Status)
+                {
+                    case Status.Pending:
+                        OrderConfirm orderConfirm = new OrderConfirm(selectedOrder);
+                        orderConfirm.Show();
+                        break;
+                    case Status.Accepted:
+                        OrderToDelivery orderToDelivery = new OrderToDelivery(selectedOrder);
+                        orderToDelivery.Show();
+                        break;
+                    default:
+                        break;
+                }
+                Debug.WriteLine(selectedOrder.OrderID);
+            }
+        }
+       
     }
 }

@@ -35,6 +35,7 @@ namespace NetCincer
             this.rProfileButton = new System.Windows.Forms.Button();
             this.rLogoutButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.statusButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // rlistingButton
@@ -100,11 +101,22 @@ namespace NetCincer
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // statusButton
+            // 
+            this.statusButton.Location = new System.Drawing.Point(447, 10);
+            this.statusButton.Name = "statusButton";
+            this.statusButton.Size = new System.Drawing.Size(75, 23);
+            this.statusButton.TabIndex = 6;
+            this.statusButton.Text = "Státusz";
+            this.statusButton.UseVisualStyleBackColor = true;
+            this.statusButton.Click += new System.EventHandler(this.statusButton_Click);
+            // 
             // RestaurantFoodListing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1104, 505);
+            this.Controls.Add(this.statusButton);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.rLogoutButton);
             this.Controls.Add(this.rProfileButton);
@@ -126,5 +138,6 @@ namespace NetCincer
         private System.Windows.Forms.Button rProfileButton;
         private System.Windows.Forms.Button rLogoutButton;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button statusButton;
     }
 }
