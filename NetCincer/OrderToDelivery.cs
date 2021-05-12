@@ -30,7 +30,7 @@ namespace NetCincer
             {
                 foreach(Courier courier in Couriers)
                 {
-                    if (new HashSet<string>(cities).IsSupersetOf(courier.Cities))
+                    if (courier.Cities.Except(cities).Any() )
                         PossibleToDeliveryCouriers.Add(courier);
                 }
             }
