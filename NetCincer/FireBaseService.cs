@@ -203,9 +203,22 @@ namespace NetCincer
             WriteResult writeResult = await Root.Collection("couriers").Document(courID).UpdateAsync(updates);
             return writeResult;
         }
-        public Query createQueryForListener(string restaurantID)
+        public async Task<List<Courier>> ListAvailableCouriers(List<String> cities)
         {
-            Query query = Root.Collection("orders").WhereEqualTo("RestaurantID", restaurantID);
+            List<Courier> couriers = new List<Courier>();
+            QuerySnapshot querySnapshot = await Root.Collection("couriers").
+                WhereEqualTo("available", true).GetSnapshotAsync();
+            foreach (DocumentSnapshot doc in querySnapshot.Documents)
+            {
+                Courier courier = doc.ConvertTo<Courier>();
+                courier.CourierID = doc.Id;
+                couriers.Add(courier);
+            }
+            return couriers;
+        }
+        public Query CreateQueryForListener(string collection, string fieldName, string id)
+        {
+            Query query = Root.Collection(collection).WhereEqualTo(fieldName, id);
             return query;
         }
     }

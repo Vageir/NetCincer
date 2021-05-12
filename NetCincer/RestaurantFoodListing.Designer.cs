@@ -35,7 +35,8 @@ namespace NetCincer
             this.rProfileButton = new System.Windows.Forms.Button();
             this.rLogoutButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.statusButton = new System.Windows.Forms.Button();
+            this.acceptRefuseButton = new System.Windows.Forms.Button();
+            this.giveToDeliveryButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // rlistingButton
@@ -101,22 +102,33 @@ namespace NetCincer
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // statusButton
+            // acceptRefuseButton
             // 
-            this.statusButton.Location = new System.Drawing.Point(447, 10);
-            this.statusButton.Name = "statusButton";
-            this.statusButton.Size = new System.Drawing.Size(75, 23);
-            this.statusButton.TabIndex = 6;
-            this.statusButton.Text = "Státusz";
-            this.statusButton.UseVisualStyleBackColor = true;
-            this.statusButton.Click += new System.EventHandler(this.statusButton_Click);
+            this.acceptRefuseButton.Location = new System.Drawing.Point(447, 10);
+            this.acceptRefuseButton.Name = "acceptRefuseButton";
+            this.acceptRefuseButton.Size = new System.Drawing.Size(106, 23);
+            this.acceptRefuseButton.TabIndex = 6;
+            this.acceptRefuseButton.Text = "Elfogad/Elutasít";
+            this.acceptRefuseButton.UseVisualStyleBackColor = true;
+            this.acceptRefuseButton.Click += new System.EventHandler(this.acceptRefuseButton_Click);
+            // 
+            // giveToDeliveryButton
+            // 
+            this.giveToDeliveryButton.Location = new System.Drawing.Point(569, 9);
+            this.giveToDeliveryButton.Name = "giveToDeliveryButton";
+            this.giveToDeliveryButton.Size = new System.Drawing.Size(107, 23);
+            this.giveToDeliveryButton.TabIndex = 7;
+            this.giveToDeliveryButton.Text = "Futárnak átadás";
+            this.giveToDeliveryButton.UseVisualStyleBackColor = true;
+            this.giveToDeliveryButton.Click += new System.EventHandler(this.giveToDeliveryButton_Click);
             // 
             // RestaurantFoodListing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1104, 505);
-            this.Controls.Add(this.statusButton);
+            this.Controls.Add(this.giveToDeliveryButton);
+            this.Controls.Add(this.acceptRefuseButton);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.rLogoutButton);
             this.Controls.Add(this.rProfileButton);
@@ -138,6 +150,7 @@ namespace NetCincer
         private System.Windows.Forms.Button rProfileButton;
         private System.Windows.Forms.Button rLogoutButton;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button statusButton;
+        private System.Windows.Forms.Button acceptRefuseButton;
+        private System.Windows.Forms.Button giveToDeliveryButton;
     }
 }

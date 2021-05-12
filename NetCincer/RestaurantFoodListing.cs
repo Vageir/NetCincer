@@ -22,7 +22,7 @@ namespace NetCincer
             linRestaurant = rest;
             InitializeComponent();
             CreateMyListView();
-            listener = db.createQueryForListener(linRestaurant.RestaurantID).Listen(
+            listener = db.CreateQueryForListener("orders","RestaurantID",linRestaurant.RestaurantID).Listen(
                  snapshot => {
                      orders = new List<Order>();
                      foreach (DocumentSnapshot documentSnapshot in snapshot.Documents)
@@ -65,7 +65,7 @@ namespace NetCincer
             listView1.GridLines = true;
             // Sort the items in the list in ascending order.
             listView1.Sorting = SortOrder.Ascending;
-            listView1.MultiSelect = false;
+            listView1.MultiSelect = true;
 
             listView1.Font = new Font("Consolas", 12f);
             ListViewItem food;
@@ -125,7 +125,8 @@ namespace NetCincer
             listView1.Columns.Add("Allergének", 40, HorizontalAlignment.Center);
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             orderShow = false;
-            statusButton.Enabled = false;
+            acceptRefuseButton.Visible = false;
+            giveToDeliveryButton.Visible = false;
         }
 
         private void refreshOrdersList()
@@ -157,7 +158,8 @@ namespace NetCincer
             listView1.Columns.Add("Állapot", 40, HorizontalAlignment.Center);
             listView1.Columns.Add("Futár", 40, HorizontalAlignment.Center);
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-            statusButton.Enabled = true;
+            acceptRefuseButton.Visible = true;
+            giveToDeliveryButton.Visible = true;
             orderShow = true;
         }
 
@@ -190,27 +192,33 @@ namespace NetCincer
             refreshOrdersList();
         }
 
-        private void statusButton_Click(object sender, EventArgs e)
+        private void acceptRefuseButton_Click(object sender, EventArgs e)
         {
-            if(listView1.SelectedItems[0].Tag != null)
+            if (listView1.SelectedItems.Count == 1) 
             {
                 Order selectedOrder = orders.Find(o => o.OrderID.Equals(listView1.SelectedItems[0].Tag));
-                switch (selectedOrder.Status)
+                if(selectedOrder.Status == Status.Pending)
                 {
-                    case Status.Pending:
-                        OrderConfirm orderConfirm = new OrderConfirm(selectedOrder);
-                        orderConfirm.Show();
-                        break;
-                    case Status.Accepted:
-                        OrderToDelivery orderToDelivery = new OrderToDelivery(selectedOrder);
-                        orderToDelivery.Show();
-                        break;
-                    default:
-                        break;
+                    OrderConfirm orderConfirm = new OrderConfirm(selectedOrder);
+                    orderConfirm.Show();
                 }
-                Debug.WriteLine(selectedOrder.OrderID);
             }
         }
-       
+
+        private void giveToDeliveryButton_Click(object sender, EventArgs e)
+        {
+            List<Order> ordersReady = new List<Order>();
+            for (int i = 0; i < listView1.SelectedItems.Count; i++)
+            {
+                Order selectedOrder = orders.Find(o => o.OrderID.Equals(listView1.SelectedItems[i].Tag));
+                if (selectedOrder.Status == Status.Pending)
+                {
+                    ordersReady.Add(selectedOrder);
+                }
+                else break;
+            }
+            OrderToDelivery orderToDelivery = new OrderToDelivery(ordersReady);
+            orderToDelivery.Show();
+        }
     }
 }
