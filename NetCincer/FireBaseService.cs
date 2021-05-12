@@ -203,5 +203,10 @@ namespace NetCincer
             WriteResult writeResult = await Root.Collection("couriers").Document(courID).UpdateAsync(updates);
             return writeResult;
         }
+        public Query createQueryForListener(string restaurantID)
+        {
+            Query query = Root.Collection("orders").WhereEqualTo("RestaurantID", restaurantID);
+            return query;
+        }
     }
 }

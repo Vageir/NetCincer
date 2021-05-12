@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Google.Cloud.Firestore;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace NetCincer
@@ -13,11 +15,28 @@ namespace NetCincer
         private List<Order> orders;
         private ListView listView1 = new ListView();
         private FireBaseService db = new FireBaseService();
+        private FirestoreChangeListener listener;
+        private bool orderShow = false;
         public RestaurantFoodListing(ref Restaurant rest)
         {
             linRestaurant = rest;
             InitializeComponent();
             CreateMyListView();
+            listener = db.createQueryForListener(linRestaurant.RestaurantID).Listen(
+                 snapshot => {
+                    orders = new List<Order>();
+                    foreach (DocumentSnapshot documentSnapshot in snapshot.Documents)
+                    {
+                        Order o = documentSnapshot.ConvertTo<Order>();
+                        o.OrderID = documentSnapshot.Id;
+                        orders.Add(o);
+                    }
+
+                     //orders.Sort((x, y) => x.Status.CompareTo(y.Status));
+                     orders = orders.OrderBy(order => order.Status).ToList();
+                     Debug.WriteLine(orders[0].Status + ";"+orders[1].Status);
+                     if (orderShow)  listView1.Invoke(new Action(() => { refreshOrdersList(); }));
+                });
         }
 
         private void rNewFoodButton_Click(object sender, EventArgs e)
@@ -103,14 +122,16 @@ namespace NetCincer
             listView1.Columns.Add("Leírás", 40, HorizontalAlignment.Center);
             listView1.Columns.Add("Allergének", 40, HorizontalAlignment.Center);
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            orderShow = false;
         }
 
-        async void refreshOrdersList()
+        private void refreshOrdersList()
         {
             listView1.Columns.Clear();
             listView1.Items.Clear();
+            listView1.Sorting = SortOrder.None;
             ListViewItem order;
-            orders = await db.ListRestaurantOrders(linRestaurant.RestaurantID);
+            //orders = await db.ListRestaurantOrders(linRestaurant.RestaurantID);
             for (int i = 0; i < orders.Count; ++i)
             {
                 string names = "";
@@ -132,6 +153,7 @@ namespace NetCincer
             listView1.Columns.Add("Állapot", 40, HorizontalAlignment.Center);
             listView1.Columns.Add("Futár", 40, HorizontalAlignment.Center);
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            orderShow = true;
         }
 
         
