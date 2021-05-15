@@ -78,6 +78,7 @@ namespace NetCincer
             this.ordersButton.TabIndex = 3;
             this.ordersButton.Text = "Rendelések";
             this.ordersButton.UseVisualStyleBackColor = true;
+            this.ordersButton.Click += new System.EventHandler(this.ordersButton_Click);
             // 
             // addToCartButton
             // 
@@ -134,7 +135,7 @@ namespace NetCincer
             this.logoutButton.UseVisualStyleBackColor = true;
             this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
             // 
-            // Form1
+            // CustomerMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -149,7 +150,7 @@ namespace NetCincer
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.searchTextbox);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "Form1";
+            this.Name = "CustomerMain";
             this.Text = "NetCincér";
             this.ResumeLayout(false);
             this.PerformLayout();

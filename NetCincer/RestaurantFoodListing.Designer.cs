@@ -81,6 +81,7 @@ namespace NetCincer
             this.rProfileButton.TabIndex = 3;
             this.rProfileButton.Text = "Profilunk";
             this.rProfileButton.UseVisualStyleBackColor = true;
+            this.rProfileButton.Click += new System.EventHandler(this.rProfileButton_Click);
             // 
             // rLogoutButton
             // 

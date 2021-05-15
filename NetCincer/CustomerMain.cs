@@ -278,5 +278,11 @@ namespace NetCincer
             input = Convert.ToInt32(numeric.Text);
             return result;
         }
+
+        private void ordersButton_Click(object sender, EventArgs e)
+        {
+            CustomerOrderHistoryForm customerOrderHistory = new CustomerOrderHistoryForm(linCustomer);
+            customerOrderHistory.Show();
+        }
     }
 }

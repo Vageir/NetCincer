@@ -34,9 +34,12 @@ namespace NetCincer
                      }
 
                      //orders.Sort((x, y) => x.Status.CompareTo(y.Status));
-                     orders = orders.OrderBy(order => order.Status).ToList();
-                     Debug.WriteLine(orders[0].Status + ";" + orders[1].Status);
-                     if (orderShow) listView1.Invoke(new Action(() => { refreshOrdersList(); }));
+                     if (orders != null)
+                     {
+                         orders = orders.OrderBy(order => order.Status).ToList();
+                         
+                         if (orderShow) listView1.Invoke(new Action(() => { refreshOrdersList(); }));
+                     }
                  });
         }
 
@@ -149,6 +152,7 @@ namespace NetCincer
 
                 order = new ListViewItem(names, i);
                 order.Tag = orders[i].OrderID;
+                order.SubItems.Add(orders[i].OrderDate);
                 order.SubItems.Add(orders[i].TakeAway?"Igen":"Nem");
                 order.SubItems.Add(orders[i].Status.ToString());
                 if(orders[i].CourierID != null)
@@ -163,8 +167,9 @@ namespace NetCincer
                 }
 
                 listView1.Items.Add(order);
-            }
+            }           
             listView1.Columns.Add("Ételek(db)", 40, HorizontalAlignment.Center);
+            listView1.Columns.Add("Rendelési idő", 40, HorizontalAlignment.Center);
             listView1.Columns.Add("Elvitel", 40, HorizontalAlignment.Center);
             listView1.Columns.Add("Állapot", 40, HorizontalAlignment.Center);
             listView1.Columns.Add("Futár", 40, HorizontalAlignment.Center);
@@ -233,6 +238,11 @@ namespace NetCincer
                 OrderToDelivery orderToDelivery = new OrderToDelivery(ref ordersReady);
                 orderToDelivery.Show();
             }
+        }
+
+        private void rProfileButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
