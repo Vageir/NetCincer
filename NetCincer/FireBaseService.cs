@@ -142,7 +142,7 @@ namespace NetCincer
         public async Task<String> GetCourierName(String CourierID)
         {
             DocumentSnapshot nameDoc = await Root.Collection("couriers").Document(CourierID).GetSnapshotAsync();
-            string name = nameDoc.ConvertTo<Courier>().Name;
+            String name = nameDoc.ConvertTo<Courier>().Name;
             return name;
         }
         public async Task<List<Courier>> ListCouriers()
@@ -203,11 +203,12 @@ namespace NetCincer
             WriteResult writeResult = await Root.Collection("couriers").Document(courID).UpdateAsync(updates);
             return writeResult;
         }
-        public async Task<List<Courier>> ListAvailableCouriers(List<String> cities)
+        public async Task<List<Courier>> ListAvailableCouriers()
         {
             List<Courier> couriers = new List<Courier>();
-            QuerySnapshot querySnapshot = await Root.Collection("couriers").
-                WhereEqualTo("available", true).GetSnapshotAsync();
+      
+            QuerySnapshot querySnapshot = await Root.Collection("couriers").WhereEqualTo("available", true)                
+                .GetSnapshotAsync();
             foreach (DocumentSnapshot doc in querySnapshot.Documents)
             {
                 Courier courier = doc.ConvertTo<Courier>();

@@ -25,6 +25,8 @@ namespace NetCincer
         public bool TakeAway { get; set; }
         [FirestoreProperty]
         public int EstimatedDeliveryTime { get; set; }
+        [FirestoreProperty]
+        public String OrderDate { get; set; }
         public Order()
         {
             EstimatedDeliveryTime = -1;

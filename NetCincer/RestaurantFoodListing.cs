@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NetCincer
@@ -129,7 +130,7 @@ namespace NetCincer
             giveToDeliveryButton.Visible = false;
         }
 
-        private void refreshOrdersList()
+        private async void refreshOrdersList()
         {
             listView1.Columns.Clear();
             listView1.Items.Clear();
@@ -150,7 +151,17 @@ namespace NetCincer
                 order.Tag = orders[i].OrderID;
                 order.SubItems.Add(orders[i].TakeAway?"Igen":"Nem");
                 order.SubItems.Add(orders[i].Status.ToString());
-                order.SubItems.Add(orders[i].CourierID is null?"Nincs":db.GetCourierName(orders[i].CourierID).ToString());
+                if(orders[i].CourierID != null)
+                {
+                    String name = await db.GetCourierName(orders[i].CourierID);
+                    
+                    order.SubItems.Add(name);
+                }
+                else
+                {
+                    order.SubItems.Add("Nincs");
+                }
+
                 listView1.Items.Add(order);
             }
             listView1.Columns.Add("Ételek(db)", 40, HorizontalAlignment.Center);
@@ -211,14 +222,17 @@ namespace NetCincer
             for (int i = 0; i < listView1.SelectedItems.Count; i++)
             {
                 Order selectedOrder = orders.Find(o => o.OrderID.Equals(listView1.SelectedItems[i].Tag));
-                if (selectedOrder.Status == Status.Pending)
+                if (selectedOrder.Status == Status.Accepted)
                 {
                     ordersReady.Add(selectedOrder);
                 }
                 else break;
             }
-            OrderToDelivery orderToDelivery = new OrderToDelivery(ordersReady);
-            orderToDelivery.Show();
+            if (ordersReady.Count > 0)
+            {
+                OrderToDelivery orderToDelivery = new OrderToDelivery(ref ordersReady);
+                orderToDelivery.Show();
+            }
         }
     }
 }

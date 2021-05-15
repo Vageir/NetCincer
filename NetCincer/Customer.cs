@@ -34,7 +34,9 @@ namespace NetCincer
                 CourierID = null,
                 TakeAway = Cart.TakeAway,
                 Foods = Cart.ListAllFoods(),
-                Status = Status.Pending
+                Status = Status.Pending,
+                OrderDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm")
+
             };
             order.OrderID = Guid.NewGuid().ToString();
             CurrentOrder = order;

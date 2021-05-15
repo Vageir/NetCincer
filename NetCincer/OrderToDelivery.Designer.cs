@@ -29,23 +29,23 @@ namespace NetCincer
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.deliveryComboBox = new System.Windows.Forms.ComboBox();
             this.isItPossibleLabel = new System.Windows.Forms.Label();
             this.giveButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // deliveryComboBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(254, 152);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(207, 23);
-            this.comboBox1.TabIndex = 0;
+            this.deliveryComboBox.FormattingEnabled = true;
+            this.deliveryComboBox.Location = new System.Drawing.Point(254, 152);
+            this.deliveryComboBox.Name = "deliveryComboBox";
+            this.deliveryComboBox.Size = new System.Drawing.Size(207, 23);
+            this.deliveryComboBox.TabIndex = 0;
             // 
             // isItPossibleLabel
             // 
             this.isItPossibleLabel.AutoSize = true;
-            this.isItPossibleLabel.Location = new System.Drawing.Point(305, 198);
+            this.isItPossibleLabel.Location = new System.Drawing.Point(254, 202);
             this.isItPossibleLabel.Name = "isItPossibleLabel";
             this.isItPossibleLabel.Size = new System.Drawing.Size(38, 15);
             this.isItPossibleLabel.TabIndex = 1;
@@ -54,7 +54,7 @@ namespace NetCincer
             // 
             // giveButton
             // 
-            this.giveButton.Location = new System.Drawing.Point(288, 235);
+            this.giveButton.Location = new System.Drawing.Point(312, 237);
             this.giveButton.Name = "giveButton";
             this.giveButton.Size = new System.Drawing.Size(75, 23);
             this.giveButton.TabIndex = 2;
@@ -69,7 +69,7 @@ namespace NetCincer
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.giveButton);
             this.Controls.Add(this.isItPossibleLabel);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.deliveryComboBox);
             this.Name = "OrderToDelivery";
             this.Text = "OrderToDelivery";
             this.ResumeLayout(false);
@@ -79,7 +79,7 @@ namespace NetCincer
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox deliveryComboBox;
         private System.Windows.Forms.Label isItPossibleLabel;
         private System.Windows.Forms.Button giveButton;
     }

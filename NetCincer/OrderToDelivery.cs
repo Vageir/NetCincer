@@ -15,7 +15,7 @@ namespace NetCincer
         private List<Order> Orders;
         private List<Courier> PossibleToDeliveryCouriers;
         private FireBaseService db = new FireBaseService();
-        public OrderToDelivery(List<Order> ordersReady)
+        public OrderToDelivery(ref List<Order> ordersReady)
         {
             InitializeComponent();
             this.Orders = ordersReady;
@@ -24,14 +24,32 @@ namespace NetCincer
         }
         private async void init()
         {
-            List<String> cities = Orders.Select(o => o.Address.City).ToList();
-            List<Courier> Couriers = await db.ListAvailableCouriers(cities);
+           
+            List<String> cities = Orders.Select(order => order.Address.City).ToList();
+            List<String> distincCities = cities.Distinct().ToList(); 
+            List<Courier> Couriers = await db.ListAvailableCouriers();
             if (Couriers.Count > 0)
             {
-                foreach(Courier courier in Couriers)
+                foreach (Courier courier in Couriers)
                 {
-                    if (courier.Cities.Except(cities).Any() )
+                    if (distincCities.Intersect(courier.Cities).Count() == distincCities.Count)
+                    {
                         PossibleToDeliveryCouriers.Add(courier);
+                    }
+                }
+                if(PossibleToDeliveryCouriers.Count > 0)
+                {
+                    foreach (Courier item in PossibleToDeliveryCouriers)
+                    {
+                        deliveryComboBox.Items.Add(new ComboboxValue(item.Name,item.CourierID)); 
+                    }
+                    deliveryComboBox.SelectedItem = deliveryComboBox.Items[0];
+                    
+                }
+                else
+                {
+                    isItPossibleLabel.Visible = true;
+                    isItPossibleLabel.Text = "Nincsen olyan szállító aki képes lenne rendelést kiszálítani";
                 }
             }
             else
@@ -39,12 +57,38 @@ namespace NetCincer
                 isItPossibleLabel.Visible = true;
                 isItPossibleLabel.Text = "Nincsen elérhető szállító";
             }
-            Debug.WriteLine(PossibleToDeliveryCouriers.Count);
+            Debug.WriteLine(Couriers.Count);
 
         }
-        private void giveButton_Click(object sender, EventArgs e)
+        private async void giveButton_Click(object sender, EventArgs e)
         {
+            ComboboxValue asd = (ComboboxValue) deliveryComboBox.SelectedItem;
+            string id = asd.CourierID;
+            //Courier courier = PossibleToDeliveryCouriers.Find(courier => courier.CourierID == id);
+            foreach (Order order in Orders)
+            {
+                order.CourierID = id;
+                order.Status = Status.ReadyToDeliver;
+                await db.AddOrder(order);
+            }
+            this.Close();
+        }
 
+         class ComboboxValue
+        {
+            public String CourierID { get; private set; }
+            public String Name { get; private set; }
+
+            public ComboboxValue(string name, string courierID)
+            {
+                this.Name = name;
+                this.CourierID = courierID;
+            }
+            public override string ToString()
+            {
+                return Name;
+            }
+            
         }
     }
 }
