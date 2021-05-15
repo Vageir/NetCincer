@@ -1,7 +1,7 @@
 ﻿
 namespace NetCincer
 {
-    partial class CustomerOrderHistoryForm
+    partial class CustomerOrderHistory
     {
         /// <summary>
         /// Required designer variable.

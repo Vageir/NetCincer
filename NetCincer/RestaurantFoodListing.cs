@@ -227,7 +227,7 @@ namespace NetCincer
             for (int i = 0; i < listView1.SelectedItems.Count; i++)
             {
                 Order selectedOrder = orders.Find(o => o.OrderID.Equals(listView1.SelectedItems[i].Tag));
-                if (selectedOrder.Status == Status.Accepted)
+                if (selectedOrder.Status == Status.Accepted || selectedOrder.Status == Status.DeliveryRefused)
                 {
                     ordersReady.Add(selectedOrder);
                 }

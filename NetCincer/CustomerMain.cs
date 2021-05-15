@@ -281,7 +281,7 @@ namespace NetCincer
 
         private void ordersButton_Click(object sender, EventArgs e)
         {
-            CustomerOrderHistoryForm customerOrderHistory = new CustomerOrderHistoryForm(linCustomer);
+            CustomerOrderHistory customerOrderHistory = new CustomerOrderHistory(linCustomer);
             customerOrderHistory.Show();
         }
     }

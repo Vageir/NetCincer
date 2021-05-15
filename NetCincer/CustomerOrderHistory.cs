@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace NetCincer
 {
-    public partial class CustomerOrderHistoryForm : Form
+    public partial class CustomerOrderHistory : Form
     {
         private List<Order> orders;
         private ListView listView1 = new ListView();
         private FireBaseService db = new FireBaseService();
         private FirestoreChangeListener listener;
-        public CustomerOrderHistoryForm(Customer customer)
+        public CustomerOrderHistory(Customer customer)
         {
             InitializeComponent();
             CreateMyListView();
@@ -82,8 +82,8 @@ namespace NetCincer
                 order.Tag = orders[i].OrderID;
                 order.SubItems.Add(orders[i].OrderDate);
                 order.SubItems.Add(orders[i].TakeAway ? "Igen" : "Nem");
-                order.SubItems.Add(orders[i].Status.ToString());
-                order.SubItems.Add(orders[i].EstimatedDeliveryTime.ToString() + " perc");
+                order.SubItems.Add(orders[i].Status == Status.DeliveryRefused ? "accepted": orders[i].Status.ToString());
+                order.SubItems.Add(orders[i].EstimatedDeliveryTime == -1? "NaN" : orders[i].EstimatedDeliveryTime.ToString() + " perc");
                 if (orders[i].CourierID != null)
                 {
                     String name = await db.GetCourierName(orders[i].CourierID);

@@ -50,15 +50,18 @@ namespace NetCincer
             return subTotals;
         }
 
+
     }
     public enum Status
     {
        
         Pending,
         Accepted,
+        DeliveryRefused,
         ReadyToDeliver,
         Delivery,
         Completed,
         Refused
+       
     };
 }
