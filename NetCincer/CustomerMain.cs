@@ -21,17 +21,45 @@ namespace NetCincer
         //private ObjectListView listView2 = new ObjectListView();
         private FireBaseService db = new FireBaseService();
         private Restaurant selectedRestaurant;
+        private int sortColumn = 0;
+        //private ListViewColumnSorter lvwColumSorter;
 
         public CustomerMain(ref Customer linC)
         {
             linCustomer = linC;
             InitializeComponent();
             CreateMyListView();
+            
         }
+
+        private void columnSort(object sender, ColumnClickEventArgs e)
+        {
+            if(e.Column != sortColumn)
+            {
+                sortColumn = e.Column;
+                listView1.Sorting = SortOrder.Ascending;
+            }
+            else
+            {
+                if(listView1.Sorting== SortOrder.Ascending)
+                {
+                    listView1.Sorting=SortOrder.Descending;
+                }
+                else
+                {
+                    listView1.Sorting = SortOrder.Ascending;
+                }
+            }
+            listView1.ListViewItemSorter = new ListViewItemComparer(e.Column, listView1.Sorting);
+        }
+
         async private void CreateMyListView()
         {
             // Create a new ListView control.
             listView1.Bounds = new Rectangle(new Point(10, 40), new Size(1085, 445));
+
+            // Adding sorting click handler || Joe
+            listView1.ColumnClick += columnSort;
 
             // Set the view to show details.
             listView1.View = View.Details;
@@ -73,6 +101,54 @@ namespace NetCincer
                 Debug.WriteLine(ex.Message);
             }
         }
+        async private void CreateMyListView(string text)
+        {
+            // Create a new ListView control.
+            listView1.Bounds = new Rectangle(new Point(10, 40), new Size(1085, 445));
+
+            // Set the view to show details.
+            listView1.View = View.Details;
+            // Allow the user to edit item text.
+            listView1.LabelEdit = false;
+            // Allow the user to rearrange columns.
+            listView1.AllowColumnReorder = true;
+            // Display check boxes.
+            listView1.CheckBoxes = false;
+            // Select the item and subitems when selection is made.
+            listView1.FullRowSelect = true;
+            // Display grid lines.
+            listView1.GridLines = true;
+            // Sort the items in the list in ascending order.
+            listView1.Sorting = SortOrder.Ascending;
+
+            listView1.Font = new Font("Consolas", 12f);
+            ListViewItem etterem;
+            try
+            {
+                restaurants = await db.ListRestaurants();
+                for (int i = 0; i < restaurants.Count; ++i)
+                {
+
+                    etterem = new ListViewItem(restaurants[i].RestaurantName, i);
+                    if (etterem.Text.ToLower().Contains(text.ToLower()))
+                    {
+                        etterem.SubItems.Add(restaurants[i].DeliveryTime.ToString());
+                        listView1.Items.Add(etterem);
+                    }
+                }
+                //listView1.Columns.Add("UP", -2, HorizontalAlignment.Left);
+                listView1.Columns.Add("Név", -1, HorizontalAlignment.Center);
+                listView1.Columns.Add("Kiszállítási idő", -2, HorizontalAlignment.Center); listView1.Columns[1].Width = listView1.Columns[1].Text.Length * 12;
+
+                // Add the ListView to the control collection.
+                this.Controls.Add(listView1);
+                refreshList(text);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+        }
 
         async void refreshList()
         {
@@ -95,6 +171,30 @@ namespace NetCincer
                 Debug.WriteLine(ex.Message);
             }
         }
+        async void refreshList(string text)
+        {
+            try
+            {
+                addToCartButton.Enabled = false;
+                foodsButton.Enabled = true;
+                listView1.Items.Clear();
+                restaurants = await db.ListRestaurants();
+                ListViewItem etterem;
+                for (int i = 0; i < restaurants.Count; ++i)
+                {
+                    etterem = new ListViewItem(restaurants[i].RestaurantName, i);
+                    if (etterem.Text.ToLower().Contains(text.ToLower()))
+                    {
+                        etterem.SubItems.Add(restaurants[i].DeliveryTime.ToString());
+                        listView1.Items.Add(etterem);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+        }
 
         private void searchButton_Click(object sender, EventArgs e)
         {
@@ -106,6 +206,10 @@ namespace NetCincer
             listView1.Items.Clear();
             CreateMyListView();
             */
+
+            listView1.Columns.Clear();
+            listView1.Items.Clear();
+            CreateMyListView(searchTextbox.Text);
         }
 
         async void listFoods(Restaurant clickedRestaurant)
@@ -285,5 +389,11 @@ namespace NetCincer
             CustomerOrderHistory customerOrderHistory = new CustomerOrderHistory(linCustomer);
             customerOrderHistory.Show();
         }
+
+        private void filterButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

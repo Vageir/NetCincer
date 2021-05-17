@@ -68,6 +68,7 @@ namespace NetCincer
             this.filterButton.TabIndex = 2;
             this.filterButton.Text = "Szűrés";
             this.filterButton.UseVisualStyleBackColor = true;
+            this.filterButton.Click += new System.EventHandler(this.filterButton_Click);
             // 
             // ordersButton
             // 
