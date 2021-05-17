@@ -204,6 +204,7 @@ namespace NetCincer
             this.Controls.Add(this.label1);
             this.Controls.Add(this.orderButton);
             this.Name = "CartOrderForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rendelés";
             ((System.ComponentModel.ISupportInitialize)(this.houseNumberNumericUpDown)).EndInit();
             this.ResumeLayout(false);

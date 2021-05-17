@@ -38,48 +38,53 @@ namespace NetCincer
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 13);
+            this.label1.Location = new System.Drawing.Point(11, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 20);
+            this.label1.Size = new System.Drawing.Size(60, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Kategória:";
             // 
             // customerCheckedListBox
             // 
             this.customerCheckedListBox.FormattingEnabled = true;
-            this.customerCheckedListBox.Location = new System.Drawing.Point(13, 37);
+            this.customerCheckedListBox.Location = new System.Drawing.Point(11, 28);
+            this.customerCheckedListBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.customerCheckedListBox.Name = "customerCheckedListBox";
-            this.customerCheckedListBox.Size = new System.Drawing.Size(764, 356);
+            this.customerCheckedListBox.Size = new System.Drawing.Size(669, 256);
             this.customerCheckedListBox.TabIndex = 1;
             // 
             // filterStartButton
             // 
-            this.filterStartButton.Location = new System.Drawing.Point(683, 409);
+            this.filterStartButton.Location = new System.Drawing.Point(598, 307);
+            this.filterStartButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.filterStartButton.Name = "filterStartButton";
-            this.filterStartButton.Size = new System.Drawing.Size(94, 29);
+            this.filterStartButton.Size = new System.Drawing.Size(82, 22);
             this.filterStartButton.TabIndex = 2;
             this.filterStartButton.Text = "Szűrés";
             this.filterStartButton.UseVisualStyleBackColor = true;
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(567, 409);
+            this.cancelButton.Location = new System.Drawing.Point(496, 307);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(94, 29);
+            this.cancelButton.Size = new System.Drawing.Size(82, 22);
             this.cancelButton.TabIndex = 3;
             this.cancelButton.Text = "Mégse";
             this.cancelButton.UseVisualStyleBackColor = true;
             // 
             // CustomerFilter
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(700, 338);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.filterStartButton);
             this.Controls.Add(this.customerCheckedListBox);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "CustomerFilter";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Szűrés";
             this.ResumeLayout(false);
             this.PerformLayout();

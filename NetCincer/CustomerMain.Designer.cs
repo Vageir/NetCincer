@@ -151,6 +151,7 @@ namespace NetCincer
             this.Controls.Add(this.searchTextbox);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "CustomerMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NetCincér";
             this.ResumeLayout(false);
             this.PerformLayout();

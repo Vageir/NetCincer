@@ -259,6 +259,7 @@ namespace NetCincer
             this.Controls.Add(this.fAddButton);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AddFood";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Étel hozzáadása";
             this.ResumeLayout(false);
             this.PerformLayout();

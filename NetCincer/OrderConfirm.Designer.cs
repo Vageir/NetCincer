@@ -225,6 +225,7 @@ namespace NetCincer
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "OrderConfirm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OrderConfirm";
             ((System.ComponentModel.ISupportInitialize)(this.estimatedDeliveryButton)).EndInit();
             this.ResumeLayout(false);

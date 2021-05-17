@@ -31,12 +31,13 @@ namespace NetCincer
         {
             this.SuspendLayout();
             // 
-            // CustomerOrderHistoryForm
+            // CustomerOrderHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1104, 505);
-            this.Name = "CustomerOrderHistoryForm";
+            this.Name = "CustomerOrderHistory";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CustomerOrderHistoryForm";
             this.ResumeLayout(false);
 

@@ -122,6 +122,7 @@ namespace NetCincer
             this.Controls.Add(this.cuProfileButton);
             this.Controls.Add(this.cuLogoutButton);
             this.Name = "CourierMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CourierMain";
             this.ResumeLayout(false);
 

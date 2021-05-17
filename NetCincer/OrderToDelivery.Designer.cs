@@ -71,6 +71,7 @@ namespace NetCincer
             this.Controls.Add(this.isItPossibleLabel);
             this.Controls.Add(this.deliveryComboBox);
             this.Name = "OrderToDelivery";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OrderToDelivery";
             this.ResumeLayout(false);
             this.PerformLayout();

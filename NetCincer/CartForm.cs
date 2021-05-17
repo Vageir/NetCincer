@@ -105,6 +105,7 @@ namespace NetCincer
         {
             System.Drawing.Size size = new System.Drawing.Size(200, 70);
             Form inputBox = new Form();
+            inputBox.StartPosition = FormStartPosition.CenterScreen;
 
             inputBox.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             inputBox.ClientSize = size;
