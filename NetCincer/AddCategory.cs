@@ -28,7 +28,7 @@ namespace NetCincer
             {
                 FireBaseService db = new FireBaseService();
                 await db.AddMenuCategory(linRestaurant.RestaurantID, textBox1.Text);
-                MessageBox.Show("Kategória hozzáadva!","Infó");
+                //MessageBox.Show("Kategória hozzáadva!","Infó");
                 this.Close();
             } catch(Exception ex)
             {

@@ -33,7 +33,7 @@ namespace NetCincer
                     newCustomer.Address = newLocation;
 
                     await db.AddCustomer(newCustomer);
-                    MessageBox.Show("Sikeres regisztráció!", "Infó");
+                    //MessageBox.Show("Sikeres regisztráció!", "Infó");
                     this.Close();
                 } else
                 {
@@ -106,7 +106,7 @@ namespace NetCincer
                     newRestaurant.Address = newLocation;
 
                     await db.AddRestaurant(newRestaurant);
-                    MessageBox.Show("Sikeres regisztráció!", "Infó");
+                    //MessageBox.Show("Sikeres regisztráció!", "Infó");
                     this.Close();
                 }
                 else
@@ -148,7 +148,7 @@ namespace NetCincer
                     newCourier.PhoneNumber = cuNumber.Text;
 
                     await db.AddCourier(newCourier);
-                    MessageBox.Show("Sikeres regisztráció!", "Infó");
+                    //MessageBox.Show("Sikeres regisztráció!", "Infó");
                     this.Close();
                 }
                 else {

@@ -50,7 +50,7 @@ namespace NetCincer
             passChecker = await loginer.GetCustomer(lUsernameTextBox.Text);
             if (passChecker != null && passChecker.Password == lPasswordTextBox.Text)
             {
-                MessageBox.Show("Sikeres bejelentkezés!", "Infó");
+                //MessageBox.Show("Sikeres bejelentkezés!", "Infó");
                 this.Hide();
                 CustomerMain main = new CustomerMain(ref passChecker);
                 main.Show();
@@ -68,7 +68,7 @@ namespace NetCincer
             passChecker = await loginer.GetRestaurant(lUsernameTextBox.Text);
             if (passChecker != null && passChecker.Password == lPasswordTextBox.Text)
             {
-                MessageBox.Show("Sikeres bejelentkezés!\nID: " + passChecker.RestaurantID, "Infó");
+                //MessageBox.Show("Sikeres bejelentkezés!\nID: " + passChecker.RestaurantID, "Infó");
                 this.Hide();
                 RestaurantFoodListing main = new RestaurantFoodListing(ref passChecker);
                 main.Show();
@@ -86,7 +86,7 @@ namespace NetCincer
             passChecker = await loginer.GetCourier(lUsernameTextBox.Text);
             if (passChecker != null && passChecker.Password == lPasswordTextBox.Text)
             {
-                MessageBox.Show("Sikeres bejelentkezés!", "Infó");
+                //MessageBox.Show("Sikeres bejelentkezés!", "Infó");
                 this.Hide();
                 CourierMain main = new CourierMain(ref passChecker);
                 main.Show();

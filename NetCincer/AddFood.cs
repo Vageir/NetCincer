@@ -57,7 +57,7 @@ namespace NetCincer
                 {
                     newFood.Category = fCategoryComboBox.SelectedItem.ToString();
                     await db.AddFoods(linRestaurant.RestaurantID, newFood);
-                    MessageBox.Show("Új kaja hozzáadva");
+                    //MessageBox.Show("Új kaja hozzáadva");
                     this.Close();
                 }
                 else

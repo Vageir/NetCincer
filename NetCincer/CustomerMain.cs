@@ -215,7 +215,7 @@ namespace NetCincer
                             if (foods[i].Name.Equals(foodName))
                             {
                                 linCustomer.Cart.AddFood(foods[i], db);
-                                MessageBox.Show(foods[i].Name + "(" + db + ") kosárba rakva!", "Info");
+                                //MessageBox.Show(foods[i].Name + "(" + db + ") kosárba rakva!", "Info");
                                 return;
                             }
                         }
