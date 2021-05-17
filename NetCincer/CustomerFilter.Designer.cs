@@ -46,6 +46,7 @@ namespace NetCincer
             // 
             // customerCheckedListBox
             // 
+            this.customerCheckedListBox.CheckOnClick = true;
             this.customerCheckedListBox.FormattingEnabled = true;
             this.customerCheckedListBox.Location = new System.Drawing.Point(11, 28);
             this.customerCheckedListBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -55,23 +56,25 @@ namespace NetCincer
             // 
             // filterStartButton
             // 
-            this.filterStartButton.Location = new System.Drawing.Point(598, 307);
+            this.filterStartButton.Location = new System.Drawing.Point(598, 288);
             this.filterStartButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.filterStartButton.Name = "filterStartButton";
-            this.filterStartButton.Size = new System.Drawing.Size(82, 22);
+            this.filterStartButton.Size = new System.Drawing.Size(82, 27);
             this.filterStartButton.TabIndex = 2;
             this.filterStartButton.Text = "Szűrés";
             this.filterStartButton.UseVisualStyleBackColor = true;
+            this.filterStartButton.Click += new System.EventHandler(this.filterStartButton_Click);
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(496, 307);
+            this.cancelButton.Location = new System.Drawing.Point(491, 288);
             this.cancelButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(82, 22);
+            this.cancelButton.Size = new System.Drawing.Size(82, 27);
             this.cancelButton.TabIndex = 3;
             this.cancelButton.Text = "Mégse";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // CustomerFilter
             // 

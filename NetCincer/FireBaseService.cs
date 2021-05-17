@@ -87,6 +87,18 @@ namespace NetCincer
             foods = restaurant.Foods;
             return foods;
         }
+        public async Task<List<Food>> ListFoodsByName(String RestaurantName)
+        {
+            QuerySnapshot querySnapshot = await Root.Collection("restaurants").WhereEqualTo("RestaurantName",RestaurantName).GetSnapshotAsync();
+            List<Food> foods = new List<Food>();
+            //Restaurant restaurant = documentSnapshot.ConvertTo<Restaurant>();
+            foreach (DocumentSnapshot doc in querySnapshot.Documents)
+            {
+                foods = (doc.ConvertTo<Restaurant>().Foods);
+            }
+            //foods = restaurant.Foods;
+            return foods;
+        }
         public async Task<List<String>> ListMenuCategories(String RestaurantID)
         {
             DocumentSnapshot documentSnapshot = await Root.Collection("restaurants").Document(RestaurantID).GetSnapshotAsync();

@@ -22,6 +22,7 @@ namespace NetCincer
         private FireBaseService db = new FireBaseService();
         private Restaurant selectedRestaurant;
         private int sortColumn = 0; // Rendezeshez kell
+        public List<string> filterCategories = new List<string>();
         public string restaurantName = "";
         //private ListViewColumnSorter lvwColumSorter;
 
@@ -102,6 +103,10 @@ namespace NetCincer
                 Debug.WriteLine(ex.Message);
             }
         }
+        async public void FilterMyListView()
+        {
+            listFilteredFoods(restaurantName);
+        }
         async private void CreateMyListView(string text)
         {
             // Create a new ListView control.
@@ -168,6 +173,30 @@ namespace NetCincer
                 }
             }
             catch( Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+        }
+        async void filterList()
+        {
+            try
+            {
+                addToCartButton.Enabled = false;
+                foodsButton.Enabled = true;
+                listView1.Items.Clear();
+                restaurants = await db.ListRestaurants();
+                ListViewItem etterem;
+                for (int i = 0; i < restaurants.Count; ++i)
+                {
+                    etterem = new ListViewItem(restaurants[i].RestaurantName, i);
+                    if (filterCategories.Contains(etterem.Text))
+                    {
+                        etterem.SubItems.Add(restaurants[i].DeliveryTime.ToString());
+                        listView1.Items.Add(etterem);
+                    }
+                }
+            }
+            catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
             }
@@ -242,6 +271,43 @@ namespace NetCincer
                 listView1.Columns.Add("Leírás", -1, HorizontalAlignment.Center);        listView1.Columns[4].Width = -1;
             }
             catch(Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+        }
+        async void listFilteredFoods(string clickedRestaurant)
+        {
+            //this.selectedRestaurant = clickedRestaurant;
+            try
+            {
+                listView1.Items.Clear();
+                listView1.Columns.Clear();
+                foods = await db.ListFoodsByName(clickedRestaurant);
+                ListViewItem etel;
+                
+                for (int i = 0; i < foods.Count; ++i)
+                {
+                    if (filterCategories.Contains(foods[i].Category)){ // Ha benne van a kategoria a filter kategoriákban
+                        if ((foods[i].StartPeriod == null && foods[i].EndPeriod == null)
+                            || ((0 >= DateTime.Compare(DateTime.Parse(foods[i].StartPeriod), DateTime.Now)) && (0 < DateTime.Compare(DateTime.Parse(foods[i].EndPeriod), DateTime.Now))))
+                        {
+                            etel = new ListViewItem(foods[i].Name, i);
+                            etel.SubItems.Add(foods[i].Category);
+                            etel.SubItems.Add(foods[i].Allergens);
+                            etel.SubItems.Add(foods[i].Price.ToString());
+                            etel.SubItems.Add(foods[i].Description);
+
+                            listView1.Items.Add(etel);
+                        }
+                    }
+                }
+                listView1.Columns.Add("Név", -1, HorizontalAlignment.Center);
+                listView1.Columns.Add("Kategória", -1, HorizontalAlignment.Center); listView1.Columns[1].Width = listView1.Columns[1].Text.Length * 15;
+                listView1.Columns.Add("Allergének", -1, HorizontalAlignment.Center); listView1.Columns[2].Width = -1;
+                listView1.Columns.Add("Ár(Ft)", -1, HorizontalAlignment.Center); listView1.Columns[3].Width = 100;
+                listView1.Columns.Add("Leírás", -1, HorizontalAlignment.Center); listView1.Columns[4].Width = -1;
+            }
+            catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
             }
@@ -392,6 +458,11 @@ namespace NetCincer
             CustomerOrderHistory customerOrderHistory = new CustomerOrderHistory(linCustomer);
             customerOrderHistory.Show();
         }
+        public void setFilterCategories(List<string> cats)
+        {
+            filterCategories.Clear();
+            filterCategories = cats;
+        }
 
         private void filterButton_Click(object sender, EventArgs e)
         {
@@ -405,5 +476,6 @@ namespace NetCincer
             }
         }
 
+        
     }
 }

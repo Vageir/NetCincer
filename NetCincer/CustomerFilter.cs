@@ -29,13 +29,40 @@ namespace NetCincer
         {
             
             menuCategories = await fb.ListMenuCategoriesName(parent.restaurantName);
-            MessageBox.Show(menuCategories.Count.ToString());
+            
             customerCheckedListBox.Items.Clear();
             foreach(var item in menuCategories)
             {
                 customerCheckedListBox.Items.Add(item);
             }
+
+            for(int i = 0;i < customerCheckedListBox.Items.Count;i++)
+            {
+                if (parent.filterCategories.Contains(customerCheckedListBox.Items[i].ToString()))
+                {
+                    customerCheckedListBox.SetItemChecked(i, true);
+                }
+            }
             
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void filterStartButton_Click(object sender, EventArgs e)
+        {
+            //parent.filterCategories.Clear();
+            List<string> cats = new List<string>();
+            foreach (var item in customerCheckedListBox.CheckedItems)
+            {
+                cats.Add(Convert.ToString(item));
+            }
+
+            parent.setFilterCategories(cats);
+            parent.FilterMyListView();
+            this.Close();
         }
     }
 }
