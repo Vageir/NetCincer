@@ -22,6 +22,7 @@ namespace NetCincer
         private FireBaseService db = new FireBaseService();
         private Restaurant selectedRestaurant;
         private int sortColumn = 0; // Rendezeshez kell
+        public string restaurantName = "";
         //private ListViewColumnSorter lvwColumSorter;
 
         public CustomerMain(ref Customer linC)
@@ -255,7 +256,7 @@ namespace NetCincer
                     foodsButton.Enabled = false;
                     goBackButton.Enabled = true;
                     addToCartButton.Enabled = true;
-                    String restaurantName = listView1.SelectedItems[0].SubItems[0].Text;
+                    restaurantName = listView1.SelectedItems[0].SubItems[0].Text;
                     for (int i = 0; i < restaurants.Count; ++i)
                     {
                         if (restaurants[i].RestaurantName.Equals(restaurantName))
@@ -295,12 +296,14 @@ namespace NetCincer
 
         private void goBackButton_Click(object sender, EventArgs e)
         {
+
             linCustomer.Cart.EmptyCart();
             addToCartButton.Enabled = false;
             goBackButton.Enabled = false;
             listView1.Columns.Clear();
             listView1.Items.Clear();
             CreateMyListView();
+            restaurantName = "";
         }
 
         private void addToCartButton_Click(object sender, EventArgs e)
@@ -392,7 +395,14 @@ namespace NetCincer
 
         private void filterButton_Click(object sender, EventArgs e)
         {
-            //CustomerFilter cf =
+            if (restaurantName != "")
+            {
+                CustomerFilter cf = new CustomerFilter(this);
+                cf.Show();
+            }
+            else {
+                MessageBox.Show("Kérlek válassz ki egy éttermet szűrés előtt!", "Információ");
+            }
         }
 
     }

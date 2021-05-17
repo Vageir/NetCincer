@@ -86,6 +86,7 @@ namespace NetCincer
             this.Name = "CustomerFilter";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Szűrés";
+            this.Load += new System.EventHandler(this.CustomerFilter_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
