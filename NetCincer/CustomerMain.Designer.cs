@@ -154,6 +154,7 @@ namespace NetCincer
             this.Name = "CustomerMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NetCincér";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CustomerMain_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

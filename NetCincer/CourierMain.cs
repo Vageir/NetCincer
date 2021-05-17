@@ -270,5 +270,10 @@ namespace NetCincer
         {
 
         }
+
+        private void CourierMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

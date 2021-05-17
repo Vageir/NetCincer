@@ -140,6 +140,7 @@ namespace NetCincer
             this.Name = "RestaurantFoodListing";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NetCincér (Étterem)";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RestaurantFoodListing_FormClosing);
             this.ResumeLayout(false);
 
         }

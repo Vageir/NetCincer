@@ -476,6 +476,9 @@ namespace NetCincer
             }
         }
 
-        
+        private void CustomerMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

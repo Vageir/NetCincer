@@ -244,5 +244,10 @@ namespace NetCincer
         {
 
         }
+
+        private void RestaurantFoodListing_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

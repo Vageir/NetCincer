@@ -97,5 +97,10 @@ namespace NetCincer
                 MessageBox.Show("Hibás felhasználónév vagy jelszó!", "Infó");
             }
         }
+
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
