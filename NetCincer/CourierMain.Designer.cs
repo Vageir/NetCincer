@@ -124,6 +124,7 @@ namespace NetCincer
             this.Name = "CourierMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CourierMain";
+            this.Load += new System.EventHandler(this.CourierMain_Load);
             this.ResumeLayout(false);
 
         }

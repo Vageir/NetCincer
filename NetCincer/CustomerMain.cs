@@ -21,7 +21,7 @@ namespace NetCincer
         //private ObjectListView listView2 = new ObjectListView();
         private FireBaseService db = new FireBaseService();
         private Restaurant selectedRestaurant;
-        private int sortColumn = 0;
+        private int sortColumn = 0; // Rendezeshez kell
         //private ListViewColumnSorter lvwColumSorter;
 
         public CustomerMain(ref Customer linC)
@@ -392,7 +392,7 @@ namespace NetCincer
 
         private void filterButton_Click(object sender, EventArgs e)
         {
-
+            //CustomerFilter cf =
         }
 
     }

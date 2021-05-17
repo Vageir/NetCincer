@@ -20,6 +20,7 @@ namespace NetCincer
         private List<Order> selectedOrders;
         private ListView listView1 = new ListView();
         private FirestoreChangeListener listener;
+        private int sortColumn = 0;
         public CourierMain(ref Courier cour)
         {
             linCourier = cour;
@@ -92,7 +93,8 @@ namespace NetCincer
             // Create a new ListView control.
 
             listView1.Bounds = new Rectangle(new Point(10, 40), new Size(1085, 445));
-
+            // Adding sorting click handler || Joe
+            listView1.ColumnClick += columnSort;
             // Set the view to show details.
             listView1.View = View.Details;
             // Allow the user to edit item text.
@@ -187,6 +189,27 @@ namespace NetCincer
             }
         }
 
+        private void columnSort(object sender, ColumnClickEventArgs e)
+        {
+            if (e.Column != sortColumn)
+            {
+                sortColumn = e.Column;
+                listView1.Sorting = SortOrder.Ascending;
+            }
+            else
+            {
+                if (listView1.Sorting == SortOrder.Ascending)
+                {
+                    listView1.Sorting = SortOrder.Descending;
+                }
+                else
+                {
+                    listView1.Sorting = SortOrder.Ascending;
+                }
+            }
+            listView1.ListViewItemSorter = new ListViewItemComparer(e.Column, listView1.Sorting);
+        }
+
         private void refuseButton_Click(object sender, EventArgs e)
         {
             if (listView1.SelectedItems.Count > 0 && areAllTheSameStatus(Status.ReadyToDeliver))
@@ -241,6 +264,11 @@ namespace NetCincer
                     return false;
             }
             return true;
+        }
+
+        private void CourierMain_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
