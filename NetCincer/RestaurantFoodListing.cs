@@ -198,7 +198,7 @@ namespace NetCincer
         {
             Login loginWindow = new Login();
             loginWindow.Show();
-            this.Close();
+            this.Hide();
             detachListener();
         }
         private async void detachListener()
@@ -277,7 +277,7 @@ namespace NetCincer
 
             inputBox.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             inputBox.ClientSize = size;
-            inputBox.Text = "Mennyiség";
+            inputBox.Text = "Leárazás";
 
             System.Windows.Forms.NumericUpDown numeric = new NumericUpDown();
             numeric.Size = new System.Drawing.Size(size.Width - 10, 23);

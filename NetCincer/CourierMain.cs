@@ -163,7 +163,7 @@ namespace NetCincer
         {
             Login loginWindow = new Login();
             loginWindow.Show();
-            this.Close();
+            this.Hide();
         }
 
         private async void acceptButton_ClickAsync(object sender, EventArgs e)
