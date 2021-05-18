@@ -54,7 +54,7 @@ namespace NetCincer
             // 
             // rAddCategory
             // 
-            this.rAddCategory.Location = new System.Drawing.Point(118, 10);
+            this.rAddCategory.Location = new System.Drawing.Point(99, 10);
             this.rAddCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rAddCategory.Name = "rAddCategory";
             this.rAddCategory.Size = new System.Drawing.Size(97, 22);
@@ -65,7 +65,7 @@ namespace NetCincer
             // 
             // rNewFoodButton
             // 
-            this.rNewFoodButton.Location = new System.Drawing.Point(241, 10);
+            this.rNewFoodButton.Location = new System.Drawing.Point(202, 10);
             this.rNewFoodButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rNewFoodButton.Name = "rNewFoodButton";
             this.rNewFoodButton.Size = new System.Drawing.Size(82, 22);
@@ -76,7 +76,7 @@ namespace NetCincer
             // 
             // rLogoutButton
             // 
-            this.rLogoutButton.Location = new System.Drawing.Point(996, 9);
+            this.rLogoutButton.Location = new System.Drawing.Point(996, 10);
             this.rLogoutButton.Name = "rLogoutButton";
             this.rLogoutButton.Size = new System.Drawing.Size(96, 23);
             this.rLogoutButton.TabIndex = 4;
@@ -86,7 +86,7 @@ namespace NetCincer
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(348, 10);
+            this.button1.Location = new System.Drawing.Point(378, 10);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 5;
@@ -96,7 +96,7 @@ namespace NetCincer
             // 
             // acceptRefuseButton
             // 
-            this.acceptRefuseButton.Location = new System.Drawing.Point(447, 10);
+            this.acceptRefuseButton.Location = new System.Drawing.Point(459, 10);
             this.acceptRefuseButton.Name = "acceptRefuseButton";
             this.acceptRefuseButton.Size = new System.Drawing.Size(106, 23);
             this.acceptRefuseButton.TabIndex = 6;
@@ -106,7 +106,7 @@ namespace NetCincer
             // 
             // giveToDeliveryButton
             // 
-            this.giveToDeliveryButton.Location = new System.Drawing.Point(568, 10);
+            this.giveToDeliveryButton.Location = new System.Drawing.Point(571, 10);
             this.giveToDeliveryButton.Name = "giveToDeliveryButton";
             this.giveToDeliveryButton.Size = new System.Drawing.Size(107, 23);
             this.giveToDeliveryButton.TabIndex = 7;
@@ -116,9 +116,9 @@ namespace NetCincer
             // 
             // DiscountButton
             // 
-            this.DiscountButton.Location = new System.Drawing.Point(883, 9);
+            this.DiscountButton.Location = new System.Drawing.Point(290, 10);
             this.DiscountButton.Name = "DiscountButton";
-            this.DiscountButton.Size = new System.Drawing.Size(107, 23);
+            this.DiscountButton.Size = new System.Drawing.Size(82, 23);
             this.DiscountButton.TabIndex = 8;
             this.DiscountButton.Text = "Leárazás";
             this.DiscountButton.UseVisualStyleBackColor = true;
@@ -126,18 +126,18 @@ namespace NetCincer
             // 
             // doneButton
             // 
-            this.doneButton.Location = new System.Drawing.Point(773, 10);
+            this.doneButton.Location = new System.Drawing.Point(765, 10);
             this.doneButton.Name = "doneButton";
             this.doneButton.Size = new System.Drawing.Size(75, 23);
             this.doneButton.TabIndex = 9;
-            this.doneButton.Text = "Személyesen átadva";
+            this.doneButton.Text = "Átadva";
             this.doneButton.UseVisualStyleBackColor = true;
             this.doneButton.Visible = false;
             this.doneButton.Click += new System.EventHandler(this.doneButton_Click);
             // 
             // readyButton
             // 
-            this.readyButton.Location = new System.Drawing.Point(682, 9);
+            this.readyButton.Location = new System.Drawing.Point(684, 10);
             this.readyButton.Name = "readyButton";
             this.readyButton.Size = new System.Drawing.Size(75, 23);
             this.readyButton.TabIndex = 10;
