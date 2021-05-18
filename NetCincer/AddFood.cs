@@ -38,6 +38,7 @@ namespace NetCincer
             newFood.Allergens = fAllergensTextBox.Text;
             string fDescription = fDescriptionRichTextBox.Text;
             newFood.Description = fDescription;
+            newFood.Discount = 0;
             newFood.FoodID = Guid.NewGuid().ToString();
             if (fAvaibilityCheckBox.Checked)
             {
@@ -49,8 +50,11 @@ namespace NetCincer
                 newFood.StartPeriod = null;
                 newFood.EndPeriod = null;
             }
-            DateTime.Parse(newFood.StartPeriod);
-            DateTime.Parse(newFood.EndPeriod);
+            if ((newFood.StartPeriod != null) && (newFood.EndPeriod != null))
+            {
+                DateTime.Parse(newFood.StartPeriod);
+                DateTime.Parse(newFood.EndPeriod);
+            }
             try
             {
                 if (fCategoryComboBox.SelectedItem != null)

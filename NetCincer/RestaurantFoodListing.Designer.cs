@@ -37,6 +37,7 @@ namespace NetCincer
             this.button1 = new System.Windows.Forms.Button();
             this.acceptRefuseButton = new System.Windows.Forms.Button();
             this.giveToDeliveryButton = new System.Windows.Forms.Button();
+            this.DiscountButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // rlistingButton
@@ -115,7 +116,7 @@ namespace NetCincer
             // 
             // giveToDeliveryButton
             // 
-            this.giveToDeliveryButton.Location = new System.Drawing.Point(569, 9);
+            this.giveToDeliveryButton.Location = new System.Drawing.Point(568, 10);
             this.giveToDeliveryButton.Name = "giveToDeliveryButton";
             this.giveToDeliveryButton.Size = new System.Drawing.Size(107, 23);
             this.giveToDeliveryButton.TabIndex = 7;
@@ -123,11 +124,22 @@ namespace NetCincer
             this.giveToDeliveryButton.UseVisualStyleBackColor = true;
             this.giveToDeliveryButton.Click += new System.EventHandler(this.giveToDeliveryButton_Click);
             // 
+            // DiscountButton
+            // 
+            this.DiscountButton.Location = new System.Drawing.Point(698, 10);
+            this.DiscountButton.Name = "DiscountButton";
+            this.DiscountButton.Size = new System.Drawing.Size(107, 23);
+            this.DiscountButton.TabIndex = 8;
+            this.DiscountButton.Text = "Leárazás";
+            this.DiscountButton.UseVisualStyleBackColor = true;
+            this.DiscountButton.Click += new System.EventHandler(this.DiscountButton_Click);
+            // 
             // RestaurantFoodListing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1104, 505);
+            this.Controls.Add(this.DiscountButton);
             this.Controls.Add(this.giveToDeliveryButton);
             this.Controls.Add(this.acceptRefuseButton);
             this.Controls.Add(this.button1);
@@ -155,5 +167,6 @@ namespace NetCincer
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button acceptRefuseButton;
         private System.Windows.Forms.Button giveToDeliveryButton;
+        private System.Windows.Forms.Button DiscountButton;
     }
 }
