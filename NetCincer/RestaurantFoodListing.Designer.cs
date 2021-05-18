@@ -32,12 +32,13 @@ namespace NetCincer
             this.rlistingButton = new System.Windows.Forms.Button();
             this.rAddCategory = new System.Windows.Forms.Button();
             this.rNewFoodButton = new System.Windows.Forms.Button();
-            this.rProfileButton = new System.Windows.Forms.Button();
             this.rLogoutButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.acceptRefuseButton = new System.Windows.Forms.Button();
             this.giveToDeliveryButton = new System.Windows.Forms.Button();
             this.DiscountButton = new System.Windows.Forms.Button();
+            this.doneButton = new System.Windows.Forms.Button();
+            this.readyButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // rlistingButton
@@ -72,17 +73,6 @@ namespace NetCincer
             this.rNewFoodButton.Text = "Új étel";
             this.rNewFoodButton.UseVisualStyleBackColor = true;
             this.rNewFoodButton.Click += new System.EventHandler(this.rNewFoodButton_Click);
-            // 
-            // rProfileButton
-            // 
-            this.rProfileButton.Location = new System.Drawing.Point(908, 10);
-            this.rProfileButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rProfileButton.Name = "rProfileButton";
-            this.rProfileButton.Size = new System.Drawing.Size(82, 22);
-            this.rProfileButton.TabIndex = 3;
-            this.rProfileButton.Text = "Profilunk";
-            this.rProfileButton.UseVisualStyleBackColor = true;
-            this.rProfileButton.Click += new System.EventHandler(this.rProfileButton_Click);
             // 
             // rLogoutButton
             // 
@@ -126,7 +116,7 @@ namespace NetCincer
             // 
             // DiscountButton
             // 
-            this.DiscountButton.Location = new System.Drawing.Point(698, 10);
+            this.DiscountButton.Location = new System.Drawing.Point(883, 9);
             this.DiscountButton.Name = "DiscountButton";
             this.DiscountButton.Size = new System.Drawing.Size(107, 23);
             this.DiscountButton.TabIndex = 8;
@@ -134,17 +124,40 @@ namespace NetCincer
             this.DiscountButton.UseVisualStyleBackColor = true;
             this.DiscountButton.Click += new System.EventHandler(this.DiscountButton_Click);
             // 
+            // doneButton
+            // 
+            this.doneButton.Location = new System.Drawing.Point(773, 10);
+            this.doneButton.Name = "doneButton";
+            this.doneButton.Size = new System.Drawing.Size(75, 23);
+            this.doneButton.TabIndex = 9;
+            this.doneButton.Text = "Személyesen átadva";
+            this.doneButton.UseVisualStyleBackColor = true;
+            this.doneButton.Visible = false;
+            this.doneButton.Click += new System.EventHandler(this.doneButton_Click);
+            // 
+            // readyButton
+            // 
+            this.readyButton.Location = new System.Drawing.Point(682, 9);
+            this.readyButton.Name = "readyButton";
+            this.readyButton.Size = new System.Drawing.Size(75, 23);
+            this.readyButton.TabIndex = 10;
+            this.readyButton.Text = "Kész";
+            this.readyButton.UseVisualStyleBackColor = true;
+            this.readyButton.Visible = false;
+            this.readyButton.Click += new System.EventHandler(this.readyButton_Click);
+            // 
             // RestaurantFoodListing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1104, 505);
+            this.Controls.Add(this.readyButton);
+            this.Controls.Add(this.doneButton);
             this.Controls.Add(this.DiscountButton);
             this.Controls.Add(this.giveToDeliveryButton);
             this.Controls.Add(this.acceptRefuseButton);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.rLogoutButton);
-            this.Controls.Add(this.rProfileButton);
             this.Controls.Add(this.rNewFoodButton);
             this.Controls.Add(this.rAddCategory);
             this.Controls.Add(this.rlistingButton);
@@ -162,11 +175,12 @@ namespace NetCincer
         private System.Windows.Forms.Button rlistingButton;
         private System.Windows.Forms.Button rAddCategory;
         private System.Windows.Forms.Button rNewFoodButton;
-        private System.Windows.Forms.Button rProfileButton;
         private System.Windows.Forms.Button rLogoutButton;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button acceptRefuseButton;
         private System.Windows.Forms.Button giveToDeliveryButton;
         private System.Windows.Forms.Button DiscountButton;
+        private System.Windows.Forms.Button doneButton;
+        private System.Windows.Forms.Button readyButton;
     }
 }

@@ -259,7 +259,9 @@ namespace NetCincer
                         etel = new ListViewItem(foods[i].Name, i);
                         etel.SubItems.Add(foods[i].Category);
                         etel.SubItems.Add(foods[i].Allergens);
-                        etel.SubItems.Add(foods[i].Price.ToString());
+                        int discountPrice = (int)(foods[i].Price * (double)(1 - (double)((double)foods[i].Discount / 100)));
+                        Debug.WriteLine(1 - (foods[i].Discount / 100));
+                        etel.SubItems.Add(discountPrice.ToString());
                         etel.SubItems.Add(foods[i].Description);
                         listView1.Items.Add(etel);
                     }

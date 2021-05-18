@@ -39,7 +39,8 @@ namespace NetCincer
             {
                 ListViewItem item1 = new ListViewItem(item.Name, index);
                 item1.SubItems.Add(item.Quantity.ToString());
-                int price = item.Quantity * item.Price;
+                int discountPrice = (int)(item.Price * (double)(1 - (double)((double)item.Discount / 100)));
+                int price = item.Quantity * discountPrice;
                 item1.SubItems.Add(price.ToString());
                 cartListView.Items.Add(item1);
                 index++;

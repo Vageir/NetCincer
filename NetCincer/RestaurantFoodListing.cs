@@ -133,6 +133,8 @@ namespace NetCincer
             acceptRefuseButton.Visible = false;
             giveToDeliveryButton.Visible = false;
             DiscountButton.Visible = true;
+            doneButton.Visible = false;
+            readyButton.Visible = false;
         }
 
         private async void refreshOrdersList()
@@ -180,6 +182,8 @@ namespace NetCincer
             giveToDeliveryButton.Visible = true;
             DiscountButton.Visible = false;
             orderShow = true;
+            doneButton.Visible = true;
+            readyButton.Visible = true;
         }
 
 
@@ -230,7 +234,7 @@ namespace NetCincer
             for (int i = 0; i < listView1.SelectedItems.Count; i++)
             {
                 Order selectedOrder = orders.Find(o => o.OrderID.Equals(listView1.SelectedItems[i].Tag));
-                if (selectedOrder.Status == Status.Accepted || selectedOrder.Status == Status.DeliveryRefused)
+                if (selectedOrder.Status == Status.Accepted || selectedOrder.Status == Status.Ready || selectedOrder.Status == Status.DeliveryRefused)
                 {
                     ordersReady.Add(selectedOrder);
                 }
@@ -309,6 +313,73 @@ namespace NetCincer
             DialogResult result = inputBox.ShowDialog();
             input = Convert.ToInt32(numeric.Text);
             return result;
+        }
+
+        private void doneButton_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0 && areAllTheSameStatus(Status.Ready) && areAllTakeAway())
+            {
+                List<Order> selectedOrders = setSelectedOrders();
+                DialogResult dialogResult = MessageBox.Show("Átadva ?", "Megerősítés", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    selectedOrders.ForEach(async order => { order.Status = Status.Completed; await db.AddOrder(order); });
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    //do something else
+                }
+            }
+        }
+        private bool areAllTheSameStatus(Status refStatus)
+        {
+
+            for (int i = 0; i < listView1.SelectedItems.Count; i++)
+            {
+                Status status = (Status)Enum.Parse(typeof(Status), listView1.SelectedItems[i].SubItems[3].Text.ToString());
+                if (status != refStatus)
+                    return false;
+            }
+            return true;
+        }
+        private bool areAllTakeAway()
+        {
+
+            for (int i = 0; i < listView1.SelectedItems.Count; i++)
+            {
+                bool takeAway = listView1.SelectedItems[i].SubItems[2].Text.ToString().Equals( "Igen");
+                if (!takeAway)
+                    return false;
+            }
+            return true;
+        }
+        private List<Order> setSelectedOrders()
+        {
+            List<Order> selectedOrders = new List<Order>();
+            List<String> selectedIDs = new List<string>();
+            for (int i = 0; i < listView1.SelectedItems.Count; i++)
+            {
+                selectedIDs.Add(listView1.SelectedItems[i].Tag.ToString());
+            }
+            selectedOrders = orders.Where(p1 => selectedIDs.Any(p2 => p2.Equals(p1.OrderID))).Distinct().ToList();
+            return selectedOrders;
+        }
+
+        private void readyButton_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0 && areAllTheSameStatus(Status.Accepted) )
+            {
+                List<Order> selectedOrders = setSelectedOrders();
+                DialogResult dialogResult = MessageBox.Show("Kész?", "Megerősítés", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    selectedOrders.ForEach(async order => { order.Status = Status.Ready; await db.AddOrder(order); });
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    //do something else
+                }
+            }
         }
     }
 }

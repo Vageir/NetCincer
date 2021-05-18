@@ -38,6 +38,11 @@ namespace NetCincer
                 OrderDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm")
 
             };
+            foreach (Food item in order.Foods)
+            {
+                int discountPrice = (int)(item.Price * (double)(1 - (double)((double)item.Discount / 100)));
+                item.Price = discountPrice;
+            }
             order.OrderID = Guid.NewGuid().ToString();
             CurrentOrder = order;
         }

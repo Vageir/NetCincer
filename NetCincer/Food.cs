@@ -32,5 +32,6 @@ namespace NetCincer
         public int Quantity { get; set; }
         [FirestoreProperty]
         public int Discount { get; set; }
+       
     }
 }

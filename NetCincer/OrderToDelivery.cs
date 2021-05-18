@@ -44,16 +44,18 @@ namespace NetCincer
                         deliveryComboBox.Items.Add(new ComboboxValue(item.Name,item.CourierID)); 
                     }
                     deliveryComboBox.SelectedItem = deliveryComboBox.Items[0];
-                    
+                    giveButton.Enabled = true;
                 }
                 else
                 {
+                    giveButton.Enabled = false;
                     isItPossibleLabel.Visible = true;
                     isItPossibleLabel.Text = "Nincsen olyan szállító aki képes lenne rendelést kiszálítani";
                 }
             }
             else
             {
+                giveButton.Enabled = false;
                 isItPossibleLabel.Visible = true;
                 isItPossibleLabel.Text = "Nincsen elérhető szállító";
             }

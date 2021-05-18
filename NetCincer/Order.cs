@@ -57,6 +57,7 @@ namespace NetCincer
        
         Pending,
         Accepted,
+        Ready,
         DeliveryRefused,
         ReadyToDeliver,
         Delivery,

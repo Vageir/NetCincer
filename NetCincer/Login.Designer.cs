@@ -54,7 +54,7 @@ namespace NetCincer
             this.lUsernameTextBox.Name = "lUsernameTextBox";
             this.lUsernameTextBox.Size = new System.Drawing.Size(413, 23);
             this.lUsernameTextBox.TabIndex = 1;
-            this.lUsernameTextBox.Text = "Nice";
+            this.lUsernameTextBox.Text = "Johnny";
             // 
             // label2
             // 
@@ -73,7 +73,7 @@ namespace NetCincer
             this.lPasswordTextBox.PasswordChar = '*';
             this.lPasswordTextBox.Size = new System.Drawing.Size(413, 23);
             this.lPasswordTextBox.TabIndex = 3;
-            this.lPasswordTextBox.Text = "nice";
+            this.lPasswordTextBox.Text = "john123";
             // 
             // lRegistrationButton
             // 
