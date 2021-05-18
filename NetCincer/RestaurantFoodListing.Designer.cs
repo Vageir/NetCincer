@@ -39,6 +39,7 @@ namespace NetCincer
             this.DiscountButton = new System.Windows.Forms.Button();
             this.doneButton = new System.Windows.Forms.Button();
             this.readyButton = new System.Windows.Forms.Button();
+            this.deleteFoodButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // rlistingButton
@@ -46,7 +47,7 @@ namespace NetCincer
             this.rlistingButton.Location = new System.Drawing.Point(11, 10);
             this.rlistingButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rlistingButton.Name = "rlistingButton";
-            this.rlistingButton.Size = new System.Drawing.Size(82, 22);
+            this.rlistingButton.Size = new System.Drawing.Size(82, 23);
             this.rlistingButton.TabIndex = 0;
             this.rlistingButton.Text = "Ételek";
             this.rlistingButton.UseVisualStyleBackColor = true;
@@ -57,7 +58,7 @@ namespace NetCincer
             this.rAddCategory.Location = new System.Drawing.Point(99, 10);
             this.rAddCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rAddCategory.Name = "rAddCategory";
-            this.rAddCategory.Size = new System.Drawing.Size(97, 22);
+            this.rAddCategory.Size = new System.Drawing.Size(97, 23);
             this.rAddCategory.TabIndex = 1;
             this.rAddCategory.Text = "Új kategória";
             this.rAddCategory.UseVisualStyleBackColor = true;
@@ -68,7 +69,7 @@ namespace NetCincer
             this.rNewFoodButton.Location = new System.Drawing.Point(202, 10);
             this.rNewFoodButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rNewFoodButton.Name = "rNewFoodButton";
-            this.rNewFoodButton.Size = new System.Drawing.Size(82, 22);
+            this.rNewFoodButton.Size = new System.Drawing.Size(82, 23);
             this.rNewFoodButton.TabIndex = 2;
             this.rNewFoodButton.Text = "Új étel";
             this.rNewFoodButton.UseVisualStyleBackColor = true;
@@ -86,7 +87,7 @@ namespace NetCincer
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(378, 10);
+            this.button1.Location = new System.Drawing.Point(459, 10);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 5;
@@ -96,7 +97,7 @@ namespace NetCincer
             // 
             // acceptRefuseButton
             // 
-            this.acceptRefuseButton.Location = new System.Drawing.Point(459, 10);
+            this.acceptRefuseButton.Location = new System.Drawing.Point(540, 10);
             this.acceptRefuseButton.Name = "acceptRefuseButton";
             this.acceptRefuseButton.Size = new System.Drawing.Size(106, 23);
             this.acceptRefuseButton.TabIndex = 6;
@@ -106,7 +107,7 @@ namespace NetCincer
             // 
             // giveToDeliveryButton
             // 
-            this.giveToDeliveryButton.Location = new System.Drawing.Point(571, 10);
+            this.giveToDeliveryButton.Location = new System.Drawing.Point(652, 10);
             this.giveToDeliveryButton.Name = "giveToDeliveryButton";
             this.giveToDeliveryButton.Size = new System.Drawing.Size(107, 23);
             this.giveToDeliveryButton.TabIndex = 7;
@@ -116,7 +117,7 @@ namespace NetCincer
             // 
             // DiscountButton
             // 
-            this.DiscountButton.Location = new System.Drawing.Point(290, 10);
+            this.DiscountButton.Location = new System.Drawing.Point(371, 10);
             this.DiscountButton.Name = "DiscountButton";
             this.DiscountButton.Size = new System.Drawing.Size(82, 23);
             this.DiscountButton.TabIndex = 8;
@@ -126,7 +127,7 @@ namespace NetCincer
             // 
             // doneButton
             // 
-            this.doneButton.Location = new System.Drawing.Point(765, 10);
+            this.doneButton.Location = new System.Drawing.Point(846, 10);
             this.doneButton.Name = "doneButton";
             this.doneButton.Size = new System.Drawing.Size(75, 23);
             this.doneButton.TabIndex = 9;
@@ -137,7 +138,7 @@ namespace NetCincer
             // 
             // readyButton
             // 
-            this.readyButton.Location = new System.Drawing.Point(684, 10);
+            this.readyButton.Location = new System.Drawing.Point(765, 10);
             this.readyButton.Name = "readyButton";
             this.readyButton.Size = new System.Drawing.Size(75, 23);
             this.readyButton.TabIndex = 10;
@@ -146,11 +147,22 @@ namespace NetCincer
             this.readyButton.Visible = false;
             this.readyButton.Click += new System.EventHandler(this.readyButton_Click);
             // 
+            // deleteFoodButton
+            // 
+            this.deleteFoodButton.Location = new System.Drawing.Point(290, 10);
+            this.deleteFoodButton.Name = "deleteFoodButton";
+            this.deleteFoodButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteFoodButton.TabIndex = 11;
+            this.deleteFoodButton.Text = "Étel törlése";
+            this.deleteFoodButton.UseVisualStyleBackColor = true;
+            this.deleteFoodButton.Click += new System.EventHandler(this.deleteFoodButton_Click);
+            // 
             // RestaurantFoodListing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1104, 505);
+            this.Controls.Add(this.deleteFoodButton);
             this.Controls.Add(this.readyButton);
             this.Controls.Add(this.doneButton);
             this.Controls.Add(this.DiscountButton);
@@ -182,5 +194,6 @@ namespace NetCincer
         private System.Windows.Forms.Button DiscountButton;
         private System.Windows.Forms.Button doneButton;
         private System.Windows.Forms.Button readyButton;
+        private System.Windows.Forms.Button deleteFoodButton;
     }
 }

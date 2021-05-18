@@ -16,9 +16,11 @@ namespace NetCincer
         private List<String> categories;
         private List<Food> foods;
         private Restaurant linRestaurant;
+        private RestaurantFoodListing rfl;
 
-        public AddFood(ref Restaurant rest)
+        public AddFood(ref Restaurant rest,RestaurantFoodListing rfl)
         {
+            this.rfl = rfl;
             linRestaurant = rest;
             InitializeComponent();
             InitCategories(linRestaurant.RestaurantID);
@@ -61,6 +63,7 @@ namespace NetCincer
                 {
                     newFood.Category = fCategoryComboBox.SelectedItem.ToString();
                     await db.AddFoods(linRestaurant.RestaurantID, newFood);
+                    rfl.refreshList();
                     //MessageBox.Show("Új kaja hozzáadva");
                     this.Close();
                 }

@@ -43,9 +43,9 @@ namespace NetCincer
                  });
         }
 
-        private void rNewFoodButton_Click(object sender, EventArgs e)
+        private async void rNewFoodButton_Click(object sender, EventArgs e)
         {
-            AddFood addFood = new AddFood(ref linRestaurant);
+            AddFood addFood = new AddFood(ref linRestaurant,this);
             addFood.Show();
             refreshList();
         }
@@ -108,7 +108,7 @@ namespace NetCincer
         }
 
         
-        async void refreshList()
+        public async void refreshList()
         {
             /*try
             {*/
@@ -260,16 +260,23 @@ namespace NetCincer
         private async void DiscountButton_Click(object sender, EventArgs e)
         {
             int discount = 0;
-            string foodName = listView1.SelectedItems[0].SubItems[0].Text;
-            ShowInputDialog(ref discount);
-            for (int i = 0; i < linRestaurant.Foods.Count; ++i)
+            if (listView1.SelectedItems.Count != 0)
             {
-                if (linRestaurant.Foods[i].Name.Equals(foodName))
+                string foodName = listView1.SelectedItems[0].SubItems[0].Text;
+                ShowInputDialog(ref discount);
+                for (int i = 0; i < linRestaurant.Foods.Count; ++i)
                 {
-                    linRestaurant.Foods[i].Discount = discount;
-                    await db.AddRestaurant(linRestaurant);
-                    return;
+                    if (linRestaurant.Foods[i].Name.Equals(foodName))
+                    {
+                        linRestaurant.Foods[i].Discount = discount;
+                        await db.AddRestaurant(linRestaurant);
+                        return;
+                    }
                 }
+            }
+            else
+            {
+                MessageBox.Show("Kérlek válassz ki egy ételt a leárazáshoz!","Információ");
             }
         }
 
@@ -379,6 +386,28 @@ namespace NetCincer
                 {
                     //do something else
                 }
+            }
+        }
+
+        private async void deleteFoodButton_Click(object sender, EventArgs e)
+        {
+            if(listView1.SelectedItems.Count > 0)
+            {
+                DialogResult dialogResult = MessageBox.Show($"Biztos törlölni szeretnéd a(z) {listView1.SelectedItems[0].SubItems[0].Text} nevű ételt?", "Megerősítés", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    //MessageBox.Show(listView1.SelectedItems[0].SubItems[0].Text);
+                    Food rFood = await db.GetFood(linRestaurant.RestaurantID, listView1.SelectedItems[0].SubItems[0].Text);
+                    //MessageBox.Show(rFood.Name);
+                    await db.RemoveFood(linRestaurant.RestaurantID, rFood);
+                    MessageBox.Show($"{listView1.SelectedItems[0].SubItems[0].Text} sikeresen törölve az ételek közül!", "Sikeres törlés");
+                    refreshList();
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    //do something else
+                }
+                
             }
         }
     }

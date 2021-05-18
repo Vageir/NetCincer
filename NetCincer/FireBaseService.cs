@@ -138,7 +138,24 @@ namespace NetCincer
             WriteResult writeResult = await Root.Collection("restaurants").Document(RestaurantID).UpdateAsync("Foods",FieldValue.ArrayUnion(food));
             return writeResult;
         }
-        public async Task<WriteResult> RemoveFoods(String RestaurantID, Food food)
+        public async Task<Food> GetFood(string RestaurantID,string foodName)
+        {
+            Food rFood = new Food();
+            DocumentSnapshot qs = await Root.Collection("restaurants").Document(RestaurantID).GetSnapshotAsync();
+            List<Food> foods = qs.ConvertTo<Restaurant>().Foods;
+            //Debug.WriteLine(qs.Count);
+            foreach(var item in foods)
+            {
+                if(item.Name == foodName)
+                {
+                    return item;
+                }
+            }
+            
+            return rFood;
+            
+        }
+        public async Task<WriteResult> RemoveFood(String RestaurantID, Food food)
         {
             WriteResult writeResult = await Root.Collection("restaurants").Document(RestaurantID).UpdateAsync("Foods", FieldValue.ArrayRemove(food));
             return writeResult;
