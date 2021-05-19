@@ -30,12 +30,16 @@ namespace NetCincer
                       orders.Add(o);
                   }
 
-                     //orders.Sort((x, y) => x.Status.CompareTo(y.Status));
-                     if (orders != null)
-                     {
+                  try
+                  {
+                      //orders.Sort((x, y) => x.Status.CompareTo(y.Status));
+                      if (orders != null)
+                      {
                           orders = orders.OrderBy(order => order.Status).ToList();
-                          listView1.Invoke(new Action(() => { refreshOrdersList(); }));
-                     }
+                          listView1.BeginInvoke(new Action(() => { refreshOrdersList(); }));
+                      }
+                  } 
+                  catch{}
               });
         }
          private void CreateMyListView()
