@@ -230,6 +230,7 @@ namespace NetCincer
 
         private void giveToDeliveryButton_Click(object sender, EventArgs e)
         {
+            if (areAllTakeAway()) return;
             List<Order> ordersReady = new List<Order>();
             for (int i = 0; i < listView1.SelectedItems.Count; i++)
             {

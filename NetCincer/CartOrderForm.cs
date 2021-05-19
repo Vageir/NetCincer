@@ -35,17 +35,19 @@ namespace NetCincer
             cartListView.Columns.Add("Mennyiség", 100, HorizontalAlignment.Right);
             cartListView.Columns.Add("Ár", 100, HorizontalAlignment.Right);
             int index = 0;
+            int totalprice = 0;
             foreach (var item in customer.Cart.GetFoods())
             {
                 ListViewItem item1 = new ListViewItem(item.Name, index);
                 item1.SubItems.Add(item.Quantity.ToString());
                 int discountPrice = (int)(item.Price * (double)(1 - (double)((double)item.Discount / 100)));
                 int price = item.Quantity * discountPrice;
+                totalprice += price;
                 item1.SubItems.Add(price.ToString());
                 cartListView.Items.Add(item1);
                 index++;
             }
-            totalPriceLabel.Text = customer.Cart.TotalPrice().ToString()+ "Ft";
+            totalPriceLabel.Text = totalprice+ "Ft";
         }
 
         private async void orderButton_Click(object sender, EventArgs e)
